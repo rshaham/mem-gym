@@ -89,6 +89,7 @@ type GameAction =
   | { type: 'ADD_XP'; amount: number }
   | { type: 'COMPLETE_SESSION'; moduleType: ModuleType; accuracy: number }
   | { type: 'UPDATE_DUAL_NBACK_STATS'; stats: Partial<GameProgress['moduleStats']['dualNBack']> }
+  | { type: 'UPDATE_DETAIL_HUNTER_STATS'; stats: Partial<GameProgress['moduleStats']['detailHunter']> }
   | { type: 'UPDATE_SETTINGS'; settings: Partial<UserSettings> }
   | { type: 'CLEAR_LEVEL_UP' }
   | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string };
@@ -152,6 +153,21 @@ function gameReducer(state: GameState, action: GameAction): GameState {
         },
       };
 
+    case 'UPDATE_DETAIL_HUNTER_STATS':
+      return {
+        ...state,
+        progress: {
+          ...state.progress,
+          moduleStats: {
+            ...state.progress.moduleStats,
+            detailHunter: {
+              ...state.progress.moduleStats.detailHunter,
+              ...action.stats,
+            },
+          },
+        },
+      };
+
     case 'UPDATE_SETTINGS':
       return {
         ...state,
@@ -192,6 +208,7 @@ interface GameContextValue {
   addXP: (amount: number) => void;
   completeSession: (moduleType: ModuleType, accuracy: number) => void;
   updateDualNBackStats: (stats: Partial<GameProgress['moduleStats']['dualNBack']>) => void;
+  updateDetailHunterStats: (stats: Partial<GameProgress['moduleStats']['detailHunter']>) => void;
   updateSettings: (settings: Partial<UserSettings>) => void;
   clearLevelUp: () => void;
   unlockAchievement: (achievementId: string) => void;
@@ -241,6 +258,8 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
       dispatch({ type: 'COMPLETE_SESSION', moduleType, accuracy }),
     updateDualNBackStats: (stats) =>
       dispatch({ type: 'UPDATE_DUAL_NBACK_STATS', stats }),
+    updateDetailHunterStats: (stats) =>
+      dispatch({ type: 'UPDATE_DETAIL_HUNTER_STATS', stats }),
     updateSettings: (settings) =>
       dispatch({ type: 'UPDATE_SETTINGS', settings }),
     clearLevelUp: () => dispatch({ type: 'CLEAR_LEVEL_UP' }),

@@ -44,15 +44,44 @@ export interface DetailHunterStats {
 
 export interface DetailHunterSession {
   id: string;
+  imageId: string;
   imageUrl: string;
-  imageDescription: string;
-  userDetails: string[];
-  createdAt: number;
-  recallScheduledAt: number;
-  recallCompletedAt: number | null;
-  recalledDetails: string[] | null;
-  score: number | null;
-  status: 'pending' | 'ready' | 'completed' | 'expired';
+  category: string;
+  viewingTime: number;       // seconds (10, 15, 20, 30)
+  delayMinutes: number;      // 0, 30, 60, 120
+  viewedAt: number;
+  quizStartedAt: number | null;
+  questions: QuizQuestion[];
+  score: number | null;      // 0-100
+  xpEarned: number | null;
+  status: 'viewing' | 'waiting' | 'ready' | 'quiz' | 'completed';
+}
+
+export interface QuizQuestion {
+  id: string;
+  questionText: string;
+  correctAnswer: string;
+  options: string[];
+  userAnswer: string | null;
+  isCorrect: boolean | null;
+}
+
+export interface CachedImage {
+  unsplashId: string;
+  url: string;
+  thumbUrl: string;
+  photographer: string;
+  photographerUrl: string;
+  category: string;
+  tags: ImageTag[];
+  questions: QuizQuestion[];
+  cachedAt: number;
+}
+
+export interface ImageTag {
+  category: 'object' | 'color' | 'count' | 'location' | 'action';
+  value: string;
+  confidence: number;
 }
 
 // ============ ECHO CHAMBER ============

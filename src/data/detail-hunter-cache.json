@@ -1,0 +1,525 @@
+{
+  "images": [
+    {
+      "unsplashId": "city-street-1",
+      "url": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "urban",
+      "tags": [
+        { "category": "location", "value": "city skyline", "confidence": 0.95 },
+        { "category": "object", "value": "tall buildings", "confidence": 0.9 },
+        { "category": "color", "value": "blue sky", "confidence": 0.85 },
+        { "category": "count", "value": "many skyscrapers", "confidence": 0.8 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What was the dominant color of the sky?",
+          "correctAnswer": "Blue",
+          "options": ["Blue", "Gray", "Orange", "White"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What type of buildings were shown?",
+          "correctAnswer": "Skyscrapers",
+          "options": ["Skyscrapers", "Houses", "Factories", "Temples"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What was the setting of the image?",
+          "correctAnswer": "City",
+          "options": ["City", "Countryside", "Beach", "Forest"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "Were there any visible clouds?",
+          "correctAnswer": "Yes, some clouds",
+          "options": ["Yes, some clouds", "No clouds at all", "Heavy overcast", "Storm clouds"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What time of day did the image appear to be?",
+          "correctAnswer": "Daytime",
+          "options": ["Daytime", "Sunset", "Night", "Dawn"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How would you describe the density of buildings?",
+          "correctAnswer": "Very dense",
+          "options": ["Very dense", "Scattered", "Single building", "Empty lot"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "nature-forest-1",
+      "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "nature",
+      "tags": [
+        { "category": "location", "value": "forest", "confidence": 0.95 },
+        { "category": "object", "value": "tall trees", "confidence": 0.9 },
+        { "category": "color", "value": "green foliage", "confidence": 0.9 },
+        { "category": "object", "value": "sunlight rays", "confidence": 0.85 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What was the main color in the image?",
+          "correctAnswer": "Green",
+          "options": ["Green", "Brown", "Yellow", "Red"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What type of environment was shown?",
+          "correctAnswer": "Forest",
+          "options": ["Forest", "Desert", "Ocean", "Mountain peak"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "Was there visible sunlight?",
+          "correctAnswer": "Yes, sunlight rays",
+          "options": ["Yes, sunlight rays", "No, it was dark", "Overcast sky only", "Moonlight"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What was the condition of the trees?",
+          "correctAnswer": "Tall and leafy",
+          "options": ["Tall and leafy", "Dead and bare", "Small saplings", "Palm trees"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What season did the image suggest?",
+          "correctAnswer": "Summer or Spring",
+          "options": ["Summer or Spring", "Winter", "Late Autumn", "Early Fall"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "Was there a visible path or road?",
+          "correctAnswer": "Yes, a path",
+          "options": ["Yes, a path", "No path visible", "Paved road", "River instead"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "beach-ocean-1",
+      "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "nature",
+      "tags": [
+        { "category": "location", "value": "beach", "confidence": 0.95 },
+        { "category": "object", "value": "ocean waves", "confidence": 0.9 },
+        { "category": "object", "value": "sand", "confidence": 0.9 },
+        { "category": "color", "value": "turquoise water", "confidence": 0.85 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color was the water?",
+          "correctAnswer": "Turquoise/Blue",
+          "options": ["Turquoise/Blue", "Green", "Gray", "Brown"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What type of landscape was shown?",
+          "correctAnswer": "Beach",
+          "options": ["Beach", "Lake", "River", "Swimming pool"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "Was there sand visible?",
+          "correctAnswer": "Yes, sandy beach",
+          "options": ["Yes, sandy beach", "No, rocky shore", "Grassy area", "Concrete pier"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What was the weather like?",
+          "correctAnswer": "Clear and sunny",
+          "options": ["Clear and sunny", "Rainy", "Cloudy", "Stormy"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "Were there any people in the image?",
+          "correctAnswer": "No visible people",
+          "options": ["No visible people", "Many swimmers", "Surfers", "Sunbathers"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How would you describe the waves?",
+          "correctAnswer": "Calm, gentle waves",
+          "options": ["Calm, gentle waves", "Large crashing waves", "No waves at all", "Stormy waves"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "cafe-interior-1",
+      "url": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "urban",
+      "tags": [
+        { "category": "location", "value": "cafe interior", "confidence": 0.95 },
+        { "category": "object", "value": "tables and chairs", "confidence": 0.9 },
+        { "category": "object", "value": "warm lighting", "confidence": 0.85 },
+        { "category": "color", "value": "warm tones", "confidence": 0.8 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What type of establishment was shown?",
+          "correctAnswer": "Cafe/Coffee shop",
+          "options": ["Cafe/Coffee shop", "Restaurant", "Library", "Office"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What was the lighting like?",
+          "correctAnswer": "Warm and cozy",
+          "options": ["Warm and cozy", "Bright fluorescent", "Dark and dim", "Natural daylight only"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What furniture was visible?",
+          "correctAnswer": "Tables and chairs",
+          "options": ["Tables and chairs", "Sofas only", "Standing desks", "Beds"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What was the overall color tone?",
+          "correctAnswer": "Warm browns and wood",
+          "options": ["Warm browns and wood", "Cool blues", "Bright white", "Dark black"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "Was there a counter or bar visible?",
+          "correctAnswer": "Yes",
+          "options": ["Yes", "No", "Only tables", "Only booths"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How would you describe the atmosphere?",
+          "correctAnswer": "Cozy and inviting",
+          "options": ["Cozy and inviting", "Clinical and sterile", "Chaotic and busy", "Dark and mysterious"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "mountain-landscape-1",
+      "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "nature",
+      "tags": [
+        { "category": "location", "value": "mountains", "confidence": 0.95 },
+        { "category": "object", "value": "snow peaks", "confidence": 0.9 },
+        { "category": "color", "value": "dramatic sky", "confidence": 0.85 },
+        { "category": "object", "value": "rocky terrain", "confidence": 0.8 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What was the main landscape feature?",
+          "correctAnswer": "Mountains",
+          "options": ["Mountains", "Ocean", "Desert", "Forest"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "Was there snow visible?",
+          "correctAnswer": "Yes, on the peaks",
+          "options": ["Yes, on the peaks", "No snow at all", "Completely covered", "Only at the base"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What was the sky like?",
+          "correctAnswer": "Dramatic with clouds",
+          "options": ["Dramatic with clouds", "Clear blue", "Completely overcast", "Night sky with stars"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What type of terrain was at the base?",
+          "correctAnswer": "Rocky/rugged",
+          "options": ["Rocky/rugged", "Sandy beach", "Flat grassland", "Dense forest"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "How many prominent peaks were visible?",
+          "correctAnswer": "One main peak",
+          "options": ["One main peak", "Two peaks", "Mountain range", "Flat plateau"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What time of day did it appear to be?",
+          "correctAnswer": "Golden hour/sunset",
+          "options": ["Golden hour/sunset", "Midday", "Night", "Early morning fog"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "dog-portrait-1",
+      "url": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "animals",
+      "tags": [
+        { "category": "object", "value": "dog", "confidence": 0.95 },
+        { "category": "color", "value": "golden fur", "confidence": 0.9 },
+        { "category": "action", "value": "looking at camera", "confidence": 0.85 },
+        { "category": "location", "value": "outdoor setting", "confidence": 0.8 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What animal was in the image?",
+          "correctAnswer": "Dog",
+          "options": ["Dog", "Cat", "Horse", "Fox"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What color was the animal's fur?",
+          "correctAnswer": "Golden/Light brown",
+          "options": ["Golden/Light brown", "Black", "White", "Gray"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What was the dog doing?",
+          "correctAnswer": "Looking at camera",
+          "options": ["Looking at camera", "Running", "Sleeping", "Eating"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "Was the setting indoor or outdoor?",
+          "correctAnswer": "Outdoor",
+          "options": ["Outdoor", "Indoor", "In a car", "At a beach"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What was the dog's expression?",
+          "correctAnswer": "Happy/Friendly",
+          "options": ["Happy/Friendly", "Sad", "Angry", "Sleepy"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What breed did the dog appear to be?",
+          "correctAnswer": "Golden Retriever type",
+          "options": ["Golden Retriever type", "Bulldog", "Poodle", "Chihuahua"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "food-plate-1",
+      "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "food",
+      "tags": [
+        { "category": "object", "value": "salad bowl", "confidence": 0.95 },
+        { "category": "color", "value": "colorful vegetables", "confidence": 0.9 },
+        { "category": "object", "value": "fresh greens", "confidence": 0.85 },
+        { "category": "location", "value": "dining table", "confidence": 0.8 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What type of dish was shown?",
+          "correctAnswer": "Salad",
+          "options": ["Salad", "Pasta", "Soup", "Steak"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What container held the food?",
+          "correctAnswer": "Bowl",
+          "options": ["Bowl", "Plate", "Pan", "Box"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "Were there colorful ingredients?",
+          "correctAnswer": "Yes, very colorful",
+          "options": ["Yes, very colorful", "No, mostly brown", "All green", "All white"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "Was there any protein visible?",
+          "correctAnswer": "Yes",
+          "options": ["Yes", "No, vegetables only", "Fish only", "Tofu only"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What base greens were visible?",
+          "correctAnswer": "Leafy greens",
+          "options": ["Leafy greens", "Rice", "Noodles", "Bread"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How would you describe the presentation?",
+          "correctAnswer": "Nicely arranged",
+          "options": ["Nicely arranged", "Messy pile", "In separate sections", "Blended together"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "workspace-desk-1",
+      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
+      "thumbUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400",
+      "photographer": "Unsplash",
+      "photographerUrl": "https://unsplash.com",
+      "category": "urban",
+      "tags": [
+        { "category": "location", "value": "workspace", "confidence": 0.95 },
+        { "category": "object", "value": "laptop computer", "confidence": 0.9 },
+        { "category": "object", "value": "hands typing", "confidence": 0.85 },
+        { "category": "color", "value": "neutral tones", "confidence": 0.8 }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What electronic device was prominent?",
+          "correctAnswer": "Laptop",
+          "options": ["Laptop", "Desktop monitor", "Tablet", "Phone"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What activity was being performed?",
+          "correctAnswer": "Typing/Working",
+          "options": ["Typing/Working", "Gaming", "Watching video", "Drawing"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "Were hands visible?",
+          "correctAnswer": "Yes, on keyboard",
+          "options": ["Yes, on keyboard", "No hands visible", "Holding a cup", "Holding a phone"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What type of setting was this?",
+          "correctAnswer": "Work/Office space",
+          "options": ["Work/Office space", "Bedroom", "Kitchen", "Outdoor cafe"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What was on the laptop screen?",
+          "correctAnswer": "Code/Text",
+          "options": ["Code/Text", "Video game", "Movie", "Blank screen"],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What was the overall lighting?",
+          "correctAnswer": "Natural/Soft light",
+          "options": ["Natural/Soft light", "Harsh bright lights", "Complete darkness", "Colored neon"],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1705708800000
+    }
+  ],
+  "categories": ["nature", "urban", "animals", "food"]
+}
