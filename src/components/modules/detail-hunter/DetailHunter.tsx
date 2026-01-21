@@ -27,7 +27,9 @@ function getViewingBonus(viewingTime: number): number {
 
 export function DetailHunter(): JSX.Element {
   const navigate = useNavigate();
-  const { addXP } = useGame();
+  const { progress, addXP, updateDetailHunterStats } = useGame();
+
+  const stats = progress.moduleStats.detailHunter;
 
   // Handle session completion - update stats and add XP
   const handleQuizComplete = useCallback((session: DetailHunterSession) => {
@@ -35,13 +37,23 @@ export function DetailHunter(): JSX.Element {
       addXP(session.xpEarned);
     }
 
-    // Note: If updateDetailHunterStats method is added to GameContext in the future,
-    // we would call it here to update module-specific stats like:
-    // - totalSessions
-    // - totalRecalls
-    // - averageAccuracy
-    // - bestAccuracy
-  }, [addXP]);
+    // Update module stats
+    const score = session.score ?? 0;
+    const isSuccessful = score >= 70;
+    const newTotalSessions = stats.totalSessions + 1;
+    const newTotalRecalls = stats.totalRecalls + 1;
+    const newSuccessfulRecalls = stats.successfulRecalls + (isSuccessful ? 1 : 0);
+    const newAverageAccuracy = ((stats.averageAccuracy * stats.totalSessions) + score) / newTotalSessions;
+    const newBestAccuracy = Math.max(stats.bestAccuracy, score);
+
+    updateDetailHunterStats({
+      totalSessions: newTotalSessions,
+      totalRecalls: newTotalRecalls,
+      successfulRecalls: newSuccessfulRecalls,
+      averageAccuracy: newAverageAccuracy,
+      bestAccuracy: newBestAccuracy,
+    });
+  }, [addXP, stats, updateDetailHunterStats]);
 
   // Initialize the game hook with completion callback
   const {
