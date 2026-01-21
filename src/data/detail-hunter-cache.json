@@ -8,17 +8,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "urban",
       "tags": [
-        { "category": "location", "value": "city skyline", "confidence": 0.95 },
-        { "category": "object", "value": "tall buildings", "confidence": 0.9 },
-        { "category": "color", "value": "blue sky", "confidence": 0.85 },
-        { "category": "count", "value": "many skyscrapers", "confidence": 0.8 }
+        {
+          "category": "location",
+          "value": "city skyline",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "tall buildings",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "blue sky",
+          "confidence": 0.85
+        },
+        {
+          "category": "count",
+          "value": "many skyscrapers",
+          "confidence": 0.8
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What was the dominant color of the sky?",
           "correctAnswer": "Blue",
-          "options": ["Blue", "Gray", "Orange", "White"],
+          "options": [
+            "Blue",
+            "Gray",
+            "Orange",
+            "White"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -26,7 +47,12 @@
           "id": "q2",
           "questionText": "What type of buildings were shown?",
           "correctAnswer": "Skyscrapers",
-          "options": ["Skyscrapers", "Houses", "Factories", "Temples"],
+          "options": [
+            "Skyscrapers",
+            "Houses",
+            "Factories",
+            "Temples"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -34,7 +60,12 @@
           "id": "q3",
           "questionText": "What was the setting of the image?",
           "correctAnswer": "City",
-          "options": ["City", "Countryside", "Beach", "Forest"],
+          "options": [
+            "City",
+            "Countryside",
+            "Beach",
+            "Forest"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -42,7 +73,12 @@
           "id": "q4",
           "questionText": "Were there any visible clouds?",
           "correctAnswer": "Yes, some clouds",
-          "options": ["Yes, some clouds", "No clouds at all", "Heavy overcast", "Storm clouds"],
+          "options": [
+            "Yes, some clouds",
+            "No clouds at all",
+            "Heavy overcast",
+            "Storm clouds"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -50,7 +86,12 @@
           "id": "q5",
           "questionText": "What time of day did the image appear to be?",
           "correctAnswer": "Daytime",
-          "options": ["Daytime", "Sunset", "Night", "Dawn"],
+          "options": [
+            "Daytime",
+            "Sunset",
+            "Night",
+            "Dawn"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -58,7 +99,12 @@
           "id": "q6",
           "questionText": "How would you describe the density of buildings?",
           "correctAnswer": "Very dense",
-          "options": ["Very dense", "Scattered", "Single building", "Empty lot"],
+          "options": [
+            "Very dense",
+            "Scattered",
+            "Single building",
+            "Empty lot"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -73,17 +119,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "nature",
       "tags": [
-        { "category": "location", "value": "forest", "confidence": 0.95 },
-        { "category": "object", "value": "tall trees", "confidence": 0.9 },
-        { "category": "color", "value": "green foliage", "confidence": 0.9 },
-        { "category": "object", "value": "sunlight rays", "confidence": 0.85 }
+        {
+          "category": "location",
+          "value": "forest",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "tall trees",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "green foliage",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "sunlight rays",
+          "confidence": 0.85
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What was the main color in the image?",
           "correctAnswer": "Green",
-          "options": ["Green", "Brown", "Yellow", "Red"],
+          "options": [
+            "Green",
+            "Brown",
+            "Yellow",
+            "Red"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -91,7 +158,12 @@
           "id": "q2",
           "questionText": "What type of environment was shown?",
           "correctAnswer": "Forest",
-          "options": ["Forest", "Desert", "Ocean", "Mountain peak"],
+          "options": [
+            "Forest",
+            "Desert",
+            "Ocean",
+            "Mountain peak"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -99,7 +171,12 @@
           "id": "q3",
           "questionText": "Was there visible sunlight?",
           "correctAnswer": "Yes, sunlight rays",
-          "options": ["Yes, sunlight rays", "No, it was dark", "Overcast sky only", "Moonlight"],
+          "options": [
+            "Yes, sunlight rays",
+            "No, it was dark",
+            "Overcast sky only",
+            "Moonlight"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -107,7 +184,12 @@
           "id": "q4",
           "questionText": "What was the condition of the trees?",
           "correctAnswer": "Tall and leafy",
-          "options": ["Tall and leafy", "Dead and bare", "Small saplings", "Palm trees"],
+          "options": [
+            "Tall and leafy",
+            "Dead and bare",
+            "Small saplings",
+            "Palm trees"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -115,7 +197,12 @@
           "id": "q5",
           "questionText": "What season did the image suggest?",
           "correctAnswer": "Summer or Spring",
-          "options": ["Summer or Spring", "Winter", "Late Autumn", "Early Fall"],
+          "options": [
+            "Summer or Spring",
+            "Winter",
+            "Late Autumn",
+            "Early Fall"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -123,7 +210,12 @@
           "id": "q6",
           "questionText": "Was there a visible path or road?",
           "correctAnswer": "Yes, a path",
-          "options": ["Yes, a path", "No path visible", "Paved road", "River instead"],
+          "options": [
+            "Yes, a path",
+            "No path visible",
+            "Paved road",
+            "River instead"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -138,17 +230,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "nature",
       "tags": [
-        { "category": "location", "value": "beach", "confidence": 0.95 },
-        { "category": "object", "value": "ocean waves", "confidence": 0.9 },
-        { "category": "object", "value": "sand", "confidence": 0.9 },
-        { "category": "color", "value": "turquoise water", "confidence": 0.85 }
+        {
+          "category": "location",
+          "value": "beach",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "ocean waves",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "sand",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "turquoise water",
+          "confidence": 0.85
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What color was the water?",
           "correctAnswer": "Turquoise/Blue",
-          "options": ["Turquoise/Blue", "Green", "Gray", "Brown"],
+          "options": [
+            "Turquoise/Blue",
+            "Green",
+            "Gray",
+            "Brown"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -156,7 +269,12 @@
           "id": "q2",
           "questionText": "What type of landscape was shown?",
           "correctAnswer": "Beach",
-          "options": ["Beach", "Lake", "River", "Swimming pool"],
+          "options": [
+            "Beach",
+            "Lake",
+            "River",
+            "Swimming pool"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -164,7 +282,12 @@
           "id": "q3",
           "questionText": "Was there sand visible?",
           "correctAnswer": "Yes, sandy beach",
-          "options": ["Yes, sandy beach", "No, rocky shore", "Grassy area", "Concrete pier"],
+          "options": [
+            "Yes, sandy beach",
+            "No, rocky shore",
+            "Grassy area",
+            "Concrete pier"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -172,7 +295,12 @@
           "id": "q4",
           "questionText": "What was the weather like?",
           "correctAnswer": "Clear and sunny",
-          "options": ["Clear and sunny", "Rainy", "Cloudy", "Stormy"],
+          "options": [
+            "Clear and sunny",
+            "Rainy",
+            "Cloudy",
+            "Stormy"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -180,7 +308,12 @@
           "id": "q5",
           "questionText": "Were there any people in the image?",
           "correctAnswer": "No visible people",
-          "options": ["No visible people", "Many swimmers", "Surfers", "Sunbathers"],
+          "options": [
+            "No visible people",
+            "Many swimmers",
+            "Surfers",
+            "Sunbathers"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -188,7 +321,12 @@
           "id": "q6",
           "questionText": "How would you describe the waves?",
           "correctAnswer": "Calm, gentle waves",
-          "options": ["Calm, gentle waves", "Large crashing waves", "No waves at all", "Stormy waves"],
+          "options": [
+            "Calm, gentle waves",
+            "Large crashing waves",
+            "No waves at all",
+            "Stormy waves"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -203,17 +341,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "urban",
       "tags": [
-        { "category": "location", "value": "cafe interior", "confidence": 0.95 },
-        { "category": "object", "value": "tables and chairs", "confidence": 0.9 },
-        { "category": "object", "value": "warm lighting", "confidence": 0.85 },
-        { "category": "color", "value": "warm tones", "confidence": 0.8 }
+        {
+          "category": "location",
+          "value": "cafe interior",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "tables and chairs",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "warm lighting",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "warm tones",
+          "confidence": 0.8
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What type of establishment was shown?",
           "correctAnswer": "Cafe/Coffee shop",
-          "options": ["Cafe/Coffee shop", "Restaurant", "Library", "Office"],
+          "options": [
+            "Cafe/Coffee shop",
+            "Restaurant",
+            "Library",
+            "Office"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -221,7 +380,12 @@
           "id": "q2",
           "questionText": "What was the lighting like?",
           "correctAnswer": "Warm and cozy",
-          "options": ["Warm and cozy", "Bright fluorescent", "Dark and dim", "Natural daylight only"],
+          "options": [
+            "Warm and cozy",
+            "Bright fluorescent",
+            "Dark and dim",
+            "Natural daylight only"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -229,7 +393,12 @@
           "id": "q3",
           "questionText": "What furniture was visible?",
           "correctAnswer": "Tables and chairs",
-          "options": ["Tables and chairs", "Sofas only", "Standing desks", "Beds"],
+          "options": [
+            "Tables and chairs",
+            "Sofas only",
+            "Standing desks",
+            "Beds"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -237,7 +406,12 @@
           "id": "q4",
           "questionText": "What was the overall color tone?",
           "correctAnswer": "Warm browns and wood",
-          "options": ["Warm browns and wood", "Cool blues", "Bright white", "Dark black"],
+          "options": [
+            "Warm browns and wood",
+            "Cool blues",
+            "Bright white",
+            "Dark black"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -245,7 +419,12 @@
           "id": "q5",
           "questionText": "Was there a counter or bar visible?",
           "correctAnswer": "Yes",
-          "options": ["Yes", "No", "Only tables", "Only booths"],
+          "options": [
+            "Yes",
+            "No",
+            "Only tables",
+            "Only booths"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -253,7 +432,12 @@
           "id": "q6",
           "questionText": "How would you describe the atmosphere?",
           "correctAnswer": "Cozy and inviting",
-          "options": ["Cozy and inviting", "Clinical and sterile", "Chaotic and busy", "Dark and mysterious"],
+          "options": [
+            "Cozy and inviting",
+            "Clinical and sterile",
+            "Chaotic and busy",
+            "Dark and mysterious"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -268,17 +452,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "nature",
       "tags": [
-        { "category": "location", "value": "mountains", "confidence": 0.95 },
-        { "category": "object", "value": "snow peaks", "confidence": 0.9 },
-        { "category": "color", "value": "dramatic sky", "confidence": 0.85 },
-        { "category": "object", "value": "rocky terrain", "confidence": 0.8 }
+        {
+          "category": "location",
+          "value": "mountains",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "snow peaks",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "dramatic sky",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "rocky terrain",
+          "confidence": 0.8
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What was the main landscape feature?",
           "correctAnswer": "Mountains",
-          "options": ["Mountains", "Ocean", "Desert", "Forest"],
+          "options": [
+            "Mountains",
+            "Ocean",
+            "Desert",
+            "Forest"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -286,7 +491,12 @@
           "id": "q2",
           "questionText": "Was there snow visible?",
           "correctAnswer": "Yes, on the peaks",
-          "options": ["Yes, on the peaks", "No snow at all", "Completely covered", "Only at the base"],
+          "options": [
+            "Yes, on the peaks",
+            "No snow at all",
+            "Completely covered",
+            "Only at the base"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -294,7 +504,12 @@
           "id": "q3",
           "questionText": "What was the sky like?",
           "correctAnswer": "Dramatic with clouds",
-          "options": ["Dramatic with clouds", "Clear blue", "Completely overcast", "Night sky with stars"],
+          "options": [
+            "Dramatic with clouds",
+            "Clear blue",
+            "Completely overcast",
+            "Night sky with stars"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -302,7 +517,12 @@
           "id": "q4",
           "questionText": "What type of terrain was at the base?",
           "correctAnswer": "Rocky/rugged",
-          "options": ["Rocky/rugged", "Sandy beach", "Flat grassland", "Dense forest"],
+          "options": [
+            "Rocky/rugged",
+            "Sandy beach",
+            "Flat grassland",
+            "Dense forest"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -310,7 +530,12 @@
           "id": "q5",
           "questionText": "How many prominent peaks were visible?",
           "correctAnswer": "One main peak",
-          "options": ["One main peak", "Two peaks", "Mountain range", "Flat plateau"],
+          "options": [
+            "One main peak",
+            "Two peaks",
+            "Mountain range",
+            "Flat plateau"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -318,7 +543,12 @@
           "id": "q6",
           "questionText": "What time of day did it appear to be?",
           "correctAnswer": "Golden hour/sunset",
-          "options": ["Golden hour/sunset", "Midday", "Night", "Early morning fog"],
+          "options": [
+            "Golden hour/sunset",
+            "Midday",
+            "Night",
+            "Early morning fog"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -333,17 +563,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "animals",
       "tags": [
-        { "category": "object", "value": "dog", "confidence": 0.95 },
-        { "category": "color", "value": "golden fur", "confidence": 0.9 },
-        { "category": "action", "value": "looking at camera", "confidence": 0.85 },
-        { "category": "location", "value": "outdoor setting", "confidence": 0.8 }
+        {
+          "category": "object",
+          "value": "dog",
+          "confidence": 0.95
+        },
+        {
+          "category": "color",
+          "value": "golden fur",
+          "confidence": 0.9
+        },
+        {
+          "category": "action",
+          "value": "looking at camera",
+          "confidence": 0.85
+        },
+        {
+          "category": "location",
+          "value": "outdoor setting",
+          "confidence": 0.8
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What animal was in the image?",
           "correctAnswer": "Dog",
-          "options": ["Dog", "Cat", "Horse", "Fox"],
+          "options": [
+            "Dog",
+            "Cat",
+            "Horse",
+            "Fox"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -351,7 +602,12 @@
           "id": "q2",
           "questionText": "What color was the animal's fur?",
           "correctAnswer": "Golden/Light brown",
-          "options": ["Golden/Light brown", "Black", "White", "Gray"],
+          "options": [
+            "Golden/Light brown",
+            "Black",
+            "White",
+            "Gray"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -359,7 +615,12 @@
           "id": "q3",
           "questionText": "What was the dog doing?",
           "correctAnswer": "Looking at camera",
-          "options": ["Looking at camera", "Running", "Sleeping", "Eating"],
+          "options": [
+            "Looking at camera",
+            "Running",
+            "Sleeping",
+            "Eating"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -367,7 +628,12 @@
           "id": "q4",
           "questionText": "Was the setting indoor or outdoor?",
           "correctAnswer": "Outdoor",
-          "options": ["Outdoor", "Indoor", "In a car", "At a beach"],
+          "options": [
+            "Outdoor",
+            "Indoor",
+            "In a car",
+            "At a beach"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -375,7 +641,12 @@
           "id": "q5",
           "questionText": "What was the dog's expression?",
           "correctAnswer": "Happy/Friendly",
-          "options": ["Happy/Friendly", "Sad", "Angry", "Sleepy"],
+          "options": [
+            "Happy/Friendly",
+            "Sad",
+            "Angry",
+            "Sleepy"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -383,7 +654,12 @@
           "id": "q6",
           "questionText": "What breed did the dog appear to be?",
           "correctAnswer": "Golden Retriever type",
-          "options": ["Golden Retriever type", "Bulldog", "Poodle", "Chihuahua"],
+          "options": [
+            "Golden Retriever type",
+            "Bulldog",
+            "Poodle",
+            "Chihuahua"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -398,17 +674,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "food",
       "tags": [
-        { "category": "object", "value": "salad bowl", "confidence": 0.95 },
-        { "category": "color", "value": "colorful vegetables", "confidence": 0.9 },
-        { "category": "object", "value": "fresh greens", "confidence": 0.85 },
-        { "category": "location", "value": "dining table", "confidence": 0.8 }
+        {
+          "category": "object",
+          "value": "salad bowl",
+          "confidence": 0.95
+        },
+        {
+          "category": "color",
+          "value": "colorful vegetables",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "fresh greens",
+          "confidence": 0.85
+        },
+        {
+          "category": "location",
+          "value": "dining table",
+          "confidence": 0.8
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What type of dish was shown?",
           "correctAnswer": "Salad",
-          "options": ["Salad", "Pasta", "Soup", "Steak"],
+          "options": [
+            "Salad",
+            "Pasta",
+            "Soup",
+            "Steak"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -416,7 +713,12 @@
           "id": "q2",
           "questionText": "What container held the food?",
           "correctAnswer": "Bowl",
-          "options": ["Bowl", "Plate", "Pan", "Box"],
+          "options": [
+            "Bowl",
+            "Plate",
+            "Pan",
+            "Box"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -424,7 +726,12 @@
           "id": "q3",
           "questionText": "Were there colorful ingredients?",
           "correctAnswer": "Yes, very colorful",
-          "options": ["Yes, very colorful", "No, mostly brown", "All green", "All white"],
+          "options": [
+            "Yes, very colorful",
+            "No, mostly brown",
+            "All green",
+            "All white"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -432,7 +739,12 @@
           "id": "q4",
           "questionText": "Was there any protein visible?",
           "correctAnswer": "Yes",
-          "options": ["Yes", "No, vegetables only", "Fish only", "Tofu only"],
+          "options": [
+            "Yes",
+            "No, vegetables only",
+            "Fish only",
+            "Tofu only"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -440,7 +752,12 @@
           "id": "q5",
           "questionText": "What base greens were visible?",
           "correctAnswer": "Leafy greens",
-          "options": ["Leafy greens", "Rice", "Noodles", "Bread"],
+          "options": [
+            "Leafy greens",
+            "Rice",
+            "Noodles",
+            "Bread"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -448,7 +765,12 @@
           "id": "q6",
           "questionText": "How would you describe the presentation?",
           "correctAnswer": "Nicely arranged",
-          "options": ["Nicely arranged", "Messy pile", "In separate sections", "Blended together"],
+          "options": [
+            "Nicely arranged",
+            "Messy pile",
+            "In separate sections",
+            "Blended together"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
@@ -463,17 +785,38 @@
       "photographerUrl": "https://unsplash.com",
       "category": "urban",
       "tags": [
-        { "category": "location", "value": "workspace", "confidence": 0.95 },
-        { "category": "object", "value": "laptop computer", "confidence": 0.9 },
-        { "category": "object", "value": "hands typing", "confidence": 0.85 },
-        { "category": "color", "value": "neutral tones", "confidence": 0.8 }
+        {
+          "category": "location",
+          "value": "workspace",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "laptop computer",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "hands typing",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "neutral tones",
+          "confidence": 0.8
+        }
       ],
       "questions": [
         {
           "id": "q1",
           "questionText": "What electronic device was prominent?",
           "correctAnswer": "Laptop",
-          "options": ["Laptop", "Desktop monitor", "Tablet", "Phone"],
+          "options": [
+            "Laptop",
+            "Desktop monitor",
+            "Tablet",
+            "Phone"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -481,7 +824,12 @@
           "id": "q2",
           "questionText": "What activity was being performed?",
           "correctAnswer": "Typing/Working",
-          "options": ["Typing/Working", "Gaming", "Watching video", "Drawing"],
+          "options": [
+            "Typing/Working",
+            "Gaming",
+            "Watching video",
+            "Drawing"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -489,7 +837,12 @@
           "id": "q3",
           "questionText": "Were hands visible?",
           "correctAnswer": "Yes, on keyboard",
-          "options": ["Yes, on keyboard", "No hands visible", "Holding a cup", "Holding a phone"],
+          "options": [
+            "Yes, on keyboard",
+            "No hands visible",
+            "Holding a cup",
+            "Holding a phone"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -497,7 +850,12 @@
           "id": "q4",
           "questionText": "What type of setting was this?",
           "correctAnswer": "Work/Office space",
-          "options": ["Work/Office space", "Bedroom", "Kitchen", "Outdoor cafe"],
+          "options": [
+            "Work/Office space",
+            "Bedroom",
+            "Kitchen",
+            "Outdoor cafe"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -505,7 +863,12 @@
           "id": "q5",
           "questionText": "What was on the laptop screen?",
           "correctAnswer": "Code/Text",
-          "options": ["Code/Text", "Video game", "Movie", "Blank screen"],
+          "options": [
+            "Code/Text",
+            "Video game",
+            "Movie",
+            "Blank screen"
+          ],
           "userAnswer": null,
           "isCorrect": null
         },
@@ -513,13 +876,3173 @@
           "id": "q6",
           "questionText": "What was the overall lighting?",
           "correctAnswer": "Natural/Soft light",
-          "options": ["Natural/Soft light", "Harsh bright lights", "Complete darkness", "Colored neon"],
+          "options": [
+            "Natural/Soft light",
+            "Harsh bright lights",
+            "Complete darkness",
+            "Colored neon"
+          ],
           "userAnswer": null,
           "isCorrect": null
         }
       ],
       "cachedAt": 1705708800000
+    },
+    {
+      "unsplashId": "m_uSWBJWr0s",
+      "url": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Allyson Beaucourt",
+      "photographerUrl": "https://unsplash.com/@daymnous",
+      "category": "nature",
+      "tags": [
+        {
+          "category": "object",
+          "value": "Cliffs",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "Beach",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "Ocean",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "Sky",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "Clouds",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "Blue",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "Gray",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "Green",
+          "confidence": 0.7
+        },
+        {
+          "category": "location",
+          "value": "Cliffs of Etretat",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "Normandy, France",
+          "confidence": 0.7
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the dominant color of the cliffs?",
+          "correctAnswer": "Gray",
+          "options": [
+            "Blue",
+            "Gray",
+            "Green",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What is the color of the ocean in the image?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Blue",
+            "Green",
+            "Gray",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of natural formation can be seen in the image?",
+          "correctAnswer": "Cliffs",
+          "options": [
+            "Mountains",
+            "Cliffs",
+            "Hills",
+            "Valleys"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "Where is this location?",
+          "correctAnswer": "Normandy, France",
+          "options": [
+            "Ireland",
+            "Scotland",
+            "Normandy, France",
+            "California"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What type of body of water can be seen in the image?",
+          "correctAnswer": "Ocean",
+          "options": [
+            "Lake",
+            "River",
+            "Ocean",
+            "Bay"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What is the terrain like in the image?",
+          "correctAnswer": "Coastal",
+          "options": [
+            "Mountainous",
+            "Flat",
+            "Coastal",
+            "Desert"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color are the clouds in the sky?",
+          "correctAnswer": "Gray",
+          "options": [
+            "White",
+            "Gray",
+            "Blue",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the vegetation like in the image?",
+          "correctAnswer": "Grassy",
+          "options": [
+            "Forested",
+            "Barren",
+            "Grassy",
+            "Desert"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769035598331
+    },
+    {
+      "unsplashId": "UiKWDzkMV_o",
+      "url": "https://images.unsplash.com/photo-1611657291636-c141ee8cf7ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1611657291636-c141ee8cf7ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Alfred Schrock",
+      "photographerUrl": "https://unsplash.com/@puregeorgia",
+      "category": "nature",
+      "tags": [
+        {
+          "category": "object",
+          "value": "trees",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.85
+        },
+        {
+          "category": "count",
+          "value": "many",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "road",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "field",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "fence",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "gray",
+          "confidence": 0.7
+        },
+        {
+          "category": "action",
+          "value": "walking",
+          "confidence": 0.7
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color are the trees in the image?",
+          "correctAnswer": "Green",
+          "options": [
+            "Green",
+            "Brown",
+            "Yellow",
+            "Red"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What type of landscape is shown in the image?",
+          "correctAnswer": "Field",
+          "options": [
+            "Forest",
+            "Desert",
+            "Field",
+            "City"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What is the purpose of the fence in the image?",
+          "correctAnswer": "Boundary",
+          "options": [
+            "Decoration",
+            "Fence",
+            "Boundary",
+            "Shelter"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the dominant color in the image?",
+          "correctAnswer": "Green",
+          "options": [
+            "Green",
+            "Blue",
+            "Brown",
+            "Gray"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What type of transportation can be used on the road in the image?",
+          "correctAnswer": "Walking",
+          "options": [
+            "Cycling",
+            "Driving",
+            "Walking",
+            "Horseback"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How many trees are visible in the image?",
+          "correctAnswer": "Many",
+          "options": [
+            "Few",
+            "Many",
+            "Dozens",
+            "Hundreds"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the surface material of the road in the image?",
+          "correctAnswer": "Asphalt",
+          "options": [
+            "Dirt",
+            "Gravel",
+            "Asphalt",
+            "Concrete"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What season is suggested by the foliage in the image?",
+          "correctAnswer": "Spring",
+          "options": [
+            "Spring",
+            "Summer",
+            "Fall",
+            "Winter"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769035605863
+    },
+    {
+      "unsplashId": "UXIsw4vK1gM",
+      "url": "https://images.unsplash.com/photo-1611307742746-43cbea512c37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1611307742746-43cbea512c37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "stefano d'andrea",
+      "photographerUrl": "https://unsplash.com/@stefanuzz86",
+      "category": "nature",
+      "tags": [
+        {
+          "category": "object",
+          "value": "cabin",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "pine trees",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "dirt road",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "yellow",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "brown",
+          "confidence": 0.8
+        },
+        {
+          "category": "environment",
+          "value": "forest",
+          "confidence": 0.9
+        },
+        {
+          "category": "environment",
+          "value": "sunlight",
+          "confidence": 0.8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the main structure in the image?",
+          "correctAnswer": "Cabin",
+          "options": [
+            "Cabin",
+            "House",
+            "Barn",
+            "Shed"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What color are the leaves on the trees?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Yellow",
+            "Green",
+            "Red",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of trees are in the image?",
+          "correctAnswer": "Pine trees",
+          "options": [
+            "Pine trees",
+            "Oak trees",
+            "Maple trees",
+            "Birch trees"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the surface of the road?",
+          "correctAnswer": "Dirt",
+          "options": [
+            "Dirt",
+            "Paved",
+            "Gravel",
+            "Concrete"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What is the dominant color in the image?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Yellow",
+            "Green",
+            "Brown",
+            "Blue"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What type of environment is shown in the image?",
+          "correctAnswer": "Forest",
+          "options": [
+            "Forest",
+            "Desert",
+            "Grassland",
+            "Tundra"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the source of the lighting in the image?",
+          "correctAnswer": "Sunlight",
+          "options": [
+            "Sunlight",
+            "Artificial light",
+            "Moonlight",
+            "Campfire"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the color of the dirt road?",
+          "correctAnswer": "Brown",
+          "options": [
+            "Brown",
+            "Gray",
+            "Red",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769035613225
+    },
+    {
+      "unsplashId": "WKKG5oYx3qA",
+      "url": "https://images.unsplash.com/photo-1526239187794-f8c27c7872ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1526239187794-f8c27c7872ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Marc St",
+      "photographerUrl": "https://unsplash.com/@marcst84",
+      "category": "nature",
+      "tags": [
+        {
+          "category": "object",
+          "value": "mountains",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "rocky cliffs",
+          "confidence": 0.92
+        },
+        {
+          "category": "object",
+          "value": "vegetation",
+          "confidence": 0.88
+        },
+        {
+          "category": "color",
+          "value": "blue",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "brown",
+          "confidence": 0.87
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.85
+        },
+        {
+          "category": "location",
+          "value": "mountainous landscape",
+          "confidence": 0.93
+        },
+        {
+          "category": "time",
+          "value": "sunset",
+          "confidence": 0.9
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the dominant color of the mountains in the image?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Blue",
+            "Brown",
+            "Gray",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What type of vegetation is visible in the foreground?",
+          "correctAnswer": "Trees",
+          "options": [
+            "Grass",
+            "Shrubs",
+            "Trees",
+            "Flowers"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What time of day is depicted in the image?",
+          "correctAnswer": "Sunset",
+          "options": [
+            "Sunrise",
+            "Midday",
+            "Sunset",
+            "Night"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the predominant geological feature of the mountains?",
+          "correctAnswer": "Rocky cliffs",
+          "options": [
+            "Glaciers",
+            "Volcanic peaks",
+            "Rocky cliffs",
+            "Grassy slopes"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What type of landscape is depicted in the image?",
+          "correctAnswer": "Mountainous",
+          "options": [
+            "Coastal",
+            "Desert",
+            "Mountainous",
+            "Forested"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What color are the rocky cliffs in the image?",
+          "correctAnswer": "Brown",
+          "options": [
+            "Gray",
+            "Red",
+            "Brown",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color is the sky in the image?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Gray",
+            "Pink",
+            "Blue",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What color is the vegetation in the foreground?",
+          "correctAnswer": "Green",
+          "options": [
+            "Brown",
+            "Yellow",
+            "Green",
+            "Red"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769035620525
+    },
+    {
+      "unsplashId": "4M-5WBrG5-c",
+      "url": "https://images.unsplash.com/39/wdXqHcTwSTmLuKOGz92L_Landscape.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/39/wdXqHcTwSTmLuKOGz92L_Landscape.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2OTAzNTU5MHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Nick West",
+      "photographerUrl": "https://unsplash.com/@nickwest",
+      "category": "nature",
+      "tags": [
+        {
+          "category": "object",
+          "value": "lake",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "mountains",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "blue",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "coast",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "cliff",
+          "confidence": 0.7
+        },
+        {
+          "category": "weather",
+          "value": "cloudy",
+          "confidence": 0.7
+        },
+        {
+          "category": "environment",
+          "value": "natural landscape",
+          "confidence": 0.9
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the dominant color of the lake?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Blue",
+            "Green",
+            "Gray",
+            "Turquoise"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What type of natural feature are the large landforms in the background?",
+          "correctAnswer": "Mountains",
+          "options": [
+            "Hills",
+            "Cliffs",
+            "Volcanoes",
+            "Mountains"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "Where is the location of this scene situated?",
+          "correctAnswer": "Coast",
+          "options": [
+            "Inland",
+            "Coast",
+            "Valley",
+            "Desert"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What type of geological feature is visible along the edge of the lake?",
+          "correctAnswer": "Cliff",
+          "options": [
+            "Beach",
+            "Plateau",
+            "Cliff",
+            "Ravine"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What is the weather condition depicted in the image?",
+          "correctAnswer": "Cloudy",
+          "options": [
+            "Sunny",
+            "Rainy",
+            "Cloudy",
+            "Foggy"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What type of environment is this scene set in?",
+          "correctAnswer": "Natural landscape",
+          "options": [
+            "Urban",
+            "Agricultural",
+            "Natural landscape",
+            "Industrial"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color are the mountains in the background?",
+          "correctAnswer": "Green",
+          "options": [
+            "Blue",
+            "Brown",
+            "Green",
+            "Gray"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the approximate temperature suggested by the scenery?",
+          "correctAnswer": "Mild",
+          "options": [
+            "Cold",
+            "Hot",
+            "Mild",
+            "Tropical"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769035628161
+    },
+    {
+      "unsplashId": "iPeUyPBNDa4",
+      "url": "https://images.unsplash.com/photo-1639906522011-ec0b706d4692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1639906522011-ec0b706d4692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Sorin Gheorghita",
+      "photographerUrl": "https://unsplash.com/@sxtcxtc",
+      "category": "food",
+      "tags": [
+        {
+          "category": "object",
+          "value": "baked goods",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "dark brown",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "light brown",
+          "confidence": 0.85
+        },
+        {
+          "category": "texture",
+          "value": "crispy",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "2",
+          "confidence": 0.9
+        },
+        {
+          "category": "container",
+          "value": "baking pan",
+          "confidence": 0.85
+        },
+        {
+          "category": "environment",
+          "value": "outdoor",
+          "confidence": 0.8
+        },
+        {
+          "category": "lighting",
+          "value": "backlit",
+          "confidence": 0.75
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the main baked good item?",
+          "correctAnswer": "Dark brown",
+          "options": [
+            "Dark brown",
+            "Light brown",
+            "Golden yellow",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "How many baked good items are shown in the image?",
+          "correctAnswer": "2",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of container are the baked goods in?",
+          "correctAnswer": "Baking pan",
+          "options": [
+            "Bowl",
+            "Plate",
+            "Baking pan",
+            "Jar"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the texture of the baked goods?",
+          "correctAnswer": "Crispy",
+          "options": [
+            "Soft",
+            "Moist",
+            "Crispy",
+            "Chewy"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What is the lighting environment in the image?",
+          "correctAnswer": "Backlit",
+          "options": [
+            "Overhead",
+            "Backlit",
+            "Natural",
+            "Artificial"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "Where is this image taken?",
+          "correctAnswer": "Outdoor",
+          "options": [
+            "Kitchen",
+            "Bakery",
+            "Outdoor",
+            "Restaurant"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color are the baked goods on the left?",
+          "correctAnswer": "Light brown",
+          "options": [
+            "Dark brown",
+            "Light brown",
+            "Golden brown",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the main ingredient in these baked goods?",
+          "correctAnswer": "Wheat/grains",
+          "options": [
+            "Chocolate",
+            "Fruit",
+            "Wheat/grains",
+            "Vegetables"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037236739
+    },
+    {
+      "unsplashId": "JzpZ-6jPAdY",
+      "url": "https://images.unsplash.com/photo-1612156508186-1a894033c4bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1612156508186-1a894033c4bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Frank Zhang",
+      "photographerUrl": "https://unsplash.com/@frankzphoto",
+      "category": "food",
+      "tags": [
+        {
+          "category": "object",
+          "value": "cooking pan",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "gray",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "vegetable stems",
+          "confidence": 0.7
+        },
+        {
+          "category": "shape",
+          "value": "hexagon",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "multiple",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "center",
+          "confidence": 0.7
+        },
+        {
+          "category": "action",
+          "value": "cooking",
+          "confidence": 0.8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the main object shown in the image?",
+          "correctAnswer": "cooking pan",
+          "options": [
+            "cooking pan",
+            "plate",
+            "bowl",
+            "pot"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What is the predominant color of the object?",
+          "correctAnswer": "gray",
+          "options": [
+            "red",
+            "blue",
+            "gray",
+            "black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What color are the vegetable stems?",
+          "correctAnswer": "green",
+          "options": [
+            "red",
+            "yellow",
+            "green",
+            "brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the shape of the perforated pattern on the cooking pan?",
+          "correctAnswer": "hexagon",
+          "options": [
+            "square",
+            "circle",
+            "hexagon",
+            "triangle"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "How many vegetable stems are visible in the image?",
+          "correctAnswer": "multiple",
+          "options": [
+            "one",
+            "two",
+            "three",
+            "multiple"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "Where are the vegetable stems located in the image?",
+          "correctAnswer": "center",
+          "options": [
+            "top",
+            "bottom",
+            "left",
+            "center"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the likely purpose of the object shown?",
+          "correctAnswer": "cooking",
+          "options": [
+            "serving",
+            "storing",
+            "cleaning",
+            "cooking"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What type of surface is the cooking pan placed on?",
+          "correctAnswer": "metal",
+          "options": [
+            "wood",
+            "plastic",
+            "metal",
+            "glass"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037243901
+    },
+    {
+      "unsplashId": "sUxDveXrnpw",
+      "url": "https://images.unsplash.com/photo-1610657592176-23d38cb78116?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1610657592176-23d38cb78116?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Aneta Voborilova",
+      "photographerUrl": "https://unsplash.com/@anetvob",
+      "category": "food",
+      "tags": [
+        {
+          "category": "object",
+          "value": "Couscous",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "Olives",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "Mint leaves",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "Orange",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "Green",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "Black",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "Many",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "Plate",
+          "confidence": 0.9
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the main ingredient in the dish?",
+          "correctAnswer": "Couscous",
+          "options": [
+            "Couscous",
+            "Olives",
+            "Tomatoes",
+            "Rice"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What color are the olives in the dish?",
+          "correctAnswer": "Black",
+          "options": [
+            "Black",
+            "Green",
+            "Red",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What other ingredient, besides couscous and olives, can be seen in the dish?",
+          "correctAnswer": "Mint leaves",
+          "options": [
+            "Mint leaves",
+            "Tomatoes",
+            "Peppers",
+            "Onions"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the primary color of the couscous in the dish?",
+          "correctAnswer": "Orange",
+          "options": [
+            "Orange",
+            "Yellow",
+            "White",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "How many different ingredients can be seen in the dish?",
+          "correctAnswer": "Many",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "Many"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "Where is the dish being presented?",
+          "correctAnswer": "Plate",
+          "options": [
+            "Plate",
+            "Bowl",
+            "Tray",
+            "Table"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color are the mint leaves in the dish?",
+          "correctAnswer": "Green",
+          "options": [
+            "Green",
+            "Brown",
+            "Yellow",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What type of dish is this, based on the ingredients and presentation?",
+          "correctAnswer": "Couscous salad",
+          "options": [
+            "Couscous salad",
+            "Pasta dish",
+            "Rice bowl",
+            "Vegetable stir-fry"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037250992
+    },
+    {
+      "unsplashId": "ERFihd1m72Y",
+      "url": "https://images.unsplash.com/photo-1644780743144-765f1ea8f209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1644780743144-765f1ea8f209?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Andrew Danilov",
+      "photographerUrl": "https://unsplash.com/@dnlv_a",
+      "category": "food",
+      "tags": [
+        {
+          "category": "object",
+          "value": "fruit bowl",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "orange",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "brown",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "oranges",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "dates",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "walnuts",
+          "confidence": 0.7
+        },
+        {
+          "category": "count",
+          "value": "multiple",
+          "confidence": 0.9
+        },
+        {
+          "category": "material",
+          "value": "ceramic",
+          "confidence": 0.8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What type of fruit is prominently featured in the image?",
+          "correctAnswer": "Oranges",
+          "options": [
+            "Oranges",
+            "Apples",
+            "Bananas",
+            "Grapes"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What other type of food item can be seen in the bowl?",
+          "correctAnswer": "Dates",
+          "options": [
+            "Dates",
+            "Almonds",
+            "Raisins",
+            "Figs"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What is the main material of the bowl holding the food items?",
+          "correctAnswer": "Ceramic",
+          "options": [
+            "Ceramic",
+            "Glass",
+            "Metal",
+            "Wood"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What color are the orange fruit in the bowl?",
+          "correctAnswer": "Orange",
+          "options": [
+            "Orange",
+            "Yellow",
+            "Red",
+            "Green"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What color is the main body of the bowl?",
+          "correctAnswer": "Brown",
+          "options": [
+            "Brown",
+            "Blue",
+            "White",
+            "Gray"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How many different types of food items can be seen in the bowl?",
+          "correctAnswer": "Multiple",
+          "options": [
+            "One",
+            "Two",
+            "Three",
+            "Multiple"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What type of nut can be seen in the bowl?",
+          "correctAnswer": "Walnuts",
+          "options": [
+            "Walnuts",
+            "Almonds",
+            "Pecans",
+            "Cashews"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the overall shape of the fruit bowl?",
+          "correctAnswer": "Round",
+          "options": [
+            "Round",
+            "Square",
+            "Oval",
+            "Rectangular"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037258253
+    },
+    {
+      "unsplashId": "6Z5McVL6hqY",
+      "url": "https://images.unsplash.com/photo-1644780764837-ada1e0023cb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1644780764837-ada1e0023cb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxmb29kJTIwY29va2luZyUyMG1lYWx8ZW58MHwwfHx8MTc2OTAzNzIzMHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Andrew Danilov",
+      "photographerUrl": "https://unsplash.com/@dnlv_a",
+      "category": "food",
+      "tags": [
+        {
+          "category": "object",
+          "value": "rice dish",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "yellow",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "container",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "blue",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "dried fruits",
+          "confidence": 0.75
+        },
+        {
+          "category": "object",
+          "value": "hands",
+          "confidence": 0.7
+        },
+        {
+          "category": "action",
+          "value": "holding",
+          "confidence": 0.65
+        },
+        {
+          "category": "count",
+          "value": "2 hands",
+          "confidence": 0.6
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the main container holding the rice dish?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What color is the rice dish?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of objects can be seen in the rice dish?",
+          "correctAnswer": "Dried fruits",
+          "options": [
+            "Vegetables",
+            "Meat",
+            "Dried fruits",
+            "Nuts"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "How many hands are holding the container?",
+          "correctAnswer": "2 hands",
+          "options": [
+            "1 hand",
+            "2 hands",
+            "3 hands",
+            "4 hands"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What action are the hands performing?",
+          "correctAnswer": "Holding",
+          "options": [
+            "Stirring",
+            "Serving",
+            "Holding",
+            "Tasting"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What type of dish is shown in the image?",
+          "correctAnswer": "Rice dish",
+          "options": [
+            "Soup",
+            "Salad",
+            "Rice dish",
+            "Pasta"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color appears to be the dominant color in the image?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What type of container is holding the rice dish?",
+          "correctAnswer": "Container",
+          "options": [
+            "Bowl",
+            "Plate",
+            "Container",
+            "Tray"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037266209
+    },
+    {
+      "unsplashId": "ZO9mNMZHLE4",
+      "url": "https://images.unsplash.com/photo-1763928341724-1d8ce7a8ede4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1763928341724-1d8ce7a8ede4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Zoshua Colah",
+      "photographerUrl": "https://unsplash.com/@zoshuacolah",
+      "category": "animals",
+      "tags": [
+        {
+          "category": "object",
+          "value": "cat",
+          "confidence": 0.95
+        },
+        {
+          "category": "color",
+          "value": "brown",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "black",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "eyes",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "whiskers",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "wall",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "rocks",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "alcove",
+          "confidence": 0.75
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the cat's fur?",
+          "correctAnswer": "Brown",
+          "options": [
+            "Brown",
+            "Black",
+            "White",
+            "Orange"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What color are the cat's eyes?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Yellow",
+            "Green",
+            "Blue",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What is the cat hiding in?",
+          "correctAnswer": "Alcove",
+          "options": [
+            "Alcove",
+            "Crate",
+            "Tunnel",
+            "Cave"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the wall made of?",
+          "correctAnswer": "Rocks",
+          "options": [
+            "Rocks",
+            "Brick",
+            "Wood",
+            "Plaster"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "How many whiskers does the cat have?",
+          "correctAnswer": "Many",
+          "options": [
+            "Few",
+            "Many",
+            "None",
+            "One"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What is the cat's expression?",
+          "correctAnswer": "Curious",
+          "options": [
+            "Curious",
+            "Angry",
+            "Sleepy",
+            "Playful"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the cat doing?",
+          "correctAnswer": "Hiding",
+          "options": [
+            "Hiding",
+            "Playing",
+            "Sleeping",
+            "Eating"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the cat's environment?",
+          "correctAnswer": "Cave",
+          "options": [
+            "Cave",
+            "Forest",
+            "City",
+            "House"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037525687
+    },
+    {
+      "unsplashId": "54T8oCM4gjI",
+      "url": "https://images.unsplash.com/photo-1629181302628-eac0a78de710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1629181302628-eac0a78de710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Amit Rai",
+      "photographerUrl": "https://unsplash.com/@amitrai10",
+      "category": "animals",
+      "tags": [
+        {
+          "category": "object",
+          "value": "bird",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "yellow",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "black",
+          "confidence": 0.8
+        },
+        {
+          "category": "environment",
+          "value": "tree",
+          "confidence": 0.9
+        },
+        {
+          "category": "environment",
+          "value": "leaves",
+          "confidence": 0.9
+        },
+        {
+          "category": "environment",
+          "value": "branch",
+          "confidence": 0.8
+        },
+        {
+          "category": "weather",
+          "value": "rain",
+          "confidence": 0.75
+        },
+        {
+          "category": "weather",
+          "value": "mist",
+          "confidence": 0.7
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the bird in the image?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What other color is visible on the bird?",
+          "correctAnswer": "Black",
+          "options": [
+            "Red",
+            "Blue",
+            "Black",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of environment is the bird located in?",
+          "correctAnswer": "Tree",
+          "options": [
+            "Desert",
+            "Ocean",
+            "Tree",
+            "Meadow"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the predominant feature of the environment?",
+          "correctAnswer": "Leaves",
+          "options": [
+            "Rocks",
+            "Water",
+            "Leaves",
+            "Grass"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What part of the tree is the bird perched on?",
+          "correctAnswer": "Branch",
+          "options": [
+            "Trunk",
+            "Root",
+            "Branch",
+            "Leaf"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What weather condition is indicated in the image?",
+          "correctAnswer": "Rain",
+          "options": [
+            "Sunshine",
+            "Snow",
+            "Rain",
+            "Fog"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What additional weather condition is visible in the image?",
+          "correctAnswer": "Mist",
+          "options": [
+            "Wind",
+            "Humidity",
+            "Mist",
+            "Frost"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "How many birds are present in the image?",
+          "correctAnswer": "One",
+          "options": [
+            "One",
+            "Two",
+            "Three",
+            "None"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037532728
+    },
+    {
+      "unsplashId": "pxu2yxCTbTU",
+      "url": "https://images.unsplash.com/photo-1638255402906-e838358069ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1638255402906-e838358069ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Enq 1998",
+      "photographerUrl": "https://unsplash.com/@enq_1998",
+      "category": "animals",
+      "tags": [
+        {
+          "category": "object",
+          "value": "rabbit",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "white",
+          "confidence": 0.95
+        },
+        {
+          "category": "location",
+          "value": "grass",
+          "confidence": 0.85
+        },
+        {
+          "category": "location",
+          "value": "plants",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "yellow",
+          "confidence": 0.8
+        },
+        {
+          "category": "action",
+          "value": "sleeping",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "1",
+          "confidence": 0.95
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the main object in the image?",
+          "correctAnswer": "White",
+          "options": [
+            "White",
+            "Brown",
+            "Gray",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What is the main object in the image?",
+          "correctAnswer": "Rabbit",
+          "options": [
+            "Rabbit",
+            "Bird",
+            "Cat",
+            "Squirrel"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "How many rabbits are in the image?",
+          "correctAnswer": "1",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What type of plants are in the background?",
+          "correctAnswer": "Grass",
+          "options": [
+            "Grass",
+            "Flowers",
+            "Bushes",
+            "Trees"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What color are the plants in the background?",
+          "correctAnswer": "Green",
+          "options": [
+            "Green",
+            "Yellow",
+            "Brown",
+            "Red"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What is the rabbit doing in the image?",
+          "correctAnswer": "Sleeping",
+          "options": [
+            "Sleeping",
+            "Running",
+            "Eating",
+            "Playing"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What color are the yellow plants in the background?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Yellow",
+            "Green",
+            "Orange",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "Where is the rabbit located in the image?",
+          "correctAnswer": "Grass",
+          "options": [
+            "Grass",
+            "Tree",
+            "Bush",
+            "Rock"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037540207
+    },
+    {
+      "unsplashId": "HPms4CetpG0",
+      "url": "https://images.unsplash.com/photo-1561991524-9eaa9f7d910b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1561991524-9eaa9f7d910b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Ernesto Carrazana",
+      "photographerUrl": "https://unsplash.com/@ernestcarrazana",
+      "category": "animals",
+      "tags": [
+        {
+          "category": "object",
+          "value": "kitten",
+          "confidence": 0.95
+        },
+        {
+          "category": "color",
+          "value": "white",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "black",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "orange",
+          "confidence": 0.7
+        },
+        {
+          "category": "object",
+          "value": "shoe",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "clog",
+          "confidence": 0.7
+        },
+        {
+          "category": "count",
+          "value": "1",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "inside",
+          "confidence": 0.85
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the kitten's fur?",
+          "correctAnswer": "White",
+          "options": [
+            "White",
+            "Black",
+            "Orange",
+            "Gray"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "How many kittens are in the image?",
+          "correctAnswer": "1",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of object is the kitten sitting in?",
+          "correctAnswer": "Shoe",
+          "options": [
+            "Shoe",
+            "Bowl",
+            "Basket",
+            "Clog"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What color are the kitten's eyes?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Blue",
+            "Green",
+            "Yellow",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "Where is the kitten located in the image?",
+          "correctAnswer": "Inside",
+          "options": [
+            "Inside",
+            "Outside",
+            "On top",
+            "Beside"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What color are the kitten's paws?",
+          "correctAnswer": "White",
+          "options": [
+            "White",
+            "Black",
+            "Orange",
+            "Mixed"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the main color of the object the kitten is sitting in?",
+          "correctAnswer": "White",
+          "options": [
+            "White",
+            "Black",
+            "Gray",
+            "Tan"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What type of object is the kitten sitting on?",
+          "correctAnswer": "Clog",
+          "options": [
+            "Shoe",
+            "Bowl",
+            "Basket",
+            "Clog"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037547009
+    },
+    {
+      "unsplashId": "N0cnWQxDpco",
+      "url": "https://images.unsplash.com/photo-1690932237319-0ff96deb5586?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1690932237319-0ff96deb5586?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxhbmltYWxzJTIwd2lsZGxpZmUlMjBwZXRzfGVufDB8MHx8fDE3NjkwMzc1MTl8MA&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Clayton Malquist",
+      "photographerUrl": "https://unsplash.com/@cmalquist",
+      "category": "animals",
+      "tags": [
+        {
+          "category": "object",
+          "value": "kitten",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "black",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "blue",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "bedroom",
+          "confidence": 0.75
+        },
+        {
+          "category": "object",
+          "value": "bed",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "nightstand",
+          "confidence": 0.75
+        },
+        {
+          "category": "object",
+          "value": "plant",
+          "confidence": 0.7
+        },
+        {
+          "category": "action",
+          "value": "sitting",
+          "confidence": 0.8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the kitten?",
+          "correctAnswer": "Black",
+          "options": [
+            "Black",
+            "White",
+            "Brown",
+            "Gray"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What color are the kitten's eyes?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Blue",
+            "Green",
+            "Yellow",
+            "Brown"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "Where is the kitten located?",
+          "correctAnswer": "Bedroom",
+          "options": [
+            "Bedroom",
+            "Kitchen",
+            "Living Room",
+            "Bathroom"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What object is the kitten sitting on?",
+          "correctAnswer": "Bed",
+          "options": [
+            "Bed",
+            "Couch",
+            "Rug",
+            "Floor"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What object is on the nightstand?",
+          "correctAnswer": "Plant",
+          "options": [
+            "Plant",
+            "Lamp",
+            "Book",
+            "Clock"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What is the kitten doing?",
+          "correctAnswer": "Sitting",
+          "options": [
+            "Sitting",
+            "Sleeping",
+            "Playing",
+            "Eating"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "How many plants are in the image?",
+          "correctAnswer": "1",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "How many nightstands are in the image?",
+          "correctAnswer": "1",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037554054
+    },
+    {
+      "unsplashId": "2BnCcPb2Rhk",
+      "url": "https://images.unsplash.com/photo-1713831211206-48dcd6aeafd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1713831211206-48dcd6aeafd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwxfHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Wsky Ago",
+      "photographerUrl": "https://unsplash.com/@wsky",
+      "category": "urban",
+      "tags": [
+        {
+          "category": "object",
+          "value": "skyscraper",
+          "confidence": 0.95
+        },
+        {
+          "category": "object",
+          "value": "trees",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "green",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "glass",
+          "confidence": 0.85
+        },
+        {
+          "category": "count",
+          "value": "multiple",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "city",
+          "confidence": 0.85
+        },
+        {
+          "category": "location",
+          "value": "street",
+          "confidence": 0.8
+        },
+        {
+          "category": "action",
+          "value": "reflect",
+          "confidence": 0.75
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What type of structures are the main objects in the image?",
+          "correctAnswer": "Skyscrapers",
+          "options": [
+            "Skyscrapers",
+            "Houses",
+            "Parks",
+            "Bridges"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "What is the dominant color of the buildings in the image?",
+          "correctAnswer": "Glass",
+          "options": [
+            "Glass",
+            "Concrete",
+            "Red",
+            "Blue"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of natural elements are present in the image?",
+          "correctAnswer": "Trees",
+          "options": [
+            "Trees",
+            "Grass",
+            "Flowers",
+            "Water"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "How many buildings are visible in the image?",
+          "correctAnswer": "Multiple",
+          "options": [
+            "One",
+            "Two",
+            "Three",
+            "Multiple"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What type of location is depicted in the image?",
+          "correctAnswer": "City",
+          "options": [
+            "City",
+            "Suburb",
+            "Rural",
+            "Industrial"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "What type of infrastructure is visible in the image?",
+          "correctAnswer": "Street",
+          "options": [
+            "Street",
+            "Highway",
+            "Sidewalk",
+            "Park"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What action or effect is suggested by the image?",
+          "correctAnswer": "Reflect",
+          "options": [
+            "Reflect",
+            "Move",
+            "Grow",
+            "Shine"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the overall atmosphere or mood conveyed by the image?",
+          "correctAnswer": "Urban",
+          "options": [
+            "Urban",
+            "Peaceful",
+            "Busy",
+            "Isolated"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037811804
+    },
+    {
+      "unsplashId": "eOgijTBqP4M",
+      "url": "https://images.unsplash.com/photo-1613539266165-e444d4d3c977?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1613539266165-e444d4d3c977?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwyfHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Mike Watford",
+      "photographerUrl": "https://unsplash.com/@bodegastaples",
+      "category": "urban",
+      "tags": [
+        {
+          "category": "object",
+          "value": "Crusader baseball team jacket",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "Black",
+          "confidence": 0.85
+        },
+        {
+          "category": "count",
+          "value": "4 people",
+          "confidence": 0.8
+        },
+        {
+          "category": "location",
+          "value": "Sidewalk",
+          "confidence": 0.8
+        },
+        {
+          "category": "action",
+          "value": "Walking",
+          "confidence": 0.8
+        },
+        {
+          "category": "object",
+          "value": "Backpack",
+          "confidence": 0.7
+        },
+        {
+          "category": "color",
+          "value": "Beige",
+          "confidence": 0.7
+        },
+        {
+          "category": "color",
+          "value": "Gray",
+          "confidence": 0.6
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What color is the jacket worn by the group?",
+          "correctAnswer": "Black",
+          "options": [
+            "Black",
+            "Red",
+            "Blue",
+            "White"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "How many people are visible in the image?",
+          "correctAnswer": "4",
+          "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What is the text on the jacket worn by the group?",
+          "correctAnswer": "Crusader Baseball",
+          "options": [
+            "Crusader Baseball",
+            "Team Sports",
+            "Varsity Jacket",
+            "University"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What color is the backpack worn by the person on the left?",
+          "correctAnswer": "Beige",
+          "options": [
+            "Beige",
+            "Green",
+            "Black",
+            "Blue"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What is the dominant color in the image?",
+          "correctAnswer": "Gray",
+          "options": [
+            "Gray",
+            "Black",
+            "White",
+            "Beige"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "Where are the people walking?",
+          "correctAnswer": "Sidewalk",
+          "options": [
+            "Sidewalk",
+            "Street",
+            "Park",
+            "Mall"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What are the people in the image doing?",
+          "correctAnswer": "Walking",
+          "options": [
+            "Walking",
+            "Running",
+            "Standing",
+            "Waiting"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What type of object is worn by the person on the left?",
+          "correctAnswer": "Backpack",
+          "options": [
+            "Backpack",
+            "Purse",
+            "Bag",
+            "Briefcase"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037818700
+    },
+    {
+      "unsplashId": "AJ1TWGn5NiE",
+      "url": "https://images.unsplash.com/photo-1696798637345-6e58432ca556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1696798637345-6e58432ca556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHwzfHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Yaroslav Poltavskyi",
+      "photographerUrl": "https://unsplash.com/@polt_yaro",
+      "category": "urban",
+      "tags": [
+        {
+          "category": "object",
+          "value": "city skyline",
+          "confidence": 0.9
+        },
+        {
+          "category": "color",
+          "value": "dark",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "red",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "many buildings",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "multiple lanes of traffic",
+          "confidence": 0.85
+        },
+        {
+          "category": "location",
+          "value": "urban environment",
+          "confidence": 0.9
+        },
+        {
+          "category": "action",
+          "value": "movement of vehicles",
+          "confidence": 0.85
+        },
+        {
+          "category": "action",
+          "value": "reflection in water",
+          "confidence": 0.8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the dominant color in the image?",
+          "correctAnswer": "Red",
+          "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "How many distinct lanes of traffic are visible?",
+          "correctAnswer": "Multiple",
+          "options": [
+            "One",
+            "Two",
+            "Three",
+            "Multiple"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of environment is depicted in the image?",
+          "correctAnswer": "Urban",
+          "options": [
+            "Rural",
+            "Suburban",
+            "Urban",
+            "Industrial"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the dominant motion shown in the image?",
+          "correctAnswer": "Movement of vehicles",
+          "options": [
+            "Pedestrian activity",
+            "Movement of vehicles",
+            "Stationary objects",
+            "Architectural details"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What is the dominant reflection visible in the image?",
+          "correctAnswer": "Reflection in water",
+          "options": [
+            "Reflection in glass",
+            "Reflection in metal",
+            "Reflection in water",
+            "No significant reflections"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How many distinct buildings are visible in the skyline?",
+          "correctAnswer": "Many",
+          "options": [
+            "One",
+            "Few",
+            "Several",
+            "Many"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the overall lighting environment depicted in the image?",
+          "correctAnswer": "Dark",
+          "options": [
+            "Bright",
+            "Overcast",
+            "Dark",
+            "Twilight"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the primary architectural style of the buildings shown?",
+          "correctAnswer": "Modern",
+          "options": [
+            "Classical",
+            "Gothic",
+            "Modern",
+            "Industrial"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037827323
+    },
+    {
+      "unsplashId": "h6Ocoh_vSaw",
+      "url": "https://images.unsplash.com/photo-1714925291389-babe9ae5e3b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1714925291389-babe9ae5e3b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw0fHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Chriso C",
+      "photographerUrl": "https://unsplash.com/@chriso7",
+      "category": "urban",
+      "tags": [
+        {
+          "category": "object",
+          "value": "skyscraper",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "glass facade",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "steel beams",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "grey",
+          "confidence": 0.85
+        },
+        {
+          "category": "color",
+          "value": "blue",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "multiple buildings",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "urban",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "city center",
+          "confidence": 0.8
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the predominant color of the buildings in the image?",
+          "correctAnswer": "Grey",
+          "options": [
+            "Grey",
+            "Blue",
+            "White",
+            "Black"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "How many distinct buildings are visible in the image?",
+          "correctAnswer": "Multiple",
+          "options": [
+            "One",
+            "Two",
+            "Three",
+            "Multiple"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of architectural elements are used in the buildings?",
+          "correctAnswer": "Glass facade",
+          "options": [
+            "Glass facade",
+            "Brick walls",
+            "Wooden beams",
+            "Stone pillars"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What is the overall setting of the image?",
+          "correctAnswer": "Urban",
+          "options": [
+            "Rural",
+            "Suburban",
+            "Urban",
+            "Industrial"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What type of structural elements are visible in the buildings?",
+          "correctAnswer": "Steel beams",
+          "options": [
+            "Wooden beams",
+            "Concrete pillars",
+            "Steel beams",
+            "Glass panels"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "Where is the location of the buildings depicted in the image?",
+          "correctAnswer": "City center",
+          "options": [
+            "Suburban area",
+            "Rural countryside",
+            "City center",
+            "Industrial district"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the overall architectural style of the buildings?",
+          "correctAnswer": "Skyscraper",
+          "options": [
+            "Colonial",
+            "Modernist",
+            "Skyscraper",
+            "Gothic"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What is the most prominent material used in the buildings' construction?",
+          "correctAnswer": "Glass",
+          "options": [
+            "Wood",
+            "Brick",
+            "Glass",
+            "Concrete"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037835468
+    },
+    {
+      "unsplashId": "lus9leW0n-I",
+      "url": "https://images.unsplash.com/photo-1757339801273-c28a906e25f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumbUrl": "https://images.unsplash.com/photo-1757339801273-c28a906e25f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NjA4NjR8MHwxfHNlYXJjaHw1fHxjaXR5JTIwc3RyZWV0JTIwdXJiYW58ZW58MHwwfHx8MTc2OTAzNzgwNHww&ixlib=rb-4.1.0&q=80&w=400",
+      "photographer": "Sixteen Miles Out",
+      "photographerUrl": "https://unsplash.com/@sixteenmilesout",
+      "category": "urban",
+      "tags": [
+        {
+          "category": "object",
+          "value": "building",
+          "confidence": 0.9
+        },
+        {
+          "category": "object",
+          "value": "trees",
+          "confidence": 0.85
+        },
+        {
+          "category": "object",
+          "value": "cars",
+          "confidence": 0.8
+        },
+        {
+          "category": "color",
+          "value": "black and white",
+          "confidence": 0.9
+        },
+        {
+          "category": "location",
+          "value": "street",
+          "confidence": 0.85
+        },
+        {
+          "category": "count",
+          "value": "2",
+          "confidence": 0.8
+        },
+        {
+          "category": "count",
+          "value": "multiple",
+          "confidence": 0.85
+        },
+        {
+          "category": "action",
+          "value": "moving",
+          "confidence": 0.7
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the dominant color in the image?",
+          "correctAnswer": "Black and white",
+          "options": [
+            "Black and white",
+            "Sepia",
+            "Grayscale",
+            "Monochrome"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q2",
+          "questionText": "How many vehicles are visible in the image?",
+          "correctAnswer": "2",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q3",
+          "questionText": "What type of objects are the tall structures in the image?",
+          "correctAnswer": "Buildings",
+          "options": [
+            "Trees",
+            "Statues",
+            "Buildings",
+            "Billboards"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q4",
+          "questionText": "What kind of action is depicted in the image?",
+          "correctAnswer": "Moving",
+          "options": [
+            "Parked",
+            "Stopped",
+            "Moving",
+            "Idling"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q5",
+          "questionText": "What type of environment is shown in the image?",
+          "correctAnswer": "Street",
+          "options": [
+            "Park",
+            "Parking lot",
+            "Street",
+            "Residential"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q6",
+          "questionText": "How many distinct tree shapes can be seen in the image?",
+          "correctAnswer": "Multiple",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "Multiple"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the lighting condition in the image?",
+          "correctAnswer": "Overcast",
+          "options": [
+            "Sunny",
+            "Rainy",
+            "Overcast",
+            "Nighttime"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        },
+        {
+          "id": "q8",
+          "questionText": "What type of vehicles are visible in the image?",
+          "correctAnswer": "Cars",
+          "options": [
+            "Buses",
+            "Motorcycles",
+            "Cars",
+            "Trucks"
+          ],
+          "userAnswer": null,
+          "isCorrect": null
+        }
+      ],
+      "cachedAt": 1769037842942
     }
   ],
-  "categories": ["nature", "urban", "animals", "food"]
+  "categories": [
+    "urban",
+    "nature",
+    "animals",
+    "food"
+  ]
 }

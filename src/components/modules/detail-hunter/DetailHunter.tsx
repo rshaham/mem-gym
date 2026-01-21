@@ -64,6 +64,8 @@ export function DetailHunter(): JSX.Element {
     questions,
     session,
     availableCategories,
+    isLoading,
+    error,
     startSession,
     finishViewing,
     startQuiz,
@@ -96,6 +98,8 @@ export function DetailHunter(): JSX.Element {
       <GameSetup
         onStart={startSession}
         availableCategories={availableCategories}
+        isLoading={isLoading}
+        error={error}
       />
     );
   }

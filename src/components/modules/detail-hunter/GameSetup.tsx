@@ -3,8 +3,10 @@ import { Button } from '../../common/Button';
 import { Card } from '../../common/Card';
 
 interface GameSetupProps {
-  onStart: (category: string, viewingTime: number, delayMinutes: number) => void;
+  onStart: (category: string, viewingTime: number, delayMinutes: number) => Promise<void>;
   availableCategories: string[];
+  isLoading?: boolean;
+  error?: string | null;
 }
 
 const VIEWING_TIME_OPTIONS = [10, 15, 20, 30] as const;
@@ -17,7 +19,7 @@ const DELAY_OPTIONS = [
 
 const DEFAULT_CATEGORIES = ['Nature', 'Urban', 'Animals', 'Food'];
 
-export function GameSetup({ onStart, availableCategories }: GameSetupProps): JSX.Element {
+export function GameSetup({ onStart, availableCategories, isLoading = false, error = null }: GameSetupProps): JSX.Element {
   const categories = availableCategories.length > 0 ? availableCategories : DEFAULT_CATEGORIES;
 
   const [selectedCategory, setSelectedCategory] = useState<string>(categories[0]);
@@ -174,16 +176,24 @@ export function GameSetup({ onStart, availableCategories }: GameSetupProps): JSX
         </div>
       </Card>
 
+      {/* Error Message */}
+      {error && (
+        <div className="p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-xl">
+          <p className="text-sm text-red-700 dark:text-red-300 text-center">{error}</p>
+        </div>
+      )}
+
       {/* Begin Button */}
       <Button
         variant="primary"
         size="lg"
         fullWidth
         onClick={handleStart}
+        disabled={isLoading}
         aria-label={`Begin training with ${selectedCategory} images, ${selectedViewingTime} second viewing time, and ${selectedDelay === 0 ? 'no' : selectedDelay + ' minute'} delay`}
-        className="text-xl py-4 !bg-detail-hunter hover:!bg-[#4745c5] active:!bg-[#3a39a8]"
+        className="text-xl py-4 !bg-detail-hunter hover:!bg-[#4745c5] active:!bg-[#3a39a8] disabled:opacity-50"
       >
-        Begin Training
+        {isLoading ? 'Loading...' : 'Begin Training'}
       </Button>
     </div>
   );

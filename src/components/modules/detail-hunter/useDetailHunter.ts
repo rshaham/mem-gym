@@ -1,6 +1,10 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import type { CachedImage, QuizQuestion, DetailHunterSession } from '../../../types';
-import imageCache from '../../../data/detail-hunter-cache.json';
+import {
+  getCachedCategories,
+  getImageForSession,
+  cloneQuestionsForSession,
+} from '../../../utils/detailHunterCache';
 
 // ============ TYPES ============
 
@@ -27,7 +31,9 @@ interface UseDetailHunterReturn {
   questions: QuizQuestion[];
   session: DetailHunterSession | null;
   availableCategories: string[];
-  startSession: (category: string, viewingTime: number, delayMinutes: number) => void;
+  isLoading: boolean;
+  error: string | null;
+  startSession: (category: string, viewingTime: number, delayMinutes: number) => Promise<void>;
   finishViewing: () => void;
   startQuiz: () => void;
   answerQuestion: (answer: string) => void;
@@ -36,36 +42,6 @@ interface UseDetailHunterReturn {
 }
 
 // ============ HELPER FUNCTIONS ============
-
-/**
- * Selects a random image from the cache matching the given category
- * If category is 'all', selects from all images
- */
-function selectImageByCategory(category: string): CachedImage | null {
-  const images = (imageCache as { images: CachedImage[] }).images;
-
-  const filteredImages = category === 'all'
-    ? images
-    : images.filter(img => img.category === category);
-
-  if (filteredImages.length === 0) {
-    return null;
-  }
-
-  const randomIndex = Math.floor(Math.random() * filteredImages.length);
-  return filteredImages[randomIndex];
-}
-
-/**
- * Creates a deep copy of questions to reset user answers
- */
-function cloneQuestions(questions: QuizQuestion[]): QuizQuestion[] {
-  return questions.map(q => ({
-    ...q,
-    userAnswer: null,
-    isCorrect: null,
-  }));
-}
 
 /**
  * Calculates delay bonus based on delay minutes
@@ -132,6 +108,8 @@ export function useDetailHunter({
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [session, setSession] = useState<DetailHunterSession | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Session configuration refs
   const viewingTimeRef = useRef<number>(30);
@@ -162,63 +140,68 @@ export function useDetailHunter({
   }, []);
 
   // Get available categories from the cache
-  const availableCategories = (imageCache as { categories: string[] }).categories;
+  const availableCategories = getCachedCategories();
 
   /**
    * Starts a new Detail Hunter session
    */
-  const startSession = useCallback((category: string, viewingTime: number, delayMinutes: number) => {
-    // Select a random image matching the category
-    const image = selectImageByCategory(category);
+  const startSession = useCallback(async (category: string, viewingTime: number, delayMinutes: number) => {
+    setIsLoading(true);
+    setError(null);
 
-    if (!image) {
-      throw new Error(`No images found for category: ${category}`);
-    }
+    try {
+      // Get an image (from cache or API)
+      const image = await getImageForSession(category);
 
-    // Store configuration
-    viewingTimeRef.current = viewingTime;
-    delayMinutesRef.current = delayMinutes;
+      // Store configuration
+      viewingTimeRef.current = viewingTime;
+      delayMinutesRef.current = delayMinutes;
 
-    // Clone questions to reset any previous answers
-    const sessionQuestions = cloneQuestions(image.questions);
+      // Clone questions to reset any previous answers
+      const sessionQuestions = cloneQuestionsForSession(image.questions);
 
-    // Create the session
-    const newSession: DetailHunterSession = {
-      id: crypto.randomUUID(),
-      imageId: image.unsplashId,
-      imageUrl: image.url,
-      category: image.category,
-      viewingTime,
-      delayMinutes,
-      viewedAt: Date.now(),
-      quizStartedAt: null,
-      questions: sessionQuestions,
-      score: null,
-      xpEarned: null,
-      status: 'viewing',
-    };
+      // Create the session
+      const newSession: DetailHunterSession = {
+        id: crypto.randomUUID(),
+        imageId: image.unsplashId,
+        imageUrl: image.url,
+        category: image.category,
+        viewingTime,
+        delayMinutes,
+        viewedAt: Date.now(),
+        quizStartedAt: null,
+        questions: sessionQuestions,
+        score: null,
+        xpEarned: null,
+        status: 'viewing',
+      };
 
-    setSelectedImage(image);
-    setQuestions(sessionQuestions);
-    setSession(newSession);
-    setCurrentQuestionIndex(0);
-    setViewingTimeLeft(viewingTime);
-    setPhase('viewing');
+      setSelectedImage(image);
+      setQuestions(sessionQuestions);
+      setSession(newSession);
+      setCurrentQuestionIndex(0);
+      setViewingTimeLeft(viewingTime);
+      setPhase('viewing');
 
-    // Start the viewing countdown timer
-    viewingTimerRef.current = window.setInterval(() => {
-      setViewingTimeLeft(prev => {
-        if (prev <= 1) {
-          // Timer complete - clear interval
-          if (viewingTimerRef.current !== null) {
-            window.clearInterval(viewingTimerRef.current);
-            viewingTimerRef.current = null;
+      // Start the viewing countdown timer
+      viewingTimerRef.current = window.setInterval(() => {
+        setViewingTimeLeft(prev => {
+          if (prev <= 1) {
+            // Timer complete - clear interval
+            if (viewingTimerRef.current !== null) {
+              window.clearInterval(viewingTimerRef.current);
+              viewingTimerRef.current = null;
+            }
+            return 0;
           }
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+          return prev - 1;
+        });
+      }, 1000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load image');
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   /**
@@ -389,6 +372,8 @@ export function useDetailHunter({
     questions,
     session,
     availableCategories,
+    isLoading,
+    error,
     startSession,
     finishViewing,
     startQuiz,
