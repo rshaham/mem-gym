@@ -275,6 +275,14 @@ export function useDetailHunter({
     });
   }, []);
 
+  // Effect to trigger completion callback when session is completed
+  // This avoids calling setState during render
+  useEffect(() => {
+    if (session?.status === 'completed' && session.xpEarned !== null) {
+      onQuizCompleteRef.current?.(session);
+    }
+  }, [session?.status, session?.xpEarned]);
+
   /**
    * Records the user's answer for the current question
    */
@@ -309,22 +317,16 @@ export function useDetailHunter({
             delayMinutesRef.current
           );
 
-          // Update session with final results
+          // Update session with final results (callback triggered by effect)
           setSession(prev => {
             if (!prev) return null;
-
-            const completedSession: DetailHunterSession = {
+            return {
               ...prev,
               questions: finalQuestions,
               score,
               xpEarned,
               status: 'completed',
             };
-
-            // Trigger completion callback
-            onQuizCompleteRef.current?.(completedSession);
-
-            return completedSession;
           });
 
           setPhase('results');
