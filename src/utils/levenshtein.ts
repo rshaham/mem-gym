@@ -3,6 +3,150 @@
  * Provides string comparison functions for measuring recall accuracy.
  */
 
+// ============ NUMBER PARSING ============
+
+/**
+ * Base number words mapped to their numeric values.
+ */
+const BASE_NUMBERS: Record<string, number> = {
+  'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4,
+  'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9,
+  'ten': 10, 'eleven': 11, 'twelve': 12, 'thirteen': 13,
+  'fourteen': 14, 'fifteen': 15, 'sixteen': 16, 'seventeen': 17,
+  'eighteen': 18, 'nineteen': 19, 'twenty': 20, 'thirty': 30,
+  'forty': 40, 'fifty': 50, 'sixty': 60, 'seventy': 70,
+  'eighty': 80, 'ninety': 90,
+};
+
+/**
+ * Multiplier words for compound numbers.
+ */
+const MULTIPLIERS: Record<string, number> = {
+  'hundred': 100,
+  'thousand': 1000,
+  'million': 1000000,
+  'billion': 1000000000,
+};
+
+/**
+ * Parses compound number words into a numeric value.
+ * Handles patterns like "three hundred fifty two" → 352
+ *
+ * @param words - Array of words to parse
+ * @returns Object with numeric value and count of words consumed, or null if not a number
+ */
+function parseNumberWords(words: string[]): { value: number; wordsConsumed: number } | null {
+  if (words.length === 0) return null;
+
+  const firstWord = words[0].toLowerCase();
+
+  // Check if starts with a digit (already a number)
+  if (/^\d+$/.test(firstWord)) {
+    return { value: parseInt(firstWord, 10), wordsConsumed: 1 };
+  }
+
+  // Check if first word is a number word
+  if (!(firstWord in BASE_NUMBERS) && !(firstWord in MULTIPLIERS)) {
+    return null;
+  }
+
+  let total = 0;
+  let current = 0;
+  let wordsConsumed = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i].toLowerCase();
+
+    if (word in BASE_NUMBERS) {
+      current += BASE_NUMBERS[word];
+      wordsConsumed = i + 1;
+    } else if (word in MULTIPLIERS) {
+      const multiplier = MULTIPLIERS[word];
+      if (current === 0) current = 1; // "hundred" alone means 100
+      if (multiplier >= 1000) {
+        // thousand, million, billion: add to total and reset
+        total += current * multiplier;
+        current = 0;
+      } else {
+        // hundred: multiply current
+        current *= multiplier;
+      }
+      wordsConsumed = i + 1;
+    } else {
+      // Not a number word, stop parsing
+      break;
+    }
+  }
+
+  total += current;
+
+  if (wordsConsumed === 0) return null;
+  return { value: total, wordsConsumed };
+}
+
+/**
+ * Normalizes a word by stripping all punctuation and converting to lowercase.
+ *
+ * @param word - The word to normalize
+ * @returns The normalized word
+ */
+function normalizeWord(word: string): string {
+  return word.toLowerCase().replace(/[^\w]/g, '');
+}
+
+/**
+ * Checks if two words match with tolerance for 1-character typos.
+ * Also handles number word equivalence (e.g., "three" matches "3").
+ *
+ * @param word1 - First word
+ * @param word2 - Second word
+ * @returns True if words match within tolerance
+ */
+function wordsMatch(word1: string, word2: string): boolean {
+  const n1 = normalizeWord(word1);
+  const n2 = normalizeWord(word2);
+
+  if (n1 === n2) return true;
+
+  // Check if both are single number words that match
+  const num1 = BASE_NUMBERS[n1];
+  const num2 = BASE_NUMBERS[n2];
+  if (num1 !== undefined && num2 !== undefined && num1 === num2) return true;
+
+  // Check if one is a digit and the other is a number word
+  if (/^\d+$/.test(n1) && num2 !== undefined && parseInt(n1, 10) === num2) return true;
+  if (/^\d+$/.test(n2) && num1 !== undefined && parseInt(n2, 10) === num1) return true;
+
+  // Allow 1-character typo tolerance
+  const distance = levenshteinDistance(n1, n2);
+  return distance <= 1;
+}
+
+/**
+ * Collapses number word sequences in an array into digit strings.
+ * E.g., ["three", "hundred", "fifty", "two"] → ["352"]
+ *
+ * @param words - Array of words
+ * @returns Array with number sequences collapsed to digit strings
+ */
+function collapseNumberWords(words: string[]): string[] {
+  const result: string[] = [];
+  let i = 0;
+
+  while (i < words.length) {
+    const parsed = parseNumberWords(words.slice(i));
+    if (parsed && parsed.wordsConsumed > 0) {
+      result.push(String(parsed.value));
+      i += parsed.wordsConsumed;
+    } else {
+      result.push(words[i]);
+      i++;
+    }
+  }
+
+  return result;
+}
+
 /**
  * Represents the comparison result for a single word.
  */
@@ -142,8 +286,12 @@ export function calculateSimilarity(original: string, recalled: string): number 
  * ```
  */
 export function wordLevelComparison(original: string, recalled: string): WordComparison[] {
-  const originalWords = normalizeString(original).split(' ').filter(w => w.length > 0);
-  const recalledWords = normalizeString(recalled).split(' ').filter(w => w.length > 0);
+  // Pre-process: split, normalize, and collapse number sequences
+  const rawOriginalWords = normalizeString(original).split(' ').filter(w => w.length > 0);
+  const rawRecalledWords = normalizeString(recalled).split(' ').filter(w => w.length > 0);
+
+  const originalWords = collapseNumberWords(rawOriginalWords);
+  const recalledWords = collapseNumberWords(rawRecalledWords);
 
   // Handle empty inputs
   if (originalWords.length === 0 && recalledWords.length === 0) {
@@ -162,7 +310,7 @@ export function wordLevelComparison(original: string, recalled: string): WordCom
   const m = originalWords.length;
   const n = recalledWords.length;
 
-  // Build the edit distance matrix
+  // Build the edit distance matrix using fuzzy matching
   const dp: number[][] = Array(m + 1)
     .fill(null)
     .map(() => Array(n + 1).fill(0));
@@ -177,10 +325,10 @@ export function wordLevelComparison(original: string, recalled: string): WordCom
     dp[0][j] = j;
   }
 
-  // Fill the matrix
+  // Fill the matrix using wordsMatch for fuzzy comparison
   for (let i = 1; i <= m; i++) {
     for (let j = 1; j <= n; j++) {
-      const cost = originalWords[i - 1] === recalledWords[j - 1] ? 0 : 1;
+      const cost = wordsMatch(originalWords[i - 1], recalledWords[j - 1]) ? 0 : 1;
       dp[i][j] = Math.min(
         dp[i - 1][j] + 1,      // deletion (missing word)
         dp[i][j - 1] + 1,      // insertion (extra word)
@@ -195,8 +343,8 @@ export function wordLevelComparison(original: string, recalled: string): WordCom
   let j = n;
 
   while (i > 0 || j > 0) {
-    if (i > 0 && j > 0 && originalWords[i - 1] === recalledWords[j - 1]) {
-      // Match - words are identical
+    if (i > 0 && j > 0 && wordsMatch(originalWords[i - 1], recalledWords[j - 1])) {
+      // Match - words are equivalent (exact or within tolerance)
       result.unshift({
         word: recalledWords[j - 1],
         status: 'correct'

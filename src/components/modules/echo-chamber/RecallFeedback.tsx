@@ -72,8 +72,8 @@ export function RecallFeedback({
   );
 
   return (
-    <div className="min-h-screen flex flex-col p-4 bg-[var(--bg-secondary)]">
-      <div className="flex-1 flex flex-col gap-4 max-w-md mx-auto w-full py-4">
+    <div className="min-h-screen overflow-y-auto p-4 pb-8 bg-[var(--bg-secondary)]">
+      <div className="flex flex-col gap-4 max-w-md mx-auto w-full py-4">
         {/* Score Display */}
         <Card className="text-center">
           <p className="text-sm text-[var(--text-secondary)] mb-1">
@@ -154,7 +154,7 @@ export function RecallFeedback({
         </Card>
 
         {/* Continue Button */}
-        <div className="mt-auto pt-4">
+        <div className="pt-2">
           <Button
             variant="primary"
             size="lg"

@@ -61,10 +61,16 @@ export function SentencePresenter({
         onCompleteRef.current();
       };
 
-      // Small delay before speaking to let component render
+      // Prime TTS with empty utterance to wake up the engine
+      // Then use simple timeout to speak (avoids async callback race conditions)
+      const primer = new SpeechSynthesisUtterance('');
+      primer.volume = 0;
+      window.speechSynthesis.speak(primer);
+
+      // Delay before speaking actual sentence
       timerRef.current = setTimeout(() => {
         window.speechSynthesis.speak(utterance);
-      }, 100);
+      }, 300);
     } else {
       // Fallback: if speechSynthesis not available, show visually and complete
       timerRef.current = setTimeout(() => {

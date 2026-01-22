@@ -137,10 +137,11 @@ export function SessionResults({
 
   return (
     <div
-      className="flex flex-col gap-4 p-4 max-h-full overflow-y-auto"
+      className="min-h-screen overflow-y-auto p-4 pb-8 bg-[var(--bg-secondary)]"
       role="region"
       aria-label="Session Results"
     >
+      <div className="flex flex-col gap-4 max-w-md mx-auto w-full">
       {/* Performance Header with Circular Progress */}
       <Card className="text-center">
         <p className="text-lg text-[var(--text-secondary)] mb-4">{performance}</p>
@@ -206,7 +207,7 @@ export function SessionResults({
       </Card>
 
       {/* Action Buttons */}
-      <div className="flex flex-col gap-3 mt-2 pb-4">
+      <div className="flex flex-col gap-3 pt-2">
         <Button
           variant="primary"
           size="lg"
@@ -227,6 +228,7 @@ export function SessionResults({
         >
           Exit
         </Button>
+      </div>
       </div>
     </div>
   );
