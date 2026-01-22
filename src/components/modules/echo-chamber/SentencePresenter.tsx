@@ -16,23 +16,32 @@ export function SentencePresenter({
   onComplete,
 }: SentencePresenterProps): JSX.Element {
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const hasStartedRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const onCompleteRef = useRef(onComplete);
+
+  // Keep onComplete ref updated to avoid stale closures
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
-    // Prevent double-execution in strict mode
-    if (hasStartedRef.current) return;
-    hasStartedRef.current = true;
-
     const hasSpeechSynthesis = 'speechSynthesis' in window;
+
+    // Clear any existing timer
+    if (timerRef.current !== null) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
 
     if (mode === 'visual') {
       // Visual mode: display for 3 seconds then call onComplete
       timerRef.current = setTimeout(() => {
-        onComplete();
+        onCompleteRef.current();
       }, VISUAL_DISPLAY_DURATION_MS);
     } else if (hasSpeechSynthesis) {
       // Audio mode: use Web Speech API
+      window.speechSynthesis.cancel(); // Cancel any pending speech first
+
       const utterance = new SpeechSynthesisUtterance(sentence);
       utterance.rate = 0.9; // Slightly slower for clarity
       utterance.pitch = 1;
@@ -43,24 +52,23 @@ export function SentencePresenter({
 
       utterance.onend = () => {
         setIsSpeaking(false);
-        onComplete();
+        onCompleteRef.current();
       };
 
       utterance.onerror = () => {
         // If speech fails, fall back to completing after a delay
         setIsSpeaking(false);
-        onComplete();
+        onCompleteRef.current();
       };
 
       // Small delay before speaking to let component render
       timerRef.current = setTimeout(() => {
-        window.speechSynthesis.cancel(); // Cancel any pending speech
         window.speechSynthesis.speak(utterance);
-      }, 500);
+      }, 100);
     } else {
       // Fallback: if speechSynthesis not available, show visually and complete
       timerRef.current = setTimeout(() => {
-        onComplete();
+        onCompleteRef.current();
       }, VISUAL_DISPLAY_DURATION_MS);
     }
 
@@ -72,7 +80,7 @@ export function SentencePresenter({
         window.speechSynthesis.cancel();
       }
     };
-  }, [sentence, mode, onComplete]);
+  }, [sentence, mode]); // Remove onComplete from deps, use ref instead
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[var(--bg-secondary)]">

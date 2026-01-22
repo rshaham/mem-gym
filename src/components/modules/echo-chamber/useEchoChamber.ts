@@ -91,26 +91,6 @@ function calculateXP(
   return baseXP + speedBonusXP;
 }
 
-/**
- * Speaks a sentence using Web Speech API (TTS).
- * Returns a promise that resolves when speech is complete.
- */
-function speakSentence(sentence: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (!('speechSynthesis' in window)) {
-      reject(new Error('Speech synthesis not supported'));
-      return;
-    }
-
-    const utterance = new SpeechSynthesisUtterance(sentence);
-    utterance.rate = 0.9; // Slightly slower for clarity
-    utterance.onend = () => resolve();
-    utterance.onerror = (event) => reject(event.error);
-
-    window.speechSynthesis.speak(utterance);
-  });
-}
-
 // ============ HOOK ============
 
 export function useEchoChamber({
@@ -309,38 +289,20 @@ export function useEchoChamber({
       const sentences = getSessionSentences(newDifficulty, sessionLength);
       sentencesRef.current = sentences;
 
-      // Start first round
+      // Start first round - presentation is handled by SentencePresenter component
       setCurrentSentence(sentences[0]);
       setPhase('presenting');
-
-      // If audio mode, speak the sentence
-      if (newMode === 'audio') {
-        speakSentence(sentences[0])
-          .then(() => {
-            // Start silence phase after speech completes
-            startSilencePhase();
-          })
-          .catch((error) => {
-            console.error('Speech synthesis error:', error);
-            // Fallback: just start silence phase
-            startSilencePhase();
-          });
-      }
     },
-    [clearTimers, startSilencePhase]
+    [clearTimers]
   );
 
   /**
-   * Called when sentence presentation is complete (for visual mode).
+   * Called when sentence presentation is complete (visual display ends or TTS finishes).
    */
   const finishPresenting = useCallback(() => {
     if (phase !== 'presenting') return;
-
-    // In audio mode, this is handled by speech completion
-    if (mode === 'audio') return;
-
     startSilencePhase();
-  }, [phase, mode, startSilencePhase]);
+  }, [phase, startSilencePhase]);
 
   /**
    * Submits the user's recall attempt.
@@ -367,32 +329,18 @@ export function useEchoChamber({
       return;
     }
 
-    // Start next round
+    // Start next round - presentation is handled by SentencePresenter component
     setCurrentRound(nextRoundIndex);
     const nextSentence = sentencesRef.current[nextRoundIndex];
     setCurrentSentence(nextSentence);
     setLastRoundResult(null);
     setPhase('presenting');
-
-    // If audio mode, speak the sentence
-    if (mode === 'audio') {
-      speakSentence(nextSentence)
-        .then(() => {
-          startSilencePhase();
-        })
-        .catch((error) => {
-          console.error('Speech synthesis error:', error);
-          startSilencePhase();
-        });
-    }
   }, [
     phase,
     currentRound,
     totalRounds,
     rounds,
     lastRoundResult,
-    mode,
-    startSilencePhase,
     completeSession,
   ]);
 
