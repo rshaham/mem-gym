@@ -86,33 +86,39 @@ export interface ImageTag {
 
 // ============ ECHO CHAMBER ============
 
+export type EchoChamberDifficulty = 'easy' | 'medium' | 'hard' | 'expert';
+export type EchoChamberMode = 'visual' | 'audio';
+
 export interface EchoChamberStats {
   totalSessions: number;
   averageAccuracy: number;
   bestAccuracy: number;
   wordsRecalled: number;
-  currentDifficulty: EchoDifficulty;
+  currentDifficulty: EchoChamberDifficulty;
 }
 
-export type EchoDifficulty = 'easy' | 'medium' | 'hard' | 'expert';
+export interface WordComparison {
+  word: string;
+  status: 'correct' | 'incorrect' | 'missing' | 'extra';
+  expected?: string;
+}
 
 export interface EchoChamberRound {
-  id: string;
   sentence: string;
-  wordCount: number;
-  difficulty: EchoDifficulty;
-  silenceDuration: number;
-  userResponse: string;
-  accuracy: number;
-  timestamp: number;
+  recalledText: string;
+  score: number;
+  timeToRecall: number;
+  wordComparison: WordComparison[];
 }
 
 export interface EchoChamberSession {
   id: string;
+  difficulty: EchoChamberDifficulty;
+  mode: EchoChamberMode;
+  sessionLength: number;
   rounds: EchoChamberRound[];
   totalScore: number;
-  averageAccuracy: number;
-  startedAt: number;
+  xpEarned: number;
   completedAt: number;
 }
 
