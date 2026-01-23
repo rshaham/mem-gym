@@ -33,6 +33,7 @@ export function EchoChamber(): JSX.Element {
     recallTimeLeft,
     lastRoundResult,
     rounds,
+    sessionXP,
     startSession,
     finishPresenting,
     submitRecall,
@@ -52,15 +53,6 @@ export function EchoChamber(): JSX.Element {
   const handlePlayAgain = useCallback(() => {
     reset();
   }, [reset]);
-
-  // Calculate XP earned for results screen
-  const calculateXPEarned = useCallback(() => {
-    if (rounds.length === 0) return 0;
-    // Match the calculation from useEchoChamber
-    const averageScore =
-      rounds.reduce((sum, round) => sum + round.score, 0) / rounds.length;
-    return Math.round(averageScore);
-  }, [rounds]);
 
   // Render based on current phase
   if (phase === 'setup') {
@@ -124,7 +116,7 @@ export function EchoChamber(): JSX.Element {
       <SessionResults
         rounds={finalRounds}
         totalScore={totalScore}
-        xpEarned={calculateXPEarned()}
+        xpEarned={sessionXP}
         onPlayAgain={handlePlayAgain}
         onExit={handleExit}
       />

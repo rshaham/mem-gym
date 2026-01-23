@@ -104,13 +104,22 @@ export function SessionResults({
 }: SessionResultsProps): JSX.Element {
   const [selectedN, setSelectedN] = useState<number>(currentN);
 
+  // Calculate true accuracy: (hits + correctRejections) / scoredTrials
+  const scoredTrialsCount = session.trials.length - session.nLevel;
+
+  // Position accuracy
+  const positionCorrectRejections = scoredTrialsCount - session.positionHits - session.positionMisses - session.positionFalseAlarms;
+  const positionAccuracyPercent = scoredTrialsCount > 0
+    ? Math.round(((session.positionHits + positionCorrectRejections) / scoredTrialsCount) * 100)
+    : 0;
+
+  // Audio accuracy
+  const audioCorrectRejections = scoredTrialsCount - session.audioHits - session.audioMisses - session.audioFalseAlarms;
+  const audioAccuracyPercent = scoredTrialsCount > 0
+    ? Math.round(((session.audioHits + audioCorrectRejections) / scoredTrialsCount) * 100)
+    : 0;
+
   const overallAccuracyPercent = Math.round(session.overallAccuracy * 100);
-  const positionAccuracyPercent = session.positionHits + session.positionMisses > 0
-    ? Math.round((session.positionHits / (session.positionHits + session.positionMisses)) * 100)
-    : 0;
-  const audioAccuracyPercent = session.audioHits + session.audioMisses > 0
-    ? Math.round((session.audioHits / (session.audioHits + session.audioMisses)) * 100)
-    : 0;
 
   const performance = getPerformanceMessage(overallAccuracyPercent);
   const shouldLevelUp = suggestedN !== null && suggestedN > currentN;

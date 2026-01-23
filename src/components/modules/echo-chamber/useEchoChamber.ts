@@ -38,6 +38,7 @@ export interface UseEchoChamberReturn {
   recallTimeLeft: number;
   lastRoundResult: EchoChamberRound | null;
   rounds: EchoChamberRound[];
+  sessionXP: number;
 
   startSession: (
     difficulty: EchoChamberDifficulty,
@@ -109,6 +110,7 @@ export function useEchoChamber({
   const [recallTimeLeft, setRecallTimeLeft] = useState(0);
   const [lastRoundResult, setLastRoundResult] = useState<EchoChamberRound | null>(null);
   const [rounds, setRounds] = useState<EchoChamberRound[]>([]);
+  const [sessionXP, setSessionXP] = useState(0);
 
   // Internal refs
   const sentencesRef = useRef<string[]>([]);
@@ -217,6 +219,7 @@ export function useEchoChamber({
         : 0;
 
     const xpEarned = calculateXP(finalRounds, difficulty);
+    setSessionXP(xpEarned);
 
     const session: EchoChamberSession = {
       id: crypto.randomUUID(),
@@ -324,8 +327,8 @@ export function useEchoChamber({
     const nextRoundIndex = currentRound + 1;
 
     if (nextRoundIndex >= totalRounds) {
-      // Session complete
-      completeSession([...rounds, lastRoundResult!]);
+      // Session complete - rounds already contains lastRoundResult from submitRecallInternal
+      completeSession(rounds);
       return;
     }
 
@@ -365,6 +368,7 @@ export function useEchoChamber({
     setRecallTimeLeft(0);
     setLastRoundResult(null);
     setRounds([]);
+    setSessionXP(0);
     sentencesRef.current = [];
   }, [clearTimers]);
 
@@ -379,6 +383,7 @@ export function useEchoChamber({
     recallTimeLeft,
     lastRoundResult,
     rounds,
+    sessionXP,
 
     startSession,
     finishPresenting,

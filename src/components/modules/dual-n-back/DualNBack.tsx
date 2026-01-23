@@ -344,7 +344,7 @@ export function DualNBack(): JSX.Element {
         xpBreakdown={{
           base: 10 * completedSession.trials.length,
           accuracy: Math.floor(sessionResults.overallAccuracy * 50),
-          levelBonus: currentN * 20,
+          levelBonus: completedSession.nLevel * 20,
         }}
         onPlayAgain={handlePlayAgain}
         onExit={handleExit}

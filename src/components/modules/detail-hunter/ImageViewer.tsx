@@ -1,70 +1,32 @@
-import { useEffect, useState, useRef } from 'react';
-
 interface ImageViewerProps {
   imageUrl: string;
   photographer: string;
   photographerUrl: string;
-  timeRemaining: number; // seconds
+  timeRemaining: number; // seconds - managed by parent hook
   totalTime: number; // seconds
-  onTimeUp: () => void;
 }
 
 export function ImageViewer({
   imageUrl,
   photographer,
   photographerUrl,
-  timeRemaining: initialTime,
+  timeRemaining,
   totalTime,
-  onTimeUp,
 }: ImageViewerProps): JSX.Element {
-  const [timeLeft, setTimeLeft] = useState<number>(initialTime);
-  const onTimeUpRef = useRef(onTimeUp);
-
-  // Keep callback ref up to date
-  useEffect(() => {
-    onTimeUpRef.current = onTimeUp;
-  }, [onTimeUp]);
-
-  useEffect(() => {
-    // Reset time when initialTime changes
-    setTimeLeft(initialTime);
-  }, [initialTime]);
-
-  useEffect(() => {
-    if (timeLeft <= 0) {
-      onTimeUpRef.current();
-      return;
-    }
-
-    const intervalId = setInterval(() => {
-      setTimeLeft((prev) => {
-        const newTime = prev - 1;
-        if (newTime <= 0) {
-          clearInterval(intervalId);
-          // Use setTimeout to avoid calling onTimeUp during render
-          setTimeout(() => onTimeUpRef.current(), 0);
-          return 0;
-        }
-        return newTime;
-      });
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeLeft]);
-
+  // Timer is managed by parent hook - we just display the time
   // Calculate SVG circle properties
   const circleSize = 60;
   const strokeWidth = 4;
   const radius = (circleSize - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
-  const progress = timeLeft / totalTime;
+  const progress = timeRemaining / totalTime;
   const strokeDashoffset = circumference * (1 - progress);
 
   return (
     <div
       className="relative w-full h-full min-h-screen bg-black"
       role="img"
-      aria-label={`Image by ${photographer}. ${timeLeft} seconds remaining to memorize.`}
+      aria-label={`Image by ${photographer}. ${timeRemaining} seconds remaining to memorize.`}
     >
       {/* Full-screen image */}
       <img
@@ -111,9 +73,9 @@ export function ImageViewer({
         {/* Time display in center */}
         <span
           className="absolute text-white font-bold text-lg tabular-nums"
-          aria-label={`${timeLeft} seconds remaining`}
+          aria-label={`${timeRemaining} seconds remaining`}
         >
-          {timeLeft}
+          {timeRemaining}
         </span>
       </div>
 

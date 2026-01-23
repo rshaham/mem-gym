@@ -67,7 +67,6 @@ export function DetailHunter(): JSX.Element {
     isLoading,
     error,
     startSession,
-    finishViewing,
     startQuiz,
     answerQuestion,
     getResults,
@@ -112,7 +111,6 @@ export function DetailHunter(): JSX.Element {
         photographerUrl={selectedImage.photographerUrl}
         timeRemaining={viewingTimeLeft}
         totalTime={session?.viewingTime ?? 30}
-        onTimeUp={finishViewing}
       />
     );
   }

@@ -178,6 +178,14 @@ function gameReducer(state: GameState, action: GameAction): GameState {
         ? (currentStats.averageChainLength * currentStats.totalSessions + (action.stats.averageChainLength || 0)) / newTotalSessions
         : 0;
 
+      // Merge calendar data - increment counts for each date
+      const newCalendarData = { ...currentStats.calendarData };
+      if (action.stats.calendarData) {
+        for (const [date, count] of Object.entries(action.stats.calendarData)) {
+          newCalendarData[date] = (newCalendarData[date] || 0) + count;
+        }
+      }
+
       return {
         ...state,
         progress: {
@@ -190,6 +198,7 @@ function gameReducer(state: GameState, action: GameAction): GameState {
               totalEventsLogged: newTotalEvents,
               longestChain: newLongestChain,
               averageChainLength: Math.round(newAvgChain * 10) / 10,
+              calendarData: newCalendarData,
             },
           },
         },

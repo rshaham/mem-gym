@@ -243,6 +243,13 @@ export function useDetailHunter({
     onViewingCompleteRef.current?.();
   }, []);
 
+  // Auto-finish viewing when timer reaches 0
+  useEffect(() => {
+    if (phase === 'viewing' && viewingTimeLeft === 0 && viewingTimerRef.current === null) {
+      finishViewing();
+    }
+  }, [phase, viewingTimeLeft, finishViewing]);
+
   /**
    * Called when user is ready to start the quiz (after waiting period)
    */

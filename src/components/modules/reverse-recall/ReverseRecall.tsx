@@ -38,6 +38,7 @@ export function ReverseRecall(): JSX.Element {
         totalEventsLogged: session.events.length,
         longestChain: session.events.length,
         averageChainLength: session.events.length,
+        calendarData: { [session.date]: 1 }, // Track completion for this date
       });
     },
     [addXP, updateReverseRecallStats]
@@ -130,7 +131,7 @@ export function ReverseRecall(): JSX.Element {
     return (
       <SessionResults
         events={session.events}
-        score={session.score}
+        targetEvents={targetEventCount}
         xpEarned={session.score}
         onPlayAgain={handlePlayAgain}
         onExit={handleExit}

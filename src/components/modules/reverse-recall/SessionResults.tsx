@@ -4,7 +4,7 @@ import type { ReverseRecallEvent } from '../../../types';
 
 interface SessionResultsProps {
   events: ReverseRecallEvent[];
-  score: number;
+  targetEvents: number;
   xpEarned: number;
   onPlayAgain: () => void;
   onExit: () => void;
@@ -100,13 +100,21 @@ function countSensoryDetails(events: ReverseRecallEvent[]): number {
 
 export function SessionResults({
   events,
-  score,
+  targetEvents,
   xpEarned,
   onPlayAgain,
   onExit,
 }: SessionResultsProps): JSX.Element {
-  const performance = getPerformanceMessage(score);
   const sensoryDetailsCount = countSensoryDetails(events);
+
+  // Calculate completion score as percentage:
+  // - Base: % of target events completed (capped at 100%)
+  // - Bonus: 2% per sensory detail (capped at 20%)
+  const eventCompletionPercent = Math.min(100, Math.round((events.length / targetEvents) * 100));
+  const sensoryBonusPercent = Math.min(20, sensoryDetailsCount * 2);
+  const score = Math.min(100, eventCompletionPercent + sensoryBonusPercent);
+
+  const performance = getPerformanceMessage(score);
 
   return (
     <div
