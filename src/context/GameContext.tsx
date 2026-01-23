@@ -90,6 +90,7 @@ type GameAction =
   | { type: 'COMPLETE_SESSION'; moduleType: ModuleType; accuracy: number }
   | { type: 'UPDATE_DUAL_NBACK_STATS'; stats: Partial<GameProgress['moduleStats']['dualNBack']> }
   | { type: 'UPDATE_DETAIL_HUNTER_STATS'; stats: Partial<GameProgress['moduleStats']['detailHunter']> }
+  | { type: 'UPDATE_REVERSE_RECALL_STATS'; stats: Partial<GameProgress['moduleStats']['reverseRecall']> }
   | { type: 'UPDATE_SETTINGS'; settings: Partial<UserSettings> }
   | { type: 'CLEAR_LEVEL_UP' }
   | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string };
@@ -168,6 +169,33 @@ function gameReducer(state: GameState, action: GameAction): GameState {
         },
       };
 
+    case 'UPDATE_REVERSE_RECALL_STATS': {
+      const currentStats = state.progress.moduleStats.reverseRecall;
+      const newTotalSessions = currentStats.totalSessions + (action.stats.totalSessions || 0);
+      const newTotalEvents = currentStats.totalEventsLogged + (action.stats.totalEventsLogged || 0);
+      const newLongestChain = Math.max(currentStats.longestChain, action.stats.longestChain || 0);
+      const newAvgChain = newTotalSessions > 0
+        ? (currentStats.averageChainLength * currentStats.totalSessions + (action.stats.averageChainLength || 0)) / newTotalSessions
+        : 0;
+
+      return {
+        ...state,
+        progress: {
+          ...state.progress,
+          moduleStats: {
+            ...state.progress.moduleStats,
+            reverseRecall: {
+              ...currentStats,
+              totalSessions: newTotalSessions,
+              totalEventsLogged: newTotalEvents,
+              longestChain: newLongestChain,
+              averageChainLength: Math.round(newAvgChain * 10) / 10,
+            },
+          },
+        },
+      };
+    }
+
     case 'UPDATE_SETTINGS':
       return {
         ...state,
@@ -209,6 +237,7 @@ interface GameContextValue {
   completeSession: (moduleType: ModuleType, accuracy: number) => void;
   updateDualNBackStats: (stats: Partial<GameProgress['moduleStats']['dualNBack']>) => void;
   updateDetailHunterStats: (stats: Partial<GameProgress['moduleStats']['detailHunter']>) => void;
+  updateReverseRecallStats: (stats: Partial<GameProgress['moduleStats']['reverseRecall']>) => void;
   updateSettings: (settings: Partial<UserSettings>) => void;
   clearLevelUp: () => void;
   unlockAchievement: (achievementId: string) => void;
@@ -260,6 +289,8 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
       dispatch({ type: 'UPDATE_DUAL_NBACK_STATS', stats }),
     updateDetailHunterStats: (stats) =>
       dispatch({ type: 'UPDATE_DETAIL_HUNTER_STATS', stats }),
+    updateReverseRecallStats: (stats) =>
+      dispatch({ type: 'UPDATE_REVERSE_RECALL_STATS', stats }),
     updateSettings: (settings) =>
       dispatch({ type: 'UPDATE_SETTINGS', settings }),
     clearLevelUp: () => dispatch({ type: 'CLEAR_LEVEL_UP' }),
