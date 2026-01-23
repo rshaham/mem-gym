@@ -1,6 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { BottomNav } from './BottomNav';
+import { LevelUpModal } from '../gamification/LevelUpModal';
+import { AchievementToast } from '../gamification/AchievementToast';
+import { useGame } from '../../context/GameContext';
 
 // Routes where bottom nav should be hidden (during active game sessions)
 const HIDE_NAV_PATTERNS = [
@@ -9,6 +12,7 @@ const HIDE_NAV_PATTERNS = [
 
 export function AppShell(): JSX.Element {
   const location = useLocation();
+  const { pendingLevelUp, clearLevelUp, pendingAchievements, dismissAchievement } = useGame();
 
   // Check if we should hide the navigation
   const hideNav = HIDE_NAV_PATTERNS.some((pattern) => pattern.test(location.pathname));
@@ -40,6 +44,19 @@ export function AppShell(): JSX.Element {
       </main>
 
       {!hideNav && <BottomNav />}
+
+      {/* Level Up Celebration Modal */}
+      {pendingLevelUp && (
+        <LevelUpModal levelUp={pendingLevelUp} onDismiss={clearLevelUp} />
+      )}
+
+      {/* Achievement Toast - show only when no level up modal */}
+      {!pendingLevelUp && pendingAchievements.length > 0 && (
+        <AchievementToast
+          achievement={pendingAchievements[0]}
+          onDismiss={dismissAchievement}
+        />
+      )}
     </div>
   );
 }

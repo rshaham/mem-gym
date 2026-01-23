@@ -1,32 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Light theme */
+  /* Light theme - warm, inviting tones */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F7;
-  --text-primary: #1D1D1F;
-  --text-secondary: #86868B;
+  --bg-secondary: #F8FAFC;
+  --bg-tertiary: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
 
-  /* Module colors */
-  --detail-hunter: #5856D6;
-  --echo-chamber: #FF9500;
-  --reverse-recall: #34C759;
-  --dual-n-back: #007AFF;
+  /* Module colors - vibrant and distinct */
+  --dual-n-back: #3B82F6;
+  --dual-n-back-light: #DBEAFE;
+  --dual-n-back-dark: #1E40AF;
+  --echo-chamber: #F59E0B;
+  --echo-chamber-light: #FEF3C7;
+  --echo-chamber-dark: #B45309;
+  --detail-hunter: #8B5CF6;
+  --detail-hunter-light: #EDE9FE;
+  --detail-hunter-dark: #5B21B6;
+  --reverse-recall: #10B981;
+  --reverse-recall-light: #D1FAE5;
+  --reverse-recall-dark: #047857;
 
   /* Accent colors */
-  --accent-primary: #007AFF;
-  --accent-success: #34C759;
-  --accent-warning: #FF9500;
-  --accent-error: #FF3B30;
+  --accent-primary: #3B82F6;
+  --accent-success: #059669;
+  --accent-warning: #D97706;
+  --accent-error: #DC2626;
+
+  /* Celebration colors */
+  --gold: #FBBF24;
+  --gold-dark: #D97706;
 }
 
 .dark {
-  --bg-primary: #000000;
-  --bg-secondary: #1C1C1E;
-  --text-primary: #FFFFFF;
-  --text-secondary: #8E8E93;
+  /* Rich dark theme - slate tones, not pure black */
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  /* Module colors stay vibrant in dark mode */
+  --dual-n-back-light: #1E3A5F;
+  --echo-chamber-light: #451A03;
+  --detail-hunter-light: #2E1065;
+  --reverse-recall-light: #064E3B;
 }
 
 * {
@@ -34,7 +59,13 @@
 }
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Monospace for numbers, scores, timers */
+.font-mono-display {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-feature-settings: 'tnum' on, 'lnum' on;
 }
 
 body {
