@@ -301,6 +301,7 @@ export function DualNBack(): JSX.Element {
       <GameSetup
         initialNLevel={currentN}
         onStart={handleStart}
+        onBack={handleExit}
       />
     );
   }

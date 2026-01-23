@@ -5,12 +5,13 @@ import { Card } from '../../common/Card';
 interface GameSetupProps {
   initialNLevel: number;
   onStart: (trialCount: number, nLevel: number) => void;
+  onBack: () => void;
 }
 
 const TRIAL_OPTIONS = [15, 20, 25, 30] as const;
 const N_LEVEL_OPTIONS = [1, 2, 3, 4, 5] as const;
 
-export function GameSetup({ initialNLevel, onStart }: GameSetupProps): JSX.Element {
+export function GameSetup({ initialNLevel, onStart, onBack }: GameSetupProps): JSX.Element {
   const [selectedTrials, setSelectedTrials] = useState<number>(20);
   const [selectedN, setSelectedN] = useState<number>(initialNLevel);
 
@@ -20,6 +21,19 @@ export function GameSetup({ initialNLevel, onStart }: GameSetupProps): JSX.Eleme
 
   return (
     <div className="flex flex-col gap-6 px-4 py-6 max-w-md mx-auto">
+      {/* Back Button */}
+      <button
+        type="button"
+        onClick={onBack}
+        className="flex items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors w-fit -mb-2"
+        aria-label="Go back to home"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+        <span className="text-sm font-medium">Back</span>
+      </button>
+
       {/* N-Level Selector */}
       <Card>
         <p className="text-sm font-medium text-[var(--text-secondary)] mb-2 text-center uppercase tracking-wide">

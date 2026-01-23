@@ -96,6 +96,7 @@ export function DetailHunter(): JSX.Element {
     return (
       <GameSetup
         onStart={startSession}
+        onBack={handleExit}
         availableCategories={availableCategories}
         isLoading={isLoading}
         error={error}

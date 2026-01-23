@@ -5,6 +5,7 @@ import type { EchoChamberDifficulty, EchoChamberMode } from '../../../types';
 
 interface GameSetupProps {
   onStart: (difficulty: EchoChamberDifficulty, mode: EchoChamberMode, sessionLength: number) => void;
+  onBack: () => void;
 }
 
 const DIFFICULTY_OPTIONS: { value: EchoChamberDifficulty; label: string }[] = [
@@ -21,7 +22,7 @@ const MODE_OPTIONS: { value: EchoChamberMode; label: string; description: string
 
 const SESSION_LENGTH_OPTIONS = [3, 5, 10] as const;
 
-export function GameSetup({ onStart }: GameSetupProps): JSX.Element {
+export function GameSetup({ onStart, onBack }: GameSetupProps): JSX.Element {
   const [selectedDifficulty, setSelectedDifficulty] = useState<EchoChamberDifficulty>('medium');
   const [selectedMode, setSelectedMode] = useState<EchoChamberMode>('visual');
   const [selectedSessionLength, setSelectedSessionLength] = useState<number>(5);
@@ -32,6 +33,19 @@ export function GameSetup({ onStart }: GameSetupProps): JSX.Element {
 
   return (
     <div className="flex flex-col gap-6 px-4 py-6 max-w-md mx-auto">
+      {/* Back Button */}
+      <button
+        type="button"
+        onClick={onBack}
+        className="flex items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors w-fit -mb-2"
+        aria-label="Go back to home"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+        <span className="text-sm font-medium">Back</span>
+      </button>
+
       {/* Difficulty Selector */}
       <Card>
         <p className="text-sm font-medium text-[var(--text-secondary)] mb-3 text-center uppercase tracking-wide">

@@ -56,7 +56,7 @@ export function EchoChamber(): JSX.Element {
 
   // Render based on current phase
   if (phase === 'setup') {
-    return <GameSetup onStart={startSession} />;
+    return <GameSetup onStart={startSession} onBack={handleExit} />;
   }
 
   if (phase === 'presenting') {
