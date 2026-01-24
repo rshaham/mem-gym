@@ -10,6 +10,7 @@ import type {
   UserSettings,
   ModuleType,
   LevelUpResult,
+  Achievement,
 } from '../types';
 import { loadFromStorage, saveToStorage } from '../hooks/useLocalStorage';
 import {
@@ -81,6 +82,7 @@ interface GameState {
   progress: GameProgress;
   settings: UserSettings;
   pendingLevelUp: LevelUpResult | null;
+  pendingAchievements: Achievement[];
 }
 
 // Action types
@@ -93,7 +95,9 @@ type GameAction =
   | { type: 'UPDATE_REVERSE_RECALL_STATS'; stats: Partial<GameProgress['moduleStats']['reverseRecall']> }
   | { type: 'UPDATE_SETTINGS'; settings: Partial<UserSettings> }
   | { type: 'CLEAR_LEVEL_UP' }
-  | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string };
+  | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string }
+  | { type: 'QUEUE_ACHIEVEMENT'; achievement: Achievement }
+  | { type: 'DISMISS_ACHIEVEMENT' };
 
 // Reducer
 function gameReducer(state: GameState, action: GameAction): GameState {
@@ -232,6 +236,18 @@ function gameReducer(state: GameState, action: GameAction): GameState {
         },
       };
 
+    case 'QUEUE_ACHIEVEMENT':
+      return {
+        ...state,
+        pendingAchievements: [...state.pendingAchievements, action.achievement],
+      };
+
+    case 'DISMISS_ACHIEVEMENT':
+      return {
+        ...state,
+        pendingAchievements: state.pendingAchievements.slice(1),
+      };
+
     default:
       return state;
   }
@@ -242,6 +258,7 @@ interface GameContextValue {
   progress: GameProgress;
   settings: UserSettings;
   pendingLevelUp: LevelUpResult | null;
+  pendingAchievements: Achievement[];
   addXP: (amount: number) => void;
   completeSession: (moduleType: ModuleType, accuracy: number) => void;
   updateDualNBackStats: (stats: Partial<GameProgress['moduleStats']['dualNBack']>) => void;
@@ -250,6 +267,8 @@ interface GameContextValue {
   updateSettings: (settings: Partial<UserSettings>) => void;
   clearLevelUp: () => void;
   unlockAchievement: (achievementId: string) => void;
+  queueAchievement: (achievement: Achievement) => void;
+  dismissAchievement: () => void;
 }
 
 const GameContext = createContext<GameContextValue | null>(null);
@@ -264,6 +283,7 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
     progress: defaultProgress,
     settings: defaultSettings,
     pendingLevelUp: null,
+    pendingAchievements: [],
   });
 
   // Load state from localStorage on mount
@@ -291,6 +311,7 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
     progress: state.progress,
     settings: state.settings,
     pendingLevelUp: state.pendingLevelUp,
+    pendingAchievements: state.pendingAchievements,
     addXP: (amount) => dispatch({ type: 'ADD_XP', amount }),
     completeSession: (moduleType, accuracy) =>
       dispatch({ type: 'COMPLETE_SESSION', moduleType, accuracy }),
@@ -305,6 +326,9 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
     clearLevelUp: () => dispatch({ type: 'CLEAR_LEVEL_UP' }),
     unlockAchievement: (achievementId) =>
       dispatch({ type: 'UNLOCK_ACHIEVEMENT', achievementId }),
+    queueAchievement: (achievement) =>
+      dispatch({ type: 'QUEUE_ACHIEVEMENT', achievement }),
+    dismissAchievement: () => dispatch({ type: 'DISMISS_ACHIEVEMENT' }),
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

@@ -1,4 +1,5 @@
 import { useGame } from '../../context/GameContext';
+import { FlameIcon, StarIcon } from '../icons';
 
 interface HeaderProps {
   title?: string;
@@ -14,19 +15,19 @@ export function Header({ title = 'Memory Gym', showStats = true }: HeaderProps):
         <h1 className="text-lg font-semibold text-[var(--text-primary)]">{title}</h1>
 
         {showStats && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {/* Streak */}
-            <div className="flex items-center gap-1 text-sm">
-              <span className="text-accent-warning">🔥</span>
-              <span className="font-medium text-[var(--text-primary)]">
+            <div className="flex items-center gap-1.5">
+              <FlameIcon size={18} className="text-accent-warning" />
+              <span className="font-semibold text-sm text-[var(--text-primary)] font-mono">
                 {progress.currentStreak}
               </span>
             </div>
 
-            {/* Level & XP */}
-            <div className="flex items-center gap-1 text-sm">
-              <span className="text-accent-primary">⭐</span>
-              <span className="font-medium text-[var(--text-primary)]">
+            {/* Level */}
+            <div className="flex items-center gap-1.5">
+              <StarIcon size={18} className="text-gold" />
+              <span className="font-semibold text-sm text-[var(--text-primary)]">
                 Lv.{progress.level}
               </span>
             </div>
