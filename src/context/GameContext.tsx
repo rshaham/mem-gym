@@ -3,6 +3,7 @@ import {
   useContext,
   useReducer,
   useEffect,
+  useCallback,
   type ReactNode,
 } from 'react';
 import type {
@@ -19,6 +20,8 @@ import {
   checkLevelUp,
   updateStreak,
 } from '../utils/scoring';
+import { checkAchievements } from '../utils/achievementChecker';
+import { getAchievementById } from '../data/achievements';
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -269,6 +272,7 @@ interface GameContextValue {
   unlockAchievement: (achievementId: string) => void;
   queueAchievement: (achievement: Achievement) => void;
   dismissAchievement: () => void;
+  checkAndQueueAchievements: (sessionAccuracy?: number) => void;
 }
 
 const GameContext = createContext<GameContextValue | null>(null);
@@ -307,6 +311,56 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
     saveToStorage(STORAGE_KEYS.SETTINGS, state.settings);
   }, [state.settings]);
 
+  // Apply theme to document
+  useEffect(() => {
+    const root = document.documentElement;
+    const theme = state.settings.theme;
+
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else if (theme === 'light') {
+      root.classList.remove('dark');
+    } else {
+      // System preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+    }
+
+    // Listen for system preference changes when theme is 'system'
+    if (theme === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = (e: MediaQueryListEvent) => {
+        if (e.matches) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      };
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+  }, [state.settings.theme]);
+
+  // Check and queue achievements after session completion
+  const checkAndQueueAchievements = useCallback((sessionAccuracy?: number) => {
+    const newlyUnlocked = checkAchievements(state.progress, sessionAccuracy);
+
+    for (const achievementId of newlyUnlocked) {
+      // Mark as unlocked in progress
+      dispatch({ type: 'UNLOCK_ACHIEVEMENT', achievementId });
+
+      // Queue for display
+      const achievement = getAchievementById(achievementId);
+      if (achievement) {
+        dispatch({ type: 'QUEUE_ACHIEVEMENT', achievement });
+      }
+    }
+  }, [state.progress]);
+
   const value: GameContextValue = {
     progress: state.progress,
     settings: state.settings,
@@ -329,6 +383,7 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
     queueAchievement: (achievement) =>
       dispatch({ type: 'QUEUE_ACHIEVEMENT', achievement }),
     dismissAchievement: () => dispatch({ type: 'DISMISS_ACHIEVEMENT' }),
+    checkAndQueueAchievements,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

@@ -33,7 +33,7 @@ function useHasKeyboard(): boolean {
 
 export function DualNBack(): JSX.Element {
   const navigate = useNavigate();
-  const { progress, settings, addXP, updateDualNBackStats } = useGame();
+  const { progress, settings, addXP, updateDualNBackStats, checkAndQueueAchievements } = useGame();
   const hasKeyboard = useHasKeyboard();
 
   const [phase, setPhase] = useState<GamePhase>('setup');
@@ -188,8 +188,11 @@ export function DualNBack(): JSX.Element {
     // Add XP
     addXP(xpEarned);
 
+    // Check for newly unlocked achievements
+    checkAndQueueAchievements(overallAccuracy * 100);
+
     setPhase('results');
-  }, [progress.moduleStats.dualNBack, updateDualNBackStats, addXP]);
+  }, [progress.moduleStats.dualNBack, updateDualNBackStats, addXP, checkAndQueueAchievements]);
 
   // Initialize the game hook
   const {

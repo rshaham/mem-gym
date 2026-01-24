@@ -27,7 +27,7 @@ function getViewingBonus(viewingTime: number): number {
 
 export function DetailHunter(): JSX.Element {
   const navigate = useNavigate();
-  const { progress, addXP, updateDetailHunterStats } = useGame();
+  const { progress, addXP, updateDetailHunterStats, checkAndQueueAchievements } = useGame();
 
   const stats = progress.moduleStats.detailHunter;
 
@@ -53,7 +53,10 @@ export function DetailHunter(): JSX.Element {
       averageAccuracy: newAverageAccuracy,
       bestAccuracy: newBestAccuracy,
     });
-  }, [addXP, stats, updateDetailHunterStats]);
+
+    // Check for newly unlocked achievements
+    checkAndQueueAchievements(score);
+  }, [addXP, stats, updateDetailHunterStats, checkAndQueueAchievements]);
 
   // Initialize the game hook with completion callback
   const {

@@ -10,7 +10,7 @@ import type { ReverseRecallSession } from '../../../types';
 
 export function ReverseRecall(): JSX.Element {
   const navigate = useNavigate();
-  const { addXP, updateReverseRecallStats } = useGame();
+  const { addXP, updateReverseRecallStats, checkAndQueueAchievements } = useGame();
 
   // Modal state for sensory input
   const [sensoryModal, setSensoryModal] = useState<{
@@ -40,8 +40,11 @@ export function ReverseRecall(): JSX.Element {
         averageChainLength: session.events.length,
         calendarData: { [session.date]: 1 }, // Track completion for this date
       });
+
+      // Check for newly unlocked achievements
+      checkAndQueueAchievements();
     },
-    [addXP, updateReverseRecallStats]
+    [addXP, updateReverseRecallStats, checkAndQueueAchievements]
   );
 
   // Initialize the game hook with completion callback

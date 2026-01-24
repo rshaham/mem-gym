@@ -12,16 +12,21 @@ import type { EchoChamberSession } from '../../../types';
 
 export function EchoChamber(): JSX.Element {
   const navigate = useNavigate();
-  const { addXP } = useGame();
+  const { addXP, checkAndQueueAchievements } = useGame();
 
-  // Handle session completion - add XP
+  // Handle session completion - add XP and check achievements
   const handleSessionComplete = useCallback(
     (session: EchoChamberSession) => {
       if (session.xpEarned > 0) {
         addXP(session.xpEarned);
       }
+      // Check for newly unlocked achievements
+      const avgAccuracy = session.rounds.length > 0
+        ? session.rounds.reduce((sum, r) => sum + r.score, 0) / session.rounds.length
+        : 0;
+      checkAndQueueAchievements(avgAccuracy);
     },
-    [addXP]
+    [addXP, checkAndQueueAchievements]
   );
 
   // Initialize the game hook with completion callback
