@@ -18,7 +18,8 @@ export function checkAchievements(
     progress.moduleStats.echoChamber.totalSessions +
     progress.moduleStats.detailHunter.totalSessions +
     progress.moduleStats.reverseRecall.totalSessions +
-    progress.moduleStats.sudoku.totalSessions;
+    progress.moduleStats.sudoku.totalSessions +
+    progress.moduleStats.semanticChain.totalSessions;
 
   for (const achievement of ALL_ACHIEVEMENTS) {
     // Skip already unlocked
@@ -114,7 +115,8 @@ function checkSingleAchievement(
         progress.moduleStats.echoChamber.totalSessions >= 1 &&
         progress.moduleStats.detailHunter.totalSessions >= 1 &&
         progress.moduleStats.reverseRecall.totalSessions >= 1 &&
-        progress.moduleStats.sudoku.totalSessions >= 1
+        progress.moduleStats.sudoku.totalSessions >= 1 &&
+        progress.moduleStats.semanticChain.totalSessions >= 1
       );
     case 'detail-master':
       return progress.moduleStats.detailHunter.bestAccuracy >= 95;
@@ -134,6 +136,19 @@ function checkSingleAchievement(
         (bestTimeHard !== null && bestTimeHard < 300)
       );
     }
+
+    // Semantic Chain achievements
+    case 'semantic-chain-first':
+      return progress.moduleStats.semanticChain.totalSessions >= 1;
+    case 'semantic-chain-15':
+      return progress.moduleStats.semanticChain.longestChain >= 15;
+    case 'semantic-chain-hard':
+      // Check if they've built a 10+ word chain on hard
+      // This is tracked via longestChain when currentDifficulty is hard
+      return (
+        progress.moduleStats.semanticChain.currentDifficulty === 'hard' &&
+        progress.moduleStats.semanticChain.longestChain >= 10
+      );
 
     default:
       return false;

@@ -31,6 +31,7 @@ export interface ModuleStats {
   reverseRecall: ReverseRecallStats;
   dualNBack: DualNBackStats;
   sudoku: SudokuStats;
+  semanticChain: SemanticChainStats;
 }
 
 // ============ DETAIL HUNTER ============
@@ -192,6 +193,39 @@ export interface CellPosition {
   col: number;
 }
 
+// ============ SEMANTIC CHAIN ============
+
+export type SemanticChainCategory =
+  | 'animals'
+  | 'foods'
+  | 'countries'
+  | 'colors'
+  | 'occupations'
+  | 'science'
+  | 'psychology'
+  | 'technology';
+export type SemanticChainDifficulty = 'easy' | 'medium' | 'hard';
+
+export interface SemanticChainStats {
+  totalSessions: number;
+  totalWordsChained: number;
+  longestChain: number;
+  averageChainLength: number;
+  currentDifficulty: SemanticChainDifficulty;
+  favoriteCategory: SemanticChainCategory | null;
+}
+
+export interface SemanticChainSession {
+  id: string;
+  category: SemanticChainCategory;
+  difficulty: SemanticChainDifficulty;
+  chainLength: number;
+  wordsUsed: string[];
+  startedAt: number;
+  completedAt: number;
+  xpEarned: number;
+}
+
 // ============ DUAL N-BACK ============
 
 export interface DualNBackStats {
@@ -268,7 +302,7 @@ export interface PendingNotification {
 
 export type GamePhase = 'ready' | 'active' | 'review' | 'complete';
 
-export type ModuleType = 'dual-n-back' | 'echo-chamber' | 'detail-hunter' | 'reverse-recall' | 'sudoku';
+export type ModuleType = 'dual-n-back' | 'echo-chamber' | 'detail-hunter' | 'reverse-recall' | 'sudoku' | 'semantic-chain';
 
 // ============ STORAGE ============
 

@@ -223,6 +223,30 @@ const specialAchievements: Achievement[] = [
     category: 'special',
     xpReward: 150,
   },
+  {
+    id: 'semantic-chain-first',
+    name: 'Word Weaver',
+    description: 'Complete your first Semantic Chain session',
+    icon: 'link',
+    category: 'special',
+    xpReward: 50,
+  },
+  {
+    id: 'semantic-chain-15',
+    name: 'Chain Master',
+    description: 'Build a 15-word chain in Semantic Chain',
+    icon: 'link',
+    category: 'special',
+    xpReward: 150,
+  },
+  {
+    id: 'semantic-chain-hard',
+    name: 'Speed Linguist',
+    description: 'Build a 10-word chain on hard difficulty',
+    icon: 'zap',
+    category: 'special',
+    xpReward: 200,
+  },
 ];
 
 // Export all achievements

@@ -13,6 +13,7 @@ import {
   RewindIcon,
   ChevronRightIcon,
   SudokuIcon,
+  LinkChainIcon,
 } from '../icons';
 import type { ModuleType } from '../../types';
 
@@ -65,6 +66,14 @@ const modules: ModuleInfo[] = [
     icon: SudokuIcon,
     colorClass: 'text-indigo-500',
     bgClass: 'bg-indigo-100 dark:bg-indigo-500/20',
+  },
+  {
+    id: 'semantic-chain',
+    name: 'Semantic Chain',
+    description: 'Build word chains under time pressure',
+    icon: LinkChainIcon,
+    colorClass: 'text-emerald-500',
+    bgClass: 'bg-emerald-100 dark:bg-emerald-500/20',
   },
 ];
 

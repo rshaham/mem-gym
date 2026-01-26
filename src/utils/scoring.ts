@@ -91,6 +91,12 @@ const MODULE_XP_REWARDS: Record<ModuleType, XPRewards> = {
     accuracyBonus: () => 0, // XP calculated in hook based on difficulty/time
     difficultyMultiplier: { easy: 1, medium: 1.5, hard: 2.5 },
   },
+  'semantic-chain': {
+    sessionComplete: 20,
+    perfectSession: 50, // Bonus for 15+ word chain
+    accuracyBonus: (chainLength: number) => chainLength * 3, // 3 XP per word in chain
+    difficultyMultiplier: { easy: 1, medium: 1.5, hard: 2 },
+  },
 };
 
 export function calculateXP(

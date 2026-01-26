@@ -326,6 +326,18 @@ export function SudokuIcon({ className, size = 24 }: IconProps): JSX.Element {
   );
 }
 
+export function LinkChainIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+      />
+    </svg>
+  );
+}
+
 // ============ APP LOGO ============
 
 export function AppLogo({ className, size = 32 }: IconProps): JSX.Element {

@@ -86,6 +86,14 @@ const defaultProgress: GameProgress = {
       bestTimeHard: null,
       currentDifficulty: 'easy',
     },
+    semanticChain: {
+      totalSessions: 0,
+      totalWordsChained: 0,
+      longestChain: 0,
+      averageChainLength: 0,
+      currentDifficulty: 'easy',
+      favoriteCategory: null,
+    },
   },
 };
 
@@ -106,6 +114,7 @@ type GameAction =
   | { type: 'UPDATE_DETAIL_HUNTER_STATS'; stats: Partial<GameProgress['moduleStats']['detailHunter']> }
   | { type: 'UPDATE_REVERSE_RECALL_STATS'; stats: Partial<GameProgress['moduleStats']['reverseRecall']> }
   | { type: 'UPDATE_SUDOKU_STATS'; stats: Partial<GameProgress['moduleStats']['sudoku']> }
+  | { type: 'UPDATE_SEMANTIC_CHAIN_STATS'; stats: Partial<GameProgress['moduleStats']['semanticChain']> }
   | { type: 'UPDATE_SETTINGS'; settings: Partial<UserSettings> }
   | { type: 'CLEAR_LEVEL_UP' }
   | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string }
@@ -269,6 +278,44 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     }
 
+    case 'UPDATE_SEMANTIC_CHAIN_STATS': {
+      const currentStats = state.progress.moduleStats.semanticChain;
+      const newTotalSessions = currentStats.totalSessions + (action.stats.totalSessions || 0);
+      const newTotalWords = currentStats.totalWordsChained + (action.stats.totalWordsChained || 0);
+      const newLongestChain = Math.max(currentStats.longestChain, action.stats.longestChain || 0);
+
+      // Calculate running average chain length
+      const sessionChainLength = action.stats.longestChain || action.stats.averageChainLength || 0;
+      const newAvgChain = newTotalSessions > 0
+        ? (currentStats.averageChainLength * currentStats.totalSessions + sessionChainLength) / newTotalSessions
+        : 0;
+
+      // Track favorite category (most played)
+      // For simplicity, just update to the latest category if provided
+      const newFavoriteCategory = action.stats.favoriteCategory !== undefined
+        ? action.stats.favoriteCategory
+        : currentStats.favoriteCategory;
+
+      return {
+        ...state,
+        progress: {
+          ...state.progress,
+          moduleStats: {
+            ...state.progress.moduleStats,
+            semanticChain: {
+              ...currentStats,
+              ...action.stats,
+              totalSessions: newTotalSessions,
+              totalWordsChained: newTotalWords,
+              longestChain: newLongestChain,
+              averageChainLength: Math.round(newAvgChain * 10) / 10,
+              favoriteCategory: newFavoriteCategory,
+            },
+          },
+        },
+      };
+    }
+
     case 'UPDATE_SETTINGS':
       return {
         ...state,
@@ -325,6 +372,7 @@ interface GameContextValue {
   updateDetailHunterStats: (stats: Partial<GameProgress['moduleStats']['detailHunter']>) => void;
   updateReverseRecallStats: (stats: Partial<GameProgress['moduleStats']['reverseRecall']>) => void;
   updateSudokuStats: (stats: Partial<GameProgress['moduleStats']['sudoku']>) => void;
+  updateSemanticChainStats: (stats: Partial<GameProgress['moduleStats']['semanticChain']>) => void;
   updateSettings: (settings: Partial<UserSettings>) => void;
   clearLevelUp: () => void;
   unlockAchievement: (achievementId: string) => void;
@@ -435,6 +483,8 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
       dispatch({ type: 'UPDATE_REVERSE_RECALL_STATS', stats }),
     updateSudokuStats: (stats) =>
       dispatch({ type: 'UPDATE_SUDOKU_STATS', stats }),
+    updateSemanticChainStats: (stats) =>
+      dispatch({ type: 'UPDATE_SEMANTIC_CHAIN_STATS', stats }),
     updateSettings: (settings) =>
       dispatch({ type: 'UPDATE_SETTINGS', settings }),
     clearLevelUp: () => dispatch({ type: 'CLEAR_LEVEL_UP' }),

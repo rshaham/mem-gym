@@ -183,6 +183,48 @@ export function StatsPage(): JSX.Element {
           )}
         </div>
       </Card>
+
+      {/* Semantic Chain Stats */}
+      <Card>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-xl">
+            🔗
+          </div>
+          <h3 className="font-semibold text-[var(--text-primary)]">Semantic Chain</h3>
+        </div>
+        <div className="space-y-3">
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Total Sessions</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.semanticChain.totalSessions}
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Words Chained</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.semanticChain.totalWordsChained}
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Longest Chain</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.semanticChain.longestChain} words
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Average Chain</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.semanticChain.averageChainLength.toFixed(1)} words
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Current Difficulty</span>
+            <span className="font-medium text-[var(--text-primary)] capitalize">
+              {moduleStats.semanticChain.currentDifficulty}
+            </span>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }
