@@ -60,11 +60,11 @@ export const SudokuCell = memo(function SudokuCell({
       {value !== null ? (
         <span className={textClasses}>{value}</span>
       ) : notes.length > 0 ? (
-        <div className="grid grid-cols-3 grid-rows-3 w-full h-full p-0.5">
+        <div className="grid grid-cols-3 grid-rows-3 w-full h-full">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => (
             <span
               key={n}
-              className="text-[8px] text-[var(--text-secondary)] flex items-center justify-center leading-none"
+              className="text-[11px] font-medium text-[var(--text-secondary)] flex items-center justify-center leading-none"
             >
               {notes.includes(n) ? n : ''}
             </span>
