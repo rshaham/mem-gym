@@ -19,18 +19,19 @@ export function ResponseBar({
     flex-1 min-h-touch-comfortable py-4
     font-semibold text-lg text-white
     rounded-xl
-    transition-all duration-fast
+    touch-action-manipulation
+    transition-all duration-100
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
     disabled:cursor-not-allowed disabled:opacity-50
   `;
 
   const positionStyles = positionPressed
-    ? 'bg-blue-700 scale-95'
-    : 'bg-dual-n-back hover:bg-blue-600 active:scale-95 active:bg-blue-700';
+    ? 'bg-blue-800 scale-90 shadow-[0_0_25px_rgba(34,211,238,0.8)] ring-2 ring-cyan-300'
+    : 'bg-dual-n-back hover:bg-blue-600 active:scale-90 active:bg-blue-800 active:shadow-[0_0_25px_rgba(34,211,238,0.8)]';
 
   const soundStyles = soundPressed
-    ? 'bg-purple-700 scale-95'
-    : 'bg-purple-600 hover:bg-purple-700 active:scale-95 active:bg-purple-800';
+    ? 'bg-purple-800 scale-90 shadow-[0_0_25px_rgba(236,72,153,0.8)] ring-2 ring-pink-300'
+    : 'bg-purple-600 hover:bg-purple-700 active:scale-90 active:bg-purple-800 active:shadow-[0_0_25px_rgba(236,72,153,0.8)]';
 
   return (
     <div className="w-full px-4 pb-4 pt-2">
