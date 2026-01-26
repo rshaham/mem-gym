@@ -3,6 +3,7 @@ import { DualNBack } from '../modules/dual-n-back/DualNBack';
 import { DetailHunter } from '../modules/detail-hunter/DetailHunter';
 import { EchoChamber } from '../modules/echo-chamber/EchoChamber';
 import { ReverseRecall } from '../modules/reverse-recall/ReverseRecall';
+import { Sudoku } from '../modules/sudoku/Sudoku';
 import type { ModuleType } from '../../types';
 
 const moduleComponents: Record<ModuleType, () => JSX.Element> = {
@@ -10,6 +11,7 @@ const moduleComponents: Record<ModuleType, () => JSX.Element> = {
   'echo-chamber': EchoChamber,
   'detail-hunter': DetailHunter,
   'reverse-recall': ReverseRecall,
+  'sudoku': Sudoku,
 };
 
 export function TrainModule(): JSX.Element {

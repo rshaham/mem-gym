@@ -199,6 +199,30 @@ const specialAchievements: Achievement[] = [
     category: 'special',
     xpReward: 200,
   },
+  {
+    id: 'sudoku-first',
+    name: 'Puzzle Rookie',
+    description: 'Complete your first Sudoku puzzle',
+    icon: 'grid',
+    category: 'special',
+    xpReward: 50,
+  },
+  {
+    id: 'sudoku-hard',
+    name: 'Puzzle Master',
+    description: 'Complete a hard Sudoku puzzle',
+    icon: 'grid',
+    category: 'special',
+    xpReward: 200,
+  },
+  {
+    id: 'sudoku-speed',
+    name: 'Speed Solver',
+    description: 'Complete any Sudoku in under 5 minutes',
+    icon: 'zap',
+    category: 'special',
+    xpReward: 150,
+  },
 ];
 
 // Export all achievements

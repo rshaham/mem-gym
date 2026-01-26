@@ -30,6 +30,7 @@ export interface ModuleStats {
   echoChamber: EchoChamberStats;
   reverseRecall: ReverseRecallStats;
   dualNBack: DualNBackStats;
+  sudoku: SudokuStats;
 }
 
 // ============ DETAIL HUNTER ============
@@ -155,6 +156,42 @@ export interface ReverseRecallEvent {
   orderIndex: number;
 }
 
+// ============ SUDOKU ============
+
+export type SudokuDifficulty = 'easy' | 'medium' | 'hard';
+
+export interface SudokuStats {
+  totalSessions: number;
+  totalPuzzlesSolved: number;
+  averageTime: number;
+  bestTimeEasy: number | null;
+  bestTimeMedium: number | null;
+  bestTimeHard: number | null;
+  currentDifficulty: SudokuDifficulty;
+}
+
+export interface SudokuSession {
+  id: string;
+  difficulty: SudokuDifficulty;
+  startedAt: number;
+  completedAt: number;
+  timeElapsed: number;
+  moveCount: number;
+  xpEarned: number;
+}
+
+export interface SudokuCell {
+  value: number | null;
+  notes: number[];
+  isPrefilled: boolean;
+  hasConflict: boolean;
+}
+
+export interface CellPosition {
+  row: number;
+  col: number;
+}
+
 // ============ DUAL N-BACK ============
 
 export interface DualNBackStats {
@@ -231,7 +268,7 @@ export interface PendingNotification {
 
 export type GamePhase = 'ready' | 'active' | 'review' | 'complete';
 
-export type ModuleType = 'dual-n-back' | 'echo-chamber' | 'detail-hunter' | 'reverse-recall';
+export type ModuleType = 'dual-n-back' | 'echo-chamber' | 'detail-hunter' | 'reverse-recall' | 'sudoku';
 
 // ============ STORAGE ============
 

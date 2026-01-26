@@ -17,7 +17,8 @@ export function checkAchievements(
     progress.moduleStats.dualNBack.totalSessions +
     progress.moduleStats.echoChamber.totalSessions +
     progress.moduleStats.detailHunter.totalSessions +
-    progress.moduleStats.reverseRecall.totalSessions;
+    progress.moduleStats.reverseRecall.totalSessions +
+    progress.moduleStats.sudoku.totalSessions;
 
   for (const achievement of ALL_ACHIEVEMENTS) {
     // Skip already unlocked
@@ -112,10 +113,27 @@ function checkSingleAchievement(
         progress.moduleStats.dualNBack.totalSessions >= 1 &&
         progress.moduleStats.echoChamber.totalSessions >= 1 &&
         progress.moduleStats.detailHunter.totalSessions >= 1 &&
-        progress.moduleStats.reverseRecall.totalSessions >= 1
+        progress.moduleStats.reverseRecall.totalSessions >= 1 &&
+        progress.moduleStats.sudoku.totalSessions >= 1
       );
     case 'detail-master':
       return progress.moduleStats.detailHunter.bestAccuracy >= 95;
+
+    // Sudoku achievements
+    case 'sudoku-first':
+      return progress.moduleStats.sudoku.totalPuzzlesSolved >= 1;
+    case 'sudoku-hard':
+      // Check if they've ever solved a hard puzzle
+      return progress.moduleStats.sudoku.bestTimeHard !== null;
+    case 'sudoku-speed': {
+      // Check if any best time is under 5 minutes (300 seconds)
+      const { bestTimeEasy, bestTimeMedium, bestTimeHard } = progress.moduleStats.sudoku;
+      return (
+        (bestTimeEasy !== null && bestTimeEasy < 300) ||
+        (bestTimeMedium !== null && bestTimeMedium < 300) ||
+        (bestTimeHard !== null && bestTimeHard < 300)
+      );
+    }
 
     default:
       return false;

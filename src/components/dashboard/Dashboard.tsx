@@ -12,6 +12,7 @@ import {
   EyeIcon,
   RewindIcon,
   ChevronRightIcon,
+  SudokuIcon,
 } from '../icons';
 import type { ModuleType } from '../../types';
 
@@ -56,6 +57,14 @@ const modules: ModuleInfo[] = [
     icon: RewindIcon,
     colorClass: 'text-reverse-recall',
     bgClass: 'bg-reverse-recall-light dark:bg-reverse-recall/20',
+  },
+  {
+    id: 'sudoku',
+    name: 'Sudoku',
+    description: 'Logic puzzle for focused concentration',
+    icon: SudokuIcon,
+    colorClass: 'text-indigo-500',
+    bgClass: 'bg-indigo-100 dark:bg-indigo-500/20',
   },
 ];
 

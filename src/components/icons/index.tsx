@@ -253,6 +253,79 @@ export function RefreshIcon({ className, size = 24 }: IconProps): JSX.Element {
   );
 }
 
+export function UndoIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+      />
+    </svg>
+  );
+}
+
+export function EraserIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5.636 17.657l9.9-9.9a2 2 0 012.828 0l1.414 1.414a2 2 0 010 2.828l-9.9 9.9a2 2 0 01-2.828 0l-1.414-1.414a2 2 0 010-2.828zM13 11l3 3M21 21H9"
+      />
+    </svg>
+  );
+}
+
+export function PencilIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+      />
+    </svg>
+  );
+}
+
+export function PauseIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15.75 5.25v13.5m-7.5-13.5v13.5"
+      />
+    </svg>
+  );
+}
+
+export function ClockIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+}
+
+export function SudokuIcon({ className, size = 24 }: IconProps): JSX.Element {
+  return (
+    <svg {...defaultProps} width={size} height={size} className={className}>
+      {/* 3x3 grid representing Sudoku */}
+      <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="9" y1="3" x2="9" y2="21" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="15" y1="3" x2="15" y2="21" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="3" y1="9" x2="21" y2="9" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="3" y1="15" x2="21" y2="15" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 // ============ APP LOGO ============
 
 export function AppLogo({ className, size = 32 }: IconProps): JSX.Element {

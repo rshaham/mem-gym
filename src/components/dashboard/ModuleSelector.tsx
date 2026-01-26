@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMotion } from '../../hooks/useMotion';
 import { Card } from '../common/Card';
-import { GridIcon, VolumeIcon, EyeIcon, RewindIcon, XIcon } from '../icons';
+import { GridIcon, VolumeIcon, EyeIcon, RewindIcon, XIcon, SudokuIcon } from '../icons';
 import type { ModuleType } from '../../types';
 
 interface ModuleSelectorProps {
@@ -51,6 +51,14 @@ const modules: ModuleOption[] = [
     icon: RewindIcon,
     colorClass: 'text-reverse-recall',
     bgClass: 'bg-reverse-recall-light dark:bg-reverse-recall/20',
+  },
+  {
+    id: 'sudoku',
+    name: 'Sudoku',
+    description: 'Logic puzzle training',
+    icon: SudokuIcon,
+    colorClass: 'text-indigo-500',
+    bgClass: 'bg-indigo-100 dark:bg-indigo-500/20',
   },
 ];
 

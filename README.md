@@ -1,6 +1,6 @@
 # Memory Gym
 
-A mobile-first web application for cognitive training through four memory exercise modules. Gamify your daily mental exercises to improve working memory, verbal recall, and cognitive flexibility.
+A mobile-first web application for cognitive training through five memory and logic exercise modules. Gamify your daily mental exercises to improve working memory, verbal recall, and cognitive flexibility.
 
 ## Features
 
@@ -12,6 +12,7 @@ A mobile-first web application for cognitive training through four memory exerci
 | **Echo Chamber** | Recall sentences after a silence period | Verbal memory, attention |
 | **Detail Hunter** | Remember visual details from images, then answer questions | Visual memory, observation |
 | **Reverse Recall** | Trace your day backwards in time | Episodic memory, temporal ordering |
+| **Sudoku** | Classic number puzzle with notes and highlighting | Logic, concentration, pattern recognition |
 
 ### Gamification
 - **XP & Leveling** - Earn experience points for each training session
@@ -157,7 +158,8 @@ src/
 │   │   ├── dual-n-back/
 │   │   ├── echo-chamber/
 │   │   ├── detail-hunter/
-│   │   └── reverse-recall/
+│   │   ├── reverse-recall/
+│   │   └── sudoku/
 │   ├── dashboard/       # Home screen
 │   ├── pages/           # Route pages
 │   └── gamification/    # XP, streaks, achievements

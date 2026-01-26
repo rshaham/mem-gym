@@ -77,6 +77,15 @@ const defaultProgress: GameProgress = {
       audioAccuracy: 0,
       currentN: 1,
     },
+    sudoku: {
+      totalSessions: 0,
+      totalPuzzlesSolved: 0,
+      averageTime: 0,
+      bestTimeEasy: null,
+      bestTimeMedium: null,
+      bestTimeHard: null,
+      currentDifficulty: 'easy',
+    },
   },
 };
 
@@ -96,6 +105,7 @@ type GameAction =
   | { type: 'UPDATE_DUAL_NBACK_STATS'; stats: Partial<GameProgress['moduleStats']['dualNBack']> }
   | { type: 'UPDATE_DETAIL_HUNTER_STATS'; stats: Partial<GameProgress['moduleStats']['detailHunter']> }
   | { type: 'UPDATE_REVERSE_RECALL_STATS'; stats: Partial<GameProgress['moduleStats']['reverseRecall']> }
+  | { type: 'UPDATE_SUDOKU_STATS'; stats: Partial<GameProgress['moduleStats']['sudoku']> }
   | { type: 'UPDATE_SETTINGS'; settings: Partial<UserSettings> }
   | { type: 'CLEAR_LEVEL_UP' }
   | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string }
@@ -212,6 +222,53 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     }
 
+    case 'UPDATE_SUDOKU_STATS': {
+      const currentStats = state.progress.moduleStats.sudoku;
+      const newTotalSessions = currentStats.totalSessions + (action.stats.totalSessions || 0);
+      const newTotalPuzzlesSolved = currentStats.totalPuzzlesSolved + (action.stats.totalPuzzlesSolved || 0);
+
+      // Handle best times - only update if new time is better (or first completion)
+      let newBestTimeEasy = currentStats.bestTimeEasy;
+      if (action.stats.bestTimeEasy !== undefined && action.stats.bestTimeEasy !== null) {
+        if (currentStats.bestTimeEasy === null || action.stats.bestTimeEasy < currentStats.bestTimeEasy) {
+          newBestTimeEasy = action.stats.bestTimeEasy;
+        }
+      }
+
+      let newBestTimeMedium = currentStats.bestTimeMedium;
+      if (action.stats.bestTimeMedium !== undefined && action.stats.bestTimeMedium !== null) {
+        if (currentStats.bestTimeMedium === null || action.stats.bestTimeMedium < currentStats.bestTimeMedium) {
+          newBestTimeMedium = action.stats.bestTimeMedium;
+        }
+      }
+
+      let newBestTimeHard = currentStats.bestTimeHard;
+      if (action.stats.bestTimeHard !== undefined && action.stats.bestTimeHard !== null) {
+        if (currentStats.bestTimeHard === null || action.stats.bestTimeHard < currentStats.bestTimeHard) {
+          newBestTimeHard = action.stats.bestTimeHard;
+        }
+      }
+
+      return {
+        ...state,
+        progress: {
+          ...state.progress,
+          moduleStats: {
+            ...state.progress.moduleStats,
+            sudoku: {
+              ...currentStats,
+              ...action.stats,
+              totalSessions: newTotalSessions,
+              totalPuzzlesSolved: newTotalPuzzlesSolved,
+              bestTimeEasy: newBestTimeEasy,
+              bestTimeMedium: newBestTimeMedium,
+              bestTimeHard: newBestTimeHard,
+            },
+          },
+        },
+      };
+    }
+
     case 'UPDATE_SETTINGS':
       return {
         ...state,
@@ -267,6 +324,7 @@ interface GameContextValue {
   updateDualNBackStats: (stats: Partial<GameProgress['moduleStats']['dualNBack']>) => void;
   updateDetailHunterStats: (stats: Partial<GameProgress['moduleStats']['detailHunter']>) => void;
   updateReverseRecallStats: (stats: Partial<GameProgress['moduleStats']['reverseRecall']>) => void;
+  updateSudokuStats: (stats: Partial<GameProgress['moduleStats']['sudoku']>) => void;
   updateSettings: (settings: Partial<UserSettings>) => void;
   clearLevelUp: () => void;
   unlockAchievement: (achievementId: string) => void;
@@ -375,6 +433,8 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
       dispatch({ type: 'UPDATE_DETAIL_HUNTER_STATS', stats }),
     updateReverseRecallStats: (stats) =>
       dispatch({ type: 'UPDATE_REVERSE_RECALL_STATS', stats }),
+    updateSudokuStats: (stats) =>
+      dispatch({ type: 'UPDATE_SUDOKU_STATS', stats }),
     updateSettings: (settings) =>
       dispatch({ type: 'UPDATE_SETTINGS', settings }),
     clearLevelUp: () => dispatch({ type: 'CLEAR_LEVEL_UP' }),

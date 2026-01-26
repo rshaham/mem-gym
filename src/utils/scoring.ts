@@ -85,6 +85,12 @@ const MODULE_XP_REWARDS: Record<ModuleType, XPRewards> = {
     perfectSession: 40,
     accuracyBonus: (accuracy: number) => Math.floor(accuracy / 10),
   },
+  'sudoku': {
+    sessionComplete: 40,
+    perfectSession: 0, // Sudoku doesn't have "perfect" - puzzle is complete or not
+    accuracyBonus: () => 0, // XP calculated in hook based on difficulty/time
+    difficultyMultiplier: { easy: 1, medium: 1.5, hard: 2.5 },
+  },
 };
 
 export function calculateXP(
