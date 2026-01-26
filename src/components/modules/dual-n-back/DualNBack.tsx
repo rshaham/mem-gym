@@ -110,8 +110,6 @@ export function DualNBack(): JSX.Element {
 
   // Handle session complete
   const handleSessionComplete = useCallback((session: DualNBackSession) => {
-    setCompletedSession(session);
-
     // Calculate results from the session
     const nLevel = session.nLevel;
     const trials = session.trials;
@@ -165,33 +163,38 @@ export function DualNBack(): JSX.Element {
       scoredTrials: scoredCount,
     };
 
+    // Set UI state FIRST to ensure results screen shows immediately
+    setCompletedSession(session);
     setSessionResults(results);
-
-    // Update stats
-    const stats = progress.moduleStats.dualNBack;
-    const newTotalSessions = stats.totalSessions + 1;
-    const newTotalTrials = stats.totalTrials + trials.length;
-    const newAverageAccuracy = ((stats.averageAccuracy * stats.totalSessions) + overallAccuracy) / newTotalSessions;
-    const newPositionAccuracy = ((stats.positionAccuracy * stats.totalSessions) + positionAccuracy) / newTotalSessions;
-    const newAudioAccuracy = ((stats.audioAccuracy * stats.totalSessions) + audioAccuracy) / newTotalSessions;
-    const newHighestN = Math.max(stats.highestN, nLevel);
-
-    updateDualNBackStats({
-      totalSessions: newTotalSessions,
-      totalTrials: newTotalTrials,
-      averageAccuracy: newAverageAccuracy,
-      positionAccuracy: newPositionAccuracy,
-      audioAccuracy: newAudioAccuracy,
-      highestN: newHighestN,
-    });
-
-    // Add XP
-    addXP(xpEarned);
-
-    // Check for newly unlocked achievements
-    checkAndQueueAchievements(overallAccuracy * 100);
-
     setPhase('results');
+
+    // Update stats in background (don't block UI)
+    try {
+      const stats = progress.moduleStats.dualNBack;
+      const newTotalSessions = stats.totalSessions + 1;
+      const newTotalTrials = stats.totalTrials + trials.length;
+      const newAverageAccuracy = ((stats.averageAccuracy * stats.totalSessions) + overallAccuracy) / newTotalSessions;
+      const newPositionAccuracy = ((stats.positionAccuracy * stats.totalSessions) + positionAccuracy) / newTotalSessions;
+      const newAudioAccuracy = ((stats.audioAccuracy * stats.totalSessions) + audioAccuracy) / newTotalSessions;
+      const newHighestN = Math.max(stats.highestN, nLevel);
+
+      updateDualNBackStats({
+        totalSessions: newTotalSessions,
+        totalTrials: newTotalTrials,
+        averageAccuracy: newAverageAccuracy,
+        positionAccuracy: newPositionAccuracy,
+        audioAccuracy: newAudioAccuracy,
+        highestN: newHighestN,
+      });
+
+      // Add XP
+      addXP(xpEarned);
+
+      // Check for newly unlocked achievements
+      checkAndQueueAchievements(overallAccuracy * 100);
+    } catch (error) {
+      console.error('Error saving session stats:', error);
+    }
   }, [progress.moduleStats.dualNBack, updateDualNBackStats, addXP, checkAndQueueAchievements]);
 
   // Initialize the game hook
