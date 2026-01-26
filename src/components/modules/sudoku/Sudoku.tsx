@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../../../context/GameContext';
 import { useSudoku } from './useSudoku';
@@ -7,6 +7,7 @@ import { SudokuGrid } from './SudokuGrid';
 import { NumberPad } from './NumberPad';
 import { SessionResults } from './SessionResults';
 import { ChevronLeftIcon, PauseIcon, PlayIcon, ClockIcon } from '../../icons';
+import { playTapSound, playCelebrationSound, playVictorySound } from './sounds';
 import type { SudokuDifficulty, SudokuSession } from '../../../types';
 
 type GamePhase = 'setup' | 'active' | 'paused' | 'results';
@@ -19,13 +20,18 @@ function formatTime(seconds: number): string {
 
 export function Sudoku(): JSX.Element {
   const navigate = useNavigate();
-  const { addXP, updateSudokuStats, checkAndQueueAchievements } = useGame();
+  const { addXP, updateSudokuStats, checkAndQueueAchievements, settings } = useGame();
 
   const [phase, setPhase] = useState<GamePhase>('setup');
   const [completedSession, setCompletedSession] = useState<SudokuSession | null>(null);
+  const prevCelebratingRef = useRef<number>(0);
 
   // Handle session completion
   const handleSessionComplete = useCallback((session: SudokuSession) => {
+    // Play victory sound
+    if (settings.soundEnabled) {
+      playVictorySound();
+    }
     setCompletedSession(session);
     addXP(session.xpEarned);
 
@@ -51,7 +57,7 @@ export function Sudoku(): JSX.Element {
     checkAndQueueAchievements();
 
     setPhase('results');
-  }, [addXP, updateSudokuStats, checkAndQueueAchievements]);
+  }, [addXP, updateSudokuStats, checkAndQueueAchievements, settings.soundEnabled]);
 
   // Initialize the game hook
   const {
@@ -77,6 +83,24 @@ export function Sudoku(): JSX.Element {
   } = useSudoku({
     onSessionComplete: handleSessionComplete,
   });
+
+  // Play celebration sound when a line/box is completed
+  useEffect(() => {
+    if (celebratingCells.size > 0 && celebratingCells.size !== prevCelebratingRef.current) {
+      if (settings.soundEnabled) {
+        playCelebrationSound();
+      }
+    }
+    prevCelebratingRef.current = celebratingCells.size;
+  }, [celebratingCells, settings.soundEnabled]);
+
+  // Wrapper for placeNumber that plays tap sound
+  const handlePlaceNumber = useCallback((num: number) => {
+    if (settings.soundEnabled) {
+      playTapSound();
+    }
+    placeNumber(num);
+  }, [placeNumber, settings.soundEnabled]);
 
   // Handle start
   const handleStart = useCallback((diff: SudokuDifficulty) => {
@@ -199,7 +223,7 @@ export function Sudoku(): JSX.Element {
 
           {/* Number pad */}
           <NumberPad
-            onNumberPress={placeNumber}
+            onNumberPress={handlePlaceNumber}
             onUndo={undo}
             onClear={clearCell}
             onTogglePencil={togglePencilMode}

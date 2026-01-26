@@ -135,6 +135,60 @@ export function StatsPage(): JSX.Element {
           </div>
         </div>
       </Card>
+
+      {/* Sudoku Stats */}
+      <Card>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-xl">
+            🔢
+          </div>
+          <h3 className="font-semibold text-[var(--text-primary)]">Sudoku</h3>
+        </div>
+        <div className="space-y-3">
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Puzzles Solved</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.sudoku.totalPuzzlesSolved}
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Current Difficulty</span>
+            <span className="font-medium text-[var(--text-primary)] capitalize">
+              {moduleStats.sudoku.currentDifficulty}
+            </span>
+          </div>
+          {moduleStats.sudoku.bestTimeEasy !== null && (
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--text-secondary)]">Best Time (Easy)</span>
+              <span className="font-medium text-[var(--text-primary)]">
+                {formatTime(moduleStats.sudoku.bestTimeEasy)}
+              </span>
+            </div>
+          )}
+          {moduleStats.sudoku.bestTimeMedium !== null && (
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--text-secondary)]">Best Time (Medium)</span>
+              <span className="font-medium text-[var(--text-primary)]">
+                {formatTime(moduleStats.sudoku.bestTimeMedium)}
+              </span>
+            </div>
+          )}
+          {moduleStats.sudoku.bestTimeHard !== null && (
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--text-secondary)]">Best Time (Hard)</span>
+              <span className="font-medium text-[var(--text-primary)]">
+                {formatTime(moduleStats.sudoku.bestTimeHard)}
+              </span>
+            </div>
+          )}
+        </div>
+      </Card>
     </div>
   );
+}
+
+function formatTime(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
