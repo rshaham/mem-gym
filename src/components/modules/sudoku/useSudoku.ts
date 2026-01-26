@@ -33,6 +33,7 @@ interface UseSudokuReturn {
   highlightedNumber: number | null;
   relatedCells: Set<string>;
   digitCounts: Record<number, number>;
+  celebratingCells: Set<string>;
 
   // Actions
   startGame: (difficulty: SudokuDifficulty) => void;
@@ -61,11 +62,13 @@ export function useSudoku({ onSessionComplete }: UseSudokuOptions = {}): UseSudo
   const [isComplete, setIsComplete] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  const [celebratingCells, setCelebratingCells] = useState<Set<string>>(new Set());
 
   // Refs for timing
   const startTimeRef = useRef<number>(0);
   const timerRef = useRef<number | null>(null);
   const onSessionCompleteRef = useRef(onSessionComplete);
+  const celebrationTimeoutRef = useRef<number | null>(null);
 
   // Keep callback ref updated
   useEffect(() => {
@@ -151,6 +154,65 @@ export function useSudoku({ onSessionComplete }: UseSudokuOptions = {}): UseSudo
     );
   }, []);
 
+  // Check for newly completed rows, columns, or boxes and trigger celebration
+  const checkAndCelebrate = useCallback((grid: SudokuCell[][], placedRow: number, placedCol: number) => {
+    const cellsToHighlight = new Set<string>();
+
+    // Check if row is complete
+    const rowComplete = grid[placedRow].every(cell => cell.value !== null && !cell.hasConflict);
+    if (rowComplete) {
+      for (let c = 0; c < 9; c++) {
+        cellsToHighlight.add(`${placedRow},${c}`);
+      }
+    }
+
+    // Check if column is complete
+    const colComplete = grid.every(row => row[placedCol].value !== null && !row[placedCol].hasConflict);
+    if (colComplete) {
+      for (let r = 0; r < 9; r++) {
+        cellsToHighlight.add(`${r},${placedCol}`);
+      }
+    }
+
+    // Check if 3x3 box is complete
+    const boxStartRow = Math.floor(placedRow / 3) * 3;
+    const boxStartCol = Math.floor(placedCol / 3) * 3;
+    let boxComplete = true;
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 3; c++) {
+        const cell = grid[boxStartRow + r][boxStartCol + c];
+        if (cell.value === null || cell.hasConflict) {
+          boxComplete = false;
+          break;
+        }
+      }
+      if (!boxComplete) break;
+    }
+    if (boxComplete) {
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 3; c++) {
+          cellsToHighlight.add(`${boxStartRow + r},${boxStartCol + c}`);
+        }
+      }
+    }
+
+    // If any cells to highlight, trigger celebration
+    if (cellsToHighlight.size > 0) {
+      setCelebratingCells(cellsToHighlight);
+
+      // Clear previous timeout if exists
+      if (celebrationTimeoutRef.current !== null) {
+        clearTimeout(celebrationTimeoutRef.current);
+      }
+
+      // Clear celebration after animation
+      celebrationTimeoutRef.current = window.setTimeout(() => {
+        setCelebratingCells(new Set());
+        celebrationTimeoutRef.current = null;
+      }, 600);
+    }
+  }, []);
+
   // Remove note from related cells
   const removeNoteFromRelated = useCallback(
     (grid: SudokuCell[][], row: number, col: number, num: number): SudokuCell[][] => {
@@ -223,6 +285,11 @@ export function useSudoku({ onSessionComplete }: UseSudokuOptions = {}): UseSudo
     setHistory(prev => [...prev, historyEntry]);
     setMoveCount(prev => prev + 1);
 
+    // Check for line/box completion celebration (only when placing, not clearing)
+    if (!isPencilMode && historyEntry.newValue !== null) {
+      checkAndCelebrate(newPuzzle, row, col);
+    }
+
     // Check for completion
     const valueGrid = newPuzzle.map(r => r.map(c => c.value));
     if (isPuzzleComplete(valueGrid)) {
@@ -252,7 +319,7 @@ export function useSudoku({ onSessionComplete }: UseSudokuOptions = {}): UseSudo
 
       onSessionCompleteRef.current?.(session);
     }
-  }, [selectedCell, isComplete, isPaused, puzzle, isPencilMode, difficulty, elapsedTime, moveCount, removeNoteFromRelated, updateConflicts]);
+  }, [selectedCell, isComplete, isPaused, puzzle, isPencilMode, difficulty, elapsedTime, moveCount, removeNoteFromRelated, updateConflicts, checkAndCelebrate]);
 
   // Toggle pencil mode
   const togglePencilMode = useCallback(() => {
@@ -350,6 +417,7 @@ export function useSudoku({ onSessionComplete }: UseSudokuOptions = {}): UseSudo
     highlightedNumber,
     relatedCells,
     digitCounts,
+    celebratingCells,
     startGame,
     selectCell,
     placeNumber,

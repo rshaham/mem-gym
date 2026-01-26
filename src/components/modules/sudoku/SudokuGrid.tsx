@@ -6,6 +6,7 @@ interface SudokuGridProps {
   selectedCell: CellPosition | null;
   highlightedNumber: number | null;
   relatedCells: Set<string>;
+  celebratingCells: Set<string>;
   onCellSelect: (row: number, col: number) => void;
 }
 
@@ -14,6 +15,7 @@ export function SudokuGrid({
   selectedCell,
   highlightedNumber,
   relatedCells,
+  celebratingCells,
   onCellSelect,
 }: SudokuGridProps): JSX.Element {
   return (
@@ -24,13 +26,15 @@ export function SudokuGrid({
     >
       {puzzle.map((row, rowIndex) =>
         row.map((cell, colIndex) => {
+          const cellKey = `${rowIndex},${colIndex}`;
           const isSelected =
             selectedCell?.row === rowIndex && selectedCell?.col === colIndex;
-          const isRelated = relatedCells.has(`${rowIndex},${colIndex}`);
+          const isRelated = relatedCells.has(cellKey);
           const isSameNumber =
             highlightedNumber !== null &&
             cell.value === highlightedNumber &&
             !isSelected;
+          const isCelebrating = celebratingCells.has(cellKey);
 
           // Calculate border classes for 3x3 box separation
           const isRightBoxBorder = colIndex === 2 || colIndex === 5;
@@ -55,6 +59,7 @@ export function SudokuGrid({
                 isRelated={isRelated}
                 isSameNumber={isSameNumber}
                 hasConflict={cell.hasConflict}
+                isCelebrating={isCelebrating}
                 onClick={() => onCellSelect(rowIndex, colIndex)}
               />
             </div>

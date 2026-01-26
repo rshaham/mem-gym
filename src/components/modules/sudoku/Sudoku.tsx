@@ -64,6 +64,7 @@ export function Sudoku(): JSX.Element {
     highlightedNumber,
     relatedCells,
     digitCounts,
+    celebratingCells,
     startGame,
     selectCell,
     placeNumber,
@@ -184,6 +185,7 @@ export function Sudoku(): JSX.Element {
               selectedCell={selectedCell}
               highlightedNumber={highlightedNumber}
               relatedCells={relatedCells}
+              celebratingCells={celebratingCells}
               onCellSelect={selectCell}
             />
           </div>
