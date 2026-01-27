@@ -32,31 +32,38 @@ export function Sudoku(): JSX.Element {
     if (settings.soundEnabled) {
       playVictorySound();
     }
+
+    // Set UI state FIRST to ensure results screen shows immediately
     setCompletedSession(session);
-    addXP(session.xpEarned);
-
-    // Build stats update including best time for difficulty
-    const statsUpdate: Record<string, unknown> = {
-      totalPuzzlesSolved: 1, // Will be incremented
-      totalSessions: 1,
-      currentDifficulty: session.difficulty,
-    };
-
-    // Track best time for this difficulty
-    if (session.difficulty === 'easy') {
-      statsUpdate.bestTimeEasy = session.timeElapsed;
-    } else if (session.difficulty === 'medium') {
-      statsUpdate.bestTimeMedium = session.timeElapsed;
-    } else if (session.difficulty === 'hard') {
-      statsUpdate.bestTimeHard = session.timeElapsed;
-    }
-
-    updateSudokuStats(statsUpdate as Partial<typeof statsUpdate>);
-
-    // Check achievements
-    checkAndQueueAchievements();
-
     setPhase('results');
+
+    // Update stats in background (don't block UI)
+    try {
+      addXP(session.xpEarned);
+
+      // Build stats update including best time for difficulty
+      const statsUpdate: Record<string, unknown> = {
+        totalPuzzlesSolved: 1, // Will be incremented
+        totalSessions: 1,
+        currentDifficulty: session.difficulty,
+      };
+
+      // Track best time for this difficulty
+      if (session.difficulty === 'easy') {
+        statsUpdate.bestTimeEasy = session.timeElapsed;
+      } else if (session.difficulty === 'medium') {
+        statsUpdate.bestTimeMedium = session.timeElapsed;
+      } else if (session.difficulty === 'hard') {
+        statsUpdate.bestTimeHard = session.timeElapsed;
+      }
+
+      updateSudokuStats(statsUpdate as Partial<typeof statsUpdate>);
+
+      // Check achievements
+      checkAndQueueAchievements();
+    } catch (error) {
+      console.error('Error saving Sudoku stats:', error);
+    }
   }, [addXP, updateSudokuStats, checkAndQueueAchievements, settings.soundEnabled]);
 
   // Initialize the game hook
