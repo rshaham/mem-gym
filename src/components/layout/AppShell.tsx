@@ -29,6 +29,7 @@ export function AppShell(): JSX.Element {
         'echo-chamber': 'Echo Chamber',
         'detail-hunter': 'Detail Hunter',
         'reverse-recall': 'Reverse Recall',
+        'mental-math-sprint': 'Mental Math Sprint',
       };
       return titles[module] ?? 'Training';
     }
@@ -39,7 +40,7 @@ export function AppShell(): JSX.Element {
     <div className="min-h-screen flex flex-col bg-[var(--bg-secondary)]">
       <Header title={getTitle()} showStats={!hideNav} />
 
-      <main className={`flex-1 ${hideNav ? '' : 'pb-20'}`}>
+      <main className={`flex-1 min-h-0 ${hideNav ? '' : 'pb-20'}`}>
         <Outlet />
       </main>
 
