@@ -94,6 +94,15 @@ const defaultProgress: GameProgress = {
       currentDifficulty: 'easy',
       favoriteCategory: null,
     },
+    mentalMathSprint: {
+      totalSessions: 0,
+      totalProblems: 0,
+      averageAccuracy: 0,
+      bestAccuracy: 0,
+      averageTimePerProblem: 0,
+      bestStreak: 0,
+      currentDifficulty: 'easy',
+    },
   },
 };
 
@@ -115,6 +124,7 @@ type GameAction =
   | { type: 'UPDATE_REVERSE_RECALL_STATS'; stats: Partial<GameProgress['moduleStats']['reverseRecall']> }
   | { type: 'UPDATE_SUDOKU_STATS'; stats: Partial<GameProgress['moduleStats']['sudoku']> }
   | { type: 'UPDATE_SEMANTIC_CHAIN_STATS'; stats: Partial<GameProgress['moduleStats']['semanticChain']> }
+  | { type: 'UPDATE_MENTAL_MATH_SPRINT_STATS'; stats: Partial<GameProgress['moduleStats']['mentalMathSprint']> }
   | { type: 'UPDATE_SETTINGS'; settings: Partial<UserSettings> }
   | { type: 'CLEAR_LEVEL_UP' }
   | { type: 'UNLOCK_ACHIEVEMENT'; achievementId: string }
@@ -316,6 +326,48 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     }
 
+    case 'UPDATE_MENTAL_MATH_SPRINT_STATS': {
+      const currentStats = state.progress.moduleStats.mentalMathSprint;
+      const newTotalSessions = currentStats.totalSessions + (action.stats.totalSessions || 0);
+      const newTotalProblems = currentStats.totalProblems + (action.stats.totalProblems || 0);
+      const newBestStreak = Math.max(currentStats.bestStreak, action.stats.bestStreak || 0);
+
+      // Calculate running average accuracy
+      const sessionAccuracy = action.stats.averageAccuracy || 0;
+      const newAvgAccuracy = newTotalSessions > 0
+        ? (currentStats.averageAccuracy * currentStats.totalSessions + sessionAccuracy) / newTotalSessions
+        : 0;
+
+      // Calculate running average time per problem
+      const sessionAvgTime = action.stats.averageTimePerProblem || 0;
+      const newAvgTime = newTotalSessions > 0
+        ? (currentStats.averageTimePerProblem * currentStats.totalSessions + sessionAvgTime) / newTotalSessions
+        : 0;
+
+      // Track best accuracy
+      const newBestAccuracy = Math.max(currentStats.bestAccuracy, action.stats.bestAccuracy || sessionAccuracy);
+
+      return {
+        ...state,
+        progress: {
+          ...state.progress,
+          moduleStats: {
+            ...state.progress.moduleStats,
+            mentalMathSprint: {
+              ...currentStats,
+              ...action.stats,
+              totalSessions: newTotalSessions,
+              totalProblems: newTotalProblems,
+              averageAccuracy: Math.round(newAvgAccuracy * 10) / 10,
+              bestAccuracy: newBestAccuracy,
+              averageTimePerProblem: Math.round(newAvgTime),
+              bestStreak: newBestStreak,
+            },
+          },
+        },
+      };
+    }
+
     case 'UPDATE_SETTINGS':
       return {
         ...state,
@@ -373,6 +425,7 @@ interface GameContextValue {
   updateReverseRecallStats: (stats: Partial<GameProgress['moduleStats']['reverseRecall']>) => void;
   updateSudokuStats: (stats: Partial<GameProgress['moduleStats']['sudoku']>) => void;
   updateSemanticChainStats: (stats: Partial<GameProgress['moduleStats']['semanticChain']>) => void;
+  updateMentalMathSprintStats: (stats: Partial<GameProgress['moduleStats']['mentalMathSprint']>) => void;
   updateSettings: (settings: Partial<UserSettings>) => void;
   clearLevelUp: () => void;
   unlockAchievement: (achievementId: string) => void;
@@ -485,6 +538,8 @@ export function GameProvider({ children }: GameProviderProps): JSX.Element {
       dispatch({ type: 'UPDATE_SUDOKU_STATS', stats }),
     updateSemanticChainStats: (stats) =>
       dispatch({ type: 'UPDATE_SEMANTIC_CHAIN_STATS', stats }),
+    updateMentalMathSprintStats: (stats) =>
+      dispatch({ type: 'UPDATE_MENTAL_MATH_SPRINT_STATS', stats }),
     updateSettings: (settings) =>
       dispatch({ type: 'UPDATE_SETTINGS', settings }),
     clearLevelUp: () => dispatch({ type: 'CLEAR_LEVEL_UP' }),

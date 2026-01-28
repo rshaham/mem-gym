@@ -33,6 +33,11 @@ export default {
           light: '#D1FAE5',
           dark: '#047857',
         },
+        'mental-math-sprint': {
+          DEFAULT: '#EC4899',
+          light: '#FCE7F3',
+          dark: '#BE185D',
+        },
         // Semantic colors
         'accent-primary': '#3B82F6',
         'accent-success': '#059669',

@@ -19,7 +19,8 @@ export function checkAchievements(
     progress.moduleStats.detailHunter.totalSessions +
     progress.moduleStats.reverseRecall.totalSessions +
     progress.moduleStats.sudoku.totalSessions +
-    progress.moduleStats.semanticChain.totalSessions;
+    progress.moduleStats.semanticChain.totalSessions +
+    progress.moduleStats.mentalMathSprint.totalSessions;
 
   for (const achievement of ALL_ACHIEVEMENTS) {
     // Skip already unlocked
@@ -81,6 +82,7 @@ function checkSingleAchievement(
         stats.dualNBack.averageAccuracy,
         stats.echoChamber.averageAccuracy,
         stats.detailHunter.averageAccuracy,
+        stats.mentalMathSprint.averageAccuracy,
       ];
       // Only count modules with sessions
       const activeAverages = averages.filter((a) => a > 0);
@@ -116,7 +118,8 @@ function checkSingleAchievement(
         progress.moduleStats.detailHunter.totalSessions >= 1 &&
         progress.moduleStats.reverseRecall.totalSessions >= 1 &&
         progress.moduleStats.sudoku.totalSessions >= 1 &&
-        progress.moduleStats.semanticChain.totalSessions >= 1
+        progress.moduleStats.semanticChain.totalSessions >= 1 &&
+        progress.moduleStats.mentalMathSprint.totalSessions >= 1
       );
     case 'detail-master':
       return progress.moduleStats.detailHunter.bestAccuracy >= 95;
@@ -148,6 +151,18 @@ function checkSingleAchievement(
       return (
         progress.moduleStats.semanticChain.currentDifficulty === 'hard' &&
         progress.moduleStats.semanticChain.longestChain >= 10
+      );
+
+    // Mental Math Sprint achievements
+    case 'math-sprint-first':
+      return progress.moduleStats.mentalMathSprint.totalSessions >= 1;
+    case 'math-sprint-streak-10':
+      return progress.moduleStats.mentalMathSprint.bestStreak >= 10;
+    case 'math-sprint-hard':
+      // Check if they've scored 80%+ on hard
+      return (
+        progress.moduleStats.mentalMathSprint.currentDifficulty === 'hard' &&
+        progress.moduleStats.mentalMathSprint.bestAccuracy >= 80
       );
 
     default:

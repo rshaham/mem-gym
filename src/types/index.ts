@@ -32,6 +32,7 @@ export interface ModuleStats {
   dualNBack: DualNBackStats;
   sudoku: SudokuStats;
   semanticChain: SemanticChainStats;
+  mentalMathSprint: MentalMathSprintStats;
 }
 
 // ============ DETAIL HUNTER ============
@@ -263,6 +264,52 @@ export interface DualNBackTrial {
   responseTime: number | null;
 }
 
+// ============ MENTAL MATH SPRINT ============
+
+export type MentalMathSprintDifficulty = 'easy' | 'medium' | 'hard';
+export type MentalMathOperation = '+' | '-' | '*' | '/';
+
+export interface MentalMathSprintStats {
+  totalSessions: number;
+  totalProblems: number;
+  averageAccuracy: number;
+  bestAccuracy: number;
+  averageTimePerProblem: number;
+  bestStreak: number;
+  currentDifficulty: MentalMathSprintDifficulty;
+}
+
+export interface MentalMathStep {
+  operation: MentalMathOperation;
+  operand: number;
+  intermediateResult: number;
+}
+
+export interface MentalMathProblem {
+  id: string;
+  startValue: number;
+  operations: MentalMathStep[];
+  correctAnswer: number;
+  userAnswer: number | null;
+  isCorrect: boolean | null;
+  timeToAnswer: number | null;
+  timedOut: boolean;
+}
+
+export interface MentalMathSprintSession {
+  id: string;
+  difficulty: MentalMathSprintDifficulty;
+  problems: MentalMathProblem[];
+  totalCorrect: number;
+  totalProblems: number;
+  accuracy: number;
+  bestStreak: number;
+  averageTime: number;
+  startedAt: number;
+  completedAt: number;
+  xpEarned: number;
+}
+
 // ============ GAMIFICATION ============
 
 export interface Achievement {
@@ -302,7 +349,7 @@ export interface PendingNotification {
 
 export type GamePhase = 'ready' | 'active' | 'review' | 'complete';
 
-export type ModuleType = 'dual-n-back' | 'echo-chamber' | 'detail-hunter' | 'reverse-recall' | 'sudoku' | 'semantic-chain';
+export type ModuleType = 'dual-n-back' | 'echo-chamber' | 'detail-hunter' | 'reverse-recall' | 'sudoku' | 'semantic-chain' | 'mental-math-sprint';
 
 // ============ STORAGE ============
 

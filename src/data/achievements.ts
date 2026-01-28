@@ -247,6 +247,30 @@ const specialAchievements: Achievement[] = [
     category: 'special',
     xpReward: 200,
   },
+  {
+    id: 'math-sprint-first',
+    name: 'Number Cruncher',
+    description: 'Complete your first Mental Math Sprint session',
+    icon: 'calculator',
+    category: 'special',
+    xpReward: 50,
+  },
+  {
+    id: 'math-sprint-streak-10',
+    name: 'Hot Streak',
+    description: 'Get 10 correct answers in a row',
+    icon: 'flame',
+    category: 'special',
+    xpReward: 100,
+  },
+  {
+    id: 'math-sprint-hard',
+    name: 'Math Wizard',
+    description: 'Score 80%+ on hard difficulty',
+    icon: 'calculator',
+    category: 'special',
+    xpReward: 200,
+  },
 ];
 
 // Export all achievements

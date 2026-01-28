@@ -14,6 +14,7 @@ import {
   ChevronRightIcon,
   SudokuIcon,
   LinkChainIcon,
+  CalculatorIcon,
 } from '../icons';
 import type { ModuleType } from '../../types';
 
@@ -74,6 +75,14 @@ const modules: ModuleInfo[] = [
     icon: LinkChainIcon,
     colorClass: 'text-emerald-500',
     bgClass: 'bg-emerald-100 dark:bg-emerald-500/20',
+  },
+  {
+    id: 'mental-math-sprint',
+    name: 'Mental Math Sprint',
+    description: 'Solve arithmetic chains under time pressure',
+    icon: CalculatorIcon,
+    colorClass: 'text-pink-500',
+    bgClass: 'bg-pink-100 dark:bg-pink-500/20',
   },
 ];
 

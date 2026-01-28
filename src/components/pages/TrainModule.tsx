@@ -5,6 +5,7 @@ import { EchoChamber } from '../modules/echo-chamber/EchoChamber';
 import { ReverseRecall } from '../modules/reverse-recall/ReverseRecall';
 import { Sudoku } from '../modules/sudoku/Sudoku';
 import { SemanticChain } from '../modules/semantic-chain/SemanticChain';
+import { MentalMathSprint } from '../modules/mental-math-sprint/MentalMathSprint';
 import type { ModuleType } from '../../types';
 
 const moduleComponents: Record<ModuleType, () => JSX.Element> = {
@@ -14,6 +15,7 @@ const moduleComponents: Record<ModuleType, () => JSX.Element> = {
   'reverse-recall': ReverseRecall,
   'sudoku': Sudoku,
   'semantic-chain': SemanticChain,
+  'mental-math-sprint': MentalMathSprint,
 };
 
 export function TrainModule(): JSX.Element {

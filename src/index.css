@@ -26,6 +26,9 @@
   --reverse-recall: #10B981;
   --reverse-recall-light: #D1FAE5;
   --reverse-recall-dark: #047857;
+  --mental-math-sprint: #EC4899;
+  --mental-math-sprint-light: #FCE7F3;
+  --mental-math-sprint-dark: #BE185D;
 
   /* Accent colors */
   --accent-primary: #3B82F6;
@@ -52,6 +55,7 @@
   --echo-chamber-light: #451A03;
   --detail-hunter-light: #2E1065;
   --reverse-recall-light: #064E3B;
+  --mental-math-sprint-light: #831843;
 }
 
 * {

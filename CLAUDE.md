@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Memory Gym is a mobile-first web application for cognitive training through four memory exercise modules. The app gamifies daily mental exercises to improve working memory, verbal recall, and cognitive flexibility.
+Memory Gym is a mobile-first web application for cognitive training through memory exercise modules. The app gamifies daily mental exercises to improve working memory, verbal recall, and cognitive flexibility.
 
 ## Tech Stack
 
@@ -55,11 +55,14 @@ src/
 ├── components/
 │   ├── common/          # Reusable UI (Button, Card, Timer, Modal)
 │   ├── layout/          # AppShell, BottomNav, Header
-│   ├── modules/         # Four training modules
+│   ├── modules/         # Training modules
 │   │   ├── dual-n-back/
 │   │   ├── echo-chamber/
 │   │   ├── detail-hunter/
-│   │   └── reverse-recall/
+│   │   ├── reverse-recall/
+│   │   ├── sudoku/
+│   │   ├── semantic-chain/
+│   │   └── mental-math-sprint/
 │   ├── dashboard/       # Home screen components
 │   └── gamification/    # XP, streaks, achievements
 ├── hooks/               # Custom React hooks
@@ -158,6 +161,62 @@ interface ComponentNameProps {
 - Three levels: 3 events, 5 events, full with sensory
 - Build timeline visually bottom-to-top (reverse)
 - Heatmap uses date string keys: `YYYY-MM-DD`
+
+## Adding a New Game Module
+
+When adding a new game module, follow this checklist:
+
+### 1. Types (`src/types/index.ts`)
+
+- [ ] Add `ModuleNameStats` interface
+- [ ] Add `ModuleNameSession` interface
+- [ ] Add any difficulty/operation types needed
+- [ ] Add to `ModuleStats` interface
+- [ ] Add to `ModuleType` union
+
+### 2. Game Context (`src/context/GameContext.tsx`)
+
+- [ ] Add default stats to `defaultProgress.moduleStats`
+- [ ] Add action type: `UPDATE_MODULE_NAME_STATS`
+- [ ] Add reducer case (follow existing pattern)
+- [ ] Add `updateModuleNameStats` method to context value
+- [ ] Export in `GameContextValue` interface
+
+### 3. Scoring (`src/utils/scoring.ts`)
+
+- [ ] Add entry to `MODULE_XP_REWARDS` with `sessionComplete`, `perfectSession`, `accuracyBonus`, and optionally `difficultyMultiplier`
+
+### 4. Achievements
+
+- [ ] Update `src/utils/achievementChecker.ts`:
+  - Add to `totalSessions` sum
+  - Add to `averageAccuracy` array (if applicable)
+  - Add to `all-modules` check
+  - Add module-specific achievement checks
+- [ ] Add module-specific achievements to `src/data/achievements.ts`
+
+### 5. Components (`src/components/modules/module-name/`)
+
+- [ ] `ModuleName.tsx` - Main component managing phase flow
+- [ ] `GameSetup.tsx` - Difficulty/settings selection
+- [ ] `SessionResults.tsx` - Results display with XP breakdown
+- [ ] `useModuleName.ts` - Core game logic hook
+- [ ] UI components as needed (timers, displays, inputs)
+
+### 6. Integration
+
+- [ ] Add to `src/components/pages/TrainModule.tsx` (import and moduleComponents map)
+- [ ] Add card to `src/components/dashboard/Dashboard.tsx` (import icon, add to modules array)
+- [ ] Add icon to `src/components/icons/index.tsx` if needed
+
+### 7. Styling
+
+- [ ] Add color to `tailwind.config.js` (with DEFAULT, light, dark variants)
+- [ ] Add CSS variables to `src/index.css` (light and dark mode)
+
+### 8. Documentation
+
+- [ ] Update README.md modules table
 
 ## Key Utilities to Implement
 
