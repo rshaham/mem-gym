@@ -135,9 +135,16 @@ type GameAction =
 function gameReducer(state: GameState, action: GameAction): GameState {
   switch (action.type) {
     case 'LOAD_STATE':
+      // Merge loaded moduleStats with defaults to ensure new modules are initialized
       return {
         ...state,
-        progress: action.progress,
+        progress: {
+          ...action.progress,
+          moduleStats: {
+            ...defaultProgress.moduleStats,
+            ...action.progress.moduleStats,
+          },
+        },
         settings: action.settings,
       };
 
