@@ -207,6 +207,7 @@ When adding a new game module, follow this checklist:
 
 - [ ] Add to `src/components/pages/TrainModule.tsx` (import and moduleComponents map)
 - [ ] Add card to `src/components/dashboard/Dashboard.tsx` (import icon, add to modules array)
+- [ ] Add stats section to `src/components/pages/StatsPage.tsx`
 - [ ] Add icon to `src/components/icons/index.tsx` if needed
 
 ### 7. Styling

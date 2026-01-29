@@ -15,6 +15,7 @@ interface DifficultyConfig {
   chainLength: { min: number; max: number };
   timePerProblem: number; // milliseconds
   allowNegativeResults: boolean;
+  useExpressions?: boolean; // For expert mode with PEMDAS
 }
 
 const DIFFICULTY_CONFIG: Record<MentalMathSprintDifficulty, DifficultyConfig> = {
@@ -38,6 +39,14 @@ const DIFFICULTY_CONFIG: Record<MentalMathSprintDifficulty, DifficultyConfig> = 
     chainLength: { min: 4, max: 5 },
     timePerProblem: 10000,
     allowNegativeResults: true,
+  },
+  expert: {
+    operations: ['+', '-', '*', '/'],
+    numberRange: { min: 1, max: 12 },
+    chainLength: { min: 3, max: 4 }, // number of terms
+    timePerProblem: 12000,
+    allowNegativeResults: false,
+    useExpressions: true,
   },
 };
 
@@ -89,6 +98,138 @@ function getDivisors(n: number, min: number, max: number): number[] {
     }
   }
   return divisors;
+}
+
+/**
+ * Format operation for display (using proper math symbols)
+ */
+function formatOp(op: MentalMathOperation): string {
+  switch (op) {
+    case '+': return '+';
+    case '-': return '−';
+    case '*': return '×';
+    case '/': return '÷';
+  }
+}
+
+/**
+ * Evaluate a simple binary operation
+ */
+function evaluate(a: number, op: MentalMathOperation, b: number): number {
+  switch (op) {
+    case '+': return a + b;
+    case '-': return a - b;
+    case '*': return a * b;
+    case '/': return a / b;
+  }
+}
+
+/**
+ * Generates an expression problem for expert mode (PEMDAS with parentheses)
+ */
+function generateExpressionProblem(config: DifficultyConfig): MentalMathProblem {
+  const { numberRange } = config;
+  const maxAttempts = 50;
+
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    // Pick a pattern: leftGroup "(a op b) op c" or rightGroup "a op (b op c)"
+    const useLeftGroup = Math.random() < 0.5;
+    const useFourTerms = Math.random() < 0.3; // 30% chance for 4 terms
+
+    // Generate numbers
+    const a = randomInt(numberRange.min, numberRange.max);
+    const b = randomInt(numberRange.min, numberRange.max);
+    const c = randomInt(numberRange.min, numberRange.max);
+    const d = useFourTerms ? randomInt(numberRange.min, numberRange.max) : 0;
+
+    // Pick operations (prefer * and / inside parentheses for meaningful PEMDAS)
+    const ops: MentalMathOperation[] = ['+', '-', '*', '/'];
+    const addSubOps: MentalMathOperation[] = ['+', '-'];
+    const innerOp = pickRandom(ops);
+    const outerOp = pickRandom(ops.filter(o => o !== innerOp || Math.random() < 0.3));
+    const extraOp: MentalMathOperation = useFourTerms ? pickRandom(addSubOps) : '+';
+
+    let result: number;
+    let expression: string;
+    let displayExpression: string;
+    let innerResult: number;
+
+    try {
+      if (useLeftGroup) {
+        // (a op b) op c [op d]
+        innerResult = evaluate(a, innerOp, b);
+        if (!Number.isInteger(innerResult) || innerResult <= 0 || innerResult > 100) continue;
+
+        let temp = evaluate(innerResult, outerOp, c);
+        if (!Number.isInteger(temp) || temp <= 0 || temp > 100) continue;
+
+        if (useFourTerms) {
+          result = evaluate(temp, extraOp, d);
+          if (!Number.isInteger(result) || result <= 0 || result > 100) continue;
+          expression = `(${a} ${innerOp} ${b}) ${outerOp} ${c} ${extraOp} ${d}`;
+          displayExpression = `(${a} ${formatOp(innerOp)} ${b}) ${formatOp(outerOp)} ${c} ${formatOp(extraOp)} ${d}`;
+        } else {
+          result = temp;
+          expression = `(${a} ${innerOp} ${b}) ${outerOp} ${c}`;
+          displayExpression = `(${a} ${formatOp(innerOp)} ${b}) ${formatOp(outerOp)} ${c}`;
+        }
+      } else {
+        // a op (b op c) [op d]
+        innerResult = evaluate(b, innerOp, c);
+        if (!Number.isInteger(innerResult) || innerResult <= 0 || innerResult > 100) continue;
+
+        let temp = evaluate(a, outerOp, innerResult);
+        if (!Number.isInteger(temp) || temp <= 0 || temp > 100) continue;
+
+        if (useFourTerms) {
+          result = evaluate(temp, extraOp, d);
+          if (!Number.isInteger(result) || result <= 0 || result > 100) continue;
+          expression = `${a} ${outerOp} (${b} ${innerOp} ${c}) ${extraOp} ${d}`;
+          displayExpression = `${a} ${formatOp(outerOp)} (${b} ${formatOp(innerOp)} ${c}) ${formatOp(extraOp)} ${d}`;
+        } else {
+          result = temp;
+          expression = `${a} ${outerOp} (${b} ${innerOp} ${c})`;
+          displayExpression = `${a} ${formatOp(outerOp)} (${b} ${formatOp(innerOp)} ${c})`;
+        }
+      }
+
+      // Avoid trivial results
+      if (result === a || result === b || result === c) continue;
+
+      return {
+        id: crypto.randomUUID(),
+        startValue: 0, // Not used for expressions
+        operations: [], // Not used for expressions
+        correctAnswer: result,
+        userAnswer: null,
+        isCorrect: null,
+        timeToAnswer: null,
+        timedOut: false,
+        expression,
+        displayExpression,
+      };
+    } catch {
+      continue;
+    }
+  }
+
+  // Fallback to a simple expression if we couldn't generate a valid one
+  const a = randomInt(2, 10);
+  const b = randomInt(2, 5);
+  const c = randomInt(1, 5);
+  const result = (a + b) * c;
+  return {
+    id: crypto.randomUUID(),
+    startValue: 0,
+    operations: [],
+    correctAnswer: result,
+    userAnswer: null,
+    isCorrect: null,
+    timeToAnswer: null,
+    timedOut: false,
+    expression: `(${a} + ${b}) * ${c}`,
+    displayExpression: `(${a} + ${b}) × ${c}`,
+  };
 }
 
 /**
@@ -196,7 +337,11 @@ function generateProblems(difficulty: MentalMathSprintDifficulty, count: number)
   const problems: MentalMathProblem[] = [];
 
   for (let i = 0; i < count; i++) {
-    problems.push(generateProblem(config));
+    if (config.useExpressions) {
+      problems.push(generateExpressionProblem(config));
+    } else {
+      problems.push(generateProblem(config));
+    }
   }
 
   return problems;
@@ -273,7 +418,13 @@ export function useMentalMathSprint({
 
     // Calculate XP
     const baseXP = 10 * correctAnswers;
-    const difficultyMultiplier = currentDifficulty === 'easy' ? 1 : currentDifficulty === 'medium' ? 1.5 : 2;
+    const difficultyMultipliers: Record<MentalMathSprintDifficulty, number> = {
+      easy: 1,
+      medium: 1.5,
+      hard: 2,
+      expert: 2.5,
+    };
+    const difficultyMultiplier = difficultyMultipliers[currentDifficulty!];
     const accuracyBonus = Math.floor(accuracy / 5);
     const streakBonus = Math.min(bestStreak * 2, 20);
     const sessionBonus = 25;

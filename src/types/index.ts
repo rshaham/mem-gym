@@ -266,7 +266,7 @@ export interface DualNBackTrial {
 
 // ============ MENTAL MATH SPRINT ============
 
-export type MentalMathSprintDifficulty = 'easy' | 'medium' | 'hard';
+export type MentalMathSprintDifficulty = 'easy' | 'medium' | 'hard' | 'expert';
 export type MentalMathOperation = '+' | '-' | '*' | '/';
 
 export interface MentalMathSprintStats {
@@ -294,6 +294,9 @@ export interface MentalMathProblem {
   isCorrect: boolean | null;
   timeToAnswer: number | null;
   timedOut: boolean;
+  // Expression mode (for Expert difficulty)
+  expression?: string;        // Raw expression: "(8 + 4) * 3"
+  displayExpression?: string; // Display with symbols: "(8 + 4) × 3"
 }
 
 export interface MentalMathSprintSession {

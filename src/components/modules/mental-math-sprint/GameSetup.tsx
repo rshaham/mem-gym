@@ -11,9 +11,10 @@ interface GameSetupProps {
 }
 
 const DIFFICULTY_OPTIONS: { value: MentalMathSprintDifficulty; label: string; description: string }[] = [
-  { value: 'easy', label: 'Easy', description: '+/-, 2-3 steps, 15s' },
-  { value: 'medium', label: 'Medium', description: '+/-/\u00d7, 3-4 steps, 12s' },
-  { value: 'hard', label: 'Hard', description: '+/-/\u00d7/\u00f7, 4-5 steps, 10s' },
+  { value: 'easy', label: 'Easy', description: '+/−, 2-3 steps, 15s' },
+  { value: 'medium', label: 'Medium', description: '+/−/×, 3-4 steps, 12s' },
+  { value: 'hard', label: 'Hard', description: '+/−/×/÷, 4-5 steps, 10s' },
+  { value: 'expert', label: 'Expert', description: 'PEMDAS with ( ), 12s' },
 ];
 
 const PROBLEM_COUNT_OPTIONS = [10, 15, 20, 25];
@@ -95,7 +96,11 @@ export function GameSetup({
         <ol className="space-y-2 text-sm text-[var(--text-primary)]">
           <li className="flex gap-2">
             <span className="text-pink-500 font-semibold">1.</span>
-            <span>Follow the chain of operations from left to right</span>
+            <span>
+              {difficulty === 'expert'
+                ? 'Solve the expression using order of operations (PEMDAS)'
+                : 'Follow the chain of operations from left to right'}
+            </span>
           </li>
           <li className="flex gap-2">
             <span className="text-pink-500 font-semibold">2.</span>

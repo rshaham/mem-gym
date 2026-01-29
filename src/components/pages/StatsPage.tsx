@@ -225,6 +225,49 @@ export function StatsPage(): JSX.Element {
           </div>
         </div>
       </Card>
+
+      {/* Mental Math Sprint Stats */}
+      <Card>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center text-xl">
+            🔢
+          </div>
+          <h3 className="font-semibold text-[var(--text-primary)]">Mental Math Sprint</h3>
+        </div>
+        <div className="space-y-3">
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Total Sessions</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.mentalMathSprint.totalSessions}
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Problems Solved</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.mentalMathSprint.totalProblems}
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Best Streak</span>
+            <span className="font-medium text-[var(--text-primary)]">
+              {moduleStats.mentalMathSprint.bestStreak}
+            </span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-[var(--text-secondary)]">Current Difficulty</span>
+            <span className="font-medium text-[var(--text-primary)] capitalize">
+              {moduleStats.mentalMathSprint.currentDifficulty}
+            </span>
+          </div>
+          <ProgressBar
+            value={moduleStats.mentalMathSprint.averageAccuracy}
+            label="Average Accuracy"
+            showLabel
+            color="custom"
+            customColor="#EC4899"
+          />
+        </div>
+      </Card>
     </div>
   );
 }
